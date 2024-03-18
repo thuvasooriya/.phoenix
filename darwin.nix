@@ -3,11 +3,11 @@ let user = "tony";
 in {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-  vim
-  fish
-  ];
-  environment.shells = [ pkgs.fish ];
+  # environment.systemPackages = with pkgs; [
+  # vim
+  # fish
+  # ];
+  # environment.shells = [ pkgs.fish ];
   
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -96,7 +96,8 @@ in {
     name = "${user}";
     home = "/Users/${user}";
     # isHidden = false;
-    shell = "${pkgs.fish}/bin/fish";
-    # shell = pkgs.fish;
+    # shell = pkgs.fish; # not working use the following commands instead
+    # sudo sh -c 'echo /etc/profiles/per-user/tony/bin/fish >> /etc/shells'
+    # chsh -s /etc/profiles/per-user/tony/bin/fish
   };
 }
