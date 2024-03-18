@@ -21,3 +21,11 @@ Apart from the sexy name, this config is nowhere near useable. I'm currently tes
 
 ## Done
 - basic fish and starship setup
+
+
+### References
+- https://github.com/malob/nixpkgs/
+- https://github.com/PaulGrandperrin/nix-systems
+
+### Sacrifices
+whole damn days and a whole fucking load of sanity

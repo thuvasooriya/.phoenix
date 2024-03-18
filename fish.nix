@@ -1,11 +1,15 @@
 args @ {pkgs, lib, ...}: {
 
+  programs.starship = {
+      enable = true;
+      settings = pkgs.lib.importTOML ./starship.toml;
+    };
   programs.fish = {
     enable = true;
     functions = {
       starship_transient_prompt_func.body = ''
-      starship module line_break
-      starship module character
+        starship module line_break
+        starship module character
       '';
       starship_transient_rprompt_func.body = ''
         starship module time
@@ -35,8 +39,9 @@ args @ {pkgs, lib, ...}: {
     #   ${lib.optionalString (!args ? osConfig) "source ${pkgs.nix}/etc/profile.d/nix-daemon.fish"}
     # '';
     interactiveShellInit = ''
-    starship init fish | source
-    enable_transience
+      set -g fish_greeting
+      starship init fish | source
+      enable_transience
     '';
     loginShellInit = ''
       set -g fish_greeting

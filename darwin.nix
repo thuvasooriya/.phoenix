@@ -1,23 +1,13 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, lib, inputs, ... }:
 let user = "tony";
 in {
-# nix.binaryCaches = [
-#     "https://cache.nixos.org/"
-#   ];
-#   nix.binaryCachePublicKeys = [
-#     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-#   ];
-#   nix.trustedUsers = [
-#     "@admin"
-#   ];
-  # users.nix.configureBuildUsers = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  # environment.systemPackages = [ pkgs.vim ];
-  # environment.systemPackages = with pkgs; [
-  #   kitty
-  #   terminal-notifier
-  # ];
+  environment.systemPackages = with pkgs; [
+  vim
+  fish
+  ];
+  environment.shells = [ pkgs.fish ];
   
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -25,7 +15,7 @@ in {
   # nix.package = pkgs.nix;
 
   nix.settings.experimental-features = "nix-command flakes";
-    nix.gc = {
+  nix.gc = {
     automatic = true;
     options = "--delete-older-than 2d";
     interval = {
@@ -33,26 +23,16 @@ in {
       Minute = 0;
     };
   };
-    # nix-darwin doesn't change the shells so we do it here
-  # system.activationScripts.postActivation.text = ''
-  #   echo "setting up users' shells..." >&2
-  #
-  #   ${lib.concatMapStringsSep "\n" (user: ''
-  #     dscl . create /Users/${user.name} UserShell "${user.shell}"
-  #   '') (lib.attrValues config.users.users)}
-  # '';
-
+  
   # system.defaults.NSGlobalDomain = {
-    # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
-    # KeyRepeat = 2; # unit is 15ms, so 30ms
-    # NSDocumentSaveNewDocumentsToCloud = false;
+  # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
+  # KeyRepeat = 2; # unit is 15ms, so 30ms
+  # NSDocumentSaveNewDocumentsToCloud = false;
   # };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
   programs.fish.enable = true;
-  environment.shells = [pkgs.fish];
-
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
@@ -66,38 +46,31 @@ in {
   # environment.variables = {
   #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   # };
-  
-  # programs.nix-index.enable = true;
 
-fonts = {
+  # programs.nix-index.enable = true;
+  
+  fonts = {
     fontDir.enable = true;
     fonts = [
-      ( pkgs.nerdfonts.override {
-        fonts = [
-          "CascadiaCode"
-          "Hasklig"
-          "Inconsolata"
-          "Iosevka"
-          "JetBrainsMono"
-        ];
-      } )
+      (pkgs.nerdfonts.override {
+        fonts =
+          [ "CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono" ];
+      })
     ];
   };
-  
-    homebrew = {
+
+  homebrew = {
     enable = true;
     #cleanup = "zap";
-    global = {
-      brewfile = true;
-    };
+    global = { brewfile = true; };
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
-    brews = [];
+    brews = [ ];
     casks = [
       # "visual-studio-code"
       # "whatsapp"
       "android-platform-tools"
     ];
-    masApps = {};
+    masApps = { };
   };
 
   # system.keyboard.enableKeyMapping = true;
@@ -123,7 +96,7 @@ fonts = {
     name = "${user}";
     home = "/Users/${user}";
     # isHidden = false;
-    # shell = pkgs.zsh;
     shell = "${pkgs.fish}/bin/fish";
+    # shell = pkgs.fish;
   };
 }
