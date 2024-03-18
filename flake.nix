@@ -1,5 +1,5 @@
 {
-  description = "Darwin configuration";
+  description = "phoenix config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,7 +9,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }:
+  # { pkgs, lib, ... }:
+  {
     darwinConfigurations = {
       "tonymbp" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -27,5 +29,6 @@
         ];
       };
     };
+    # darwinPackages = self.darwinConfigurations."simple".pkgs;
   };
 }
