@@ -10,9 +10,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ] ++ lib.optionals stdenv.isDarwin [
-    cocoapods
-    m-cli # useful macOS CLI commands
+  # ] ++ lib.optionals stdenv.isDarwin [
+  #   cocoapods
+  #   m-cli # useful macOS CLI commands
   ];
 
   home.file = {
