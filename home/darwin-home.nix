@@ -1,9 +1,9 @@
 {outputs, pkgs, config, inputs, lib, ...}: {
   imports = [
     # inputs.nix-index-database.hmModules.nix-index
-    ./fish.nix
-    ./git.nix
-    ./nvim.nix
+    ../modules/fish.nix
+    ../modules/git.nix
+    ../modules/nvim.nix
     # outputs.homeModules
   ];
   

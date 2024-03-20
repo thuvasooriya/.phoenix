@@ -3,7 +3,7 @@ args @ {pkgs, lib, ...}: {
   programs.starship = {
       enable = true;
       # enableZshIntegration = true;
-      settings = pkgs.lib.importTOML ./config/starship.toml;
+      settings = pkgs.lib.importTOML ../config/starship.toml;
     };
 
   programs.fish = {

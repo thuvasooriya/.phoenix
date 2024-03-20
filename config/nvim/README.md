@@ -7,6 +7,9 @@ Let's goooo
 
 ## to do
 - project and session management maintaining tabs
+- nix compatibility to lsp and my workflow
+- setup nix formatting
+- make it work in linux
 - build tasks and test tasks easy implementation
 - remapping J and K to faster movement
 - figuring out glitches in filetree open and close

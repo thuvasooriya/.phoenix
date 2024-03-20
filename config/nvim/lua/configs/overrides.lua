@@ -82,14 +82,18 @@ M.nvimtree = {
 M.nvimproject = {
 	-- scope_chdir = 'tab'
 	projects = {
+		"~/.phoenix",
+		"~/.phoenix/config/*",
+    -- mac specific
 		"~/arc/pro/code/pydev/*",
 		"~/arc/pro/code/hdl/*",
 		"~/arc/pro/code/tmp/*",
 		"~/arc/pro/code/lll/*dev/*",
-		"~/.config/*",
 		"~/nix/omnix/omnetpp-6.0.3/samples",
 		"~/nix/omnix/inet-4.5.2/examples",
 		"~/nix/omnix/inet-4.5.2/src/inet",
+    -- linux specific
+    "~/dev/*",
 	},
 }
 -- M.nvimproject = {

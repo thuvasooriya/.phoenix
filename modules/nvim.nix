@@ -4,13 +4,13 @@
   lib,
   ...
 }: let
-  nvchad = pkgs.fetchFromGitHub {
-    owner = "NvChad";
-    repo = "starter";
-    rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
-    hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
-  };
-in 
+  # nvchad = pkgs.fetchFromGitHub {
+  #   owner = "NvChad";
+  #   repo = "starter";
+  #   rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
+  #   hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
+  # };
+in
 {
   programs.neovim = {
     enable = true;
@@ -19,15 +19,20 @@ in
     defaultEditor = true;
   };
 
-  xdg.configFile."nvim/init.lua" = {
-    source = "${nvchad}/init.lua"; 
-  };
+  # xdg.configFile."nvim/init.lua" = {
+  #   source = "${nvchad}/init.lua";
+  # };
 
-  xdg.configFile."nvim/lua" = {
+  xdg.configFile."nvim" = {
     source = ../config/nvim;
     recursive = true;
   };
-  
+
+  xdg.configFile."ghostty" = {
+    source = ../config/ghostty;
+    recursive = true;
+  };
+
   programs.neovim.extraPackages = with pkgs; [
     shfmt
     ripgrep
@@ -53,13 +58,10 @@ in
     # nix
     nil
     alejandra
-    ] ++ lib.optionals pkgs.stdenv.isLinux(
-   [
+    ] ++ lib.optionals pkgs.stdenv.isLinux([
     wl-clipboard
     xclip
-    ]
-   )  
-  ];
+    ]);
 
   home.packages = with pkgs; [
     (writeShellScriptBin "clean-nvim" ''
