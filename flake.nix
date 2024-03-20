@@ -16,12 +16,12 @@
       "tonymbp" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          ./darwin.nix
+          ./darwin/darwin.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tony = import ./home.nix;
+            home-manager.users.tony = import ./home/darwin-home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -30,5 +30,13 @@
       };
     };
     # darwinPackages = self.darwinConfigurations."simple".pkgs;
+    # homeConfigurations = {
+    #   default = home-manager.lib.homeManagerConfiguration {
+    #     pkgs = pkgs;
+    #     modules = [
+    #     ./home/linux-home.nix
+    #     ];
+    #   };
+    # };
   };
 }

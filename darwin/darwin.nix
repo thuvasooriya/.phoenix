@@ -80,16 +80,19 @@ in {
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
-  system.stateVersion = 4;
-  system.defaults = {
-    dock.autohide = true;
-    dock.mru-spaces = false;
-    # finder.AppleShowAllExtensions = true;
-    # finder.FXPreferredViewStyle = "clmv";
-    # loginwindow.LoginwindowText = "nixcademy.com";
-    # screencapture.location = "~/Pictures/screenshots";
-    # screensaver.askForPasswordDelay = 10;
+  system = {
+    stateVersion = 4;
+    # ./defaults.nix;
   };
+  # system.defaults = {
+  #   dock.autohide = true;
+  #   dock.mru-spaces = false;
+  #   # finder.AppleShowAllExtensions = true;
+  #   # finder.FXPreferredViewStyle = "clmv";
+  #   # loginwindow.LoginwindowText = "nixcademy.com";
+  #   # screencapture.location = "~/Pictures/screenshots";
+  #   # screensaver.askForPasswordDelay = 10;
+  # };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users.${user} = {

@@ -1,4 +1,3 @@
-
 args @ {pkgs, config, inputs, lib, nixos-flake, home-manager-flake, ...}: {
   imports = [
     ./cmdline.nix
