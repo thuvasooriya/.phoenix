@@ -1,0 +1,2 @@
+-o "~/Downloads/vids/%(playlist|)s/%(playlist_index|)s_%(title)s.%(ext)s"
+--restrict-filenames

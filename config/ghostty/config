@@ -1,0 +1,40 @@
+# theme = catppuccin-frappe
+# theme = catppuccin-latte
+# theme = catppuccin-macchiato
+# theme = OneHalfDark
+theme = catppuccin-mocha
+
+# window-decoration = false
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
+# window-padding-x = 12
+# window-padding-y = 10
+window-step-resize = true
+window-height=18
+window-width=72
+
+background-blur-radius=10
+background-opacity=0.97
+
+font-thicken = true
+# font-variation = wght=400
+font-size = 12
+# font-family = 'JetBrains Mono Nerd Font'
+
+clipboard-read = "allow"
+# copy-on-select = clipboard
+clipboard-paste-protection = true
+clipboard-trim-trailing-spaces = true
+
+cursor-style-blink = true
+# cursor-style = block
+mouse-hide-while-typing = true
+cursor-click-to-move = true
+mouse-shift-capture = true
+shell-integration = "detect"
+
+# confirm-close-surface = false
+
+macos-option-as-alt = true
+macos-titlebar-tabs = true
