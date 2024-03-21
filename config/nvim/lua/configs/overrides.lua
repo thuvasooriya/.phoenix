@@ -30,13 +30,13 @@ M.treesitter = {
 		"arduino",
 		-- mrk
 		"markdown",
-		-- "markdown_inline",
+		"markdown_inline",
 		"python",
 	},
 	indent = {
 		enable = true,
 		disable = {
-		  "python"
+			"python",
 		},
 	},
 }
@@ -51,15 +51,16 @@ M.mason = {
 		"css-lsp",
 		"html-lsp",
 		"typescript-language-server",
-		"prettier",
+		"prettierd",
 		-- c/cpp stuff
 		"clangd",
 		"clang-format",
 		-- "pyright",
 		-- hardware description
 		-- "verible",
-    -- "nixpkgs-fmt",
-    -- "nil",
+		-- "nixpkgs-fmt",
+		"nil",
+		"python-lsp-server",
 		-- "zls",
 	},
 }
@@ -84,7 +85,7 @@ M.nvimproject = {
 	projects = {
 		"~/.phoenix",
 		"~/.phoenix/config/*",
-    -- mac specific
+		-- mac specific
 		"~/arc/pro/code/pydev/*",
 		"~/arc/pro/code/hdl/*",
 		"~/arc/pro/code/tmp/*",
@@ -92,8 +93,8 @@ M.nvimproject = {
 		"~/nix/omnix/omnetpp-6.0.3/samples",
 		"~/nix/omnix/inet-4.5.2/examples",
 		"~/nix/omnix/inet-4.5.2/src/inet",
-    -- linux specific
-    "~/dev/*",
+		-- linux specific
+		"~/dev/*",
 	},
 }
 -- M.nvimproject = {

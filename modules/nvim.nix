@@ -3,24 +3,13 @@
   config,
   lib,
   ...
-}: let
-  # nvchad = pkgs.fetchFromGitHub {
-  #   owner = "NvChad";
-  #   repo = "starter";
-  #   rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
-  #   hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
-  # };
-in {
+}: {
   programs.neovim = {
     enable = true;
     vimAlias = true;
     vimdiffAlias = true;
     defaultEditor = true;
   };
-
-  # xdg.configFile."nvim/init.lua" = {
-  #   source = "${nvchad}/init.lua";
-  # };
 
   xdg.configFile."nvim" = {
     source = ../config/nvim;
@@ -48,7 +37,7 @@ in {
         rm -rf ${config.xdg.cacheHome}/nvim
         rm -rf ${config.xdg.configHome}/nvim
       '')
-      shfmt
+      # shfmt
       ripgrep
       unzip
 
@@ -56,21 +45,21 @@ in {
       gcc
 
       # Lua
-      lua-language-server
-      stylua
-      selene
+      # lua-language-server
+      # stylua
+      # selene
 
       # Python
-      python311Packages.python-lsp-server
+      # python311Packages.python-lsp-server
 
       # Javascript
-      prettierd
+      # prettierd
 
       # Rust
       # rust-analyzer
 
       # nix
-      nil
+      # nil
       alejandra
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [

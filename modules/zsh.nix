@@ -1,7 +1,7 @@
-# {...}: {
-#   programs.zsh = {
-#     enable = true;
-#     enableCompletion = true;
-#     enableAutosuggestions = true;
-#   };
-# }
+{...}: {
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+  };
+}

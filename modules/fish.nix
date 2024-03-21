@@ -5,14 +5,15 @@ args @ {
 }: {
   programs.starship = {
     enable = true;
-    # enableZshIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
     settings = pkgs.lib.importTOML ../config/starship.toml;
   };
 
   programs.fish = {
     enable = true;
-    # enableCompletion = true;
-    # enableAutosuggestions = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
     functions = {
       starship_transient_prompt_func.body = ''
         starship module line_break
