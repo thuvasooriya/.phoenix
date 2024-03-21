@@ -68,6 +68,7 @@ in {
     casks = [
       # "visual-studio-code"
       # "whatsapp"
+      "selfcontrol"
       "android-platform-tools"
     ];
     masApps = { };
@@ -99,7 +100,7 @@ in {
     name = "${user}";
     home = "/Users/${user}";
     # isHidden = false;
-    # shell = pkgs.fish; # not working use the following commands instead
+    shell = pkgs.fish; # not working use the following commands instead
     # sudo sh -c 'echo /etc/profiles/per-user/tony/bin/fish >> /etc/shells'
     # chsh -s /etc/profiles/per-user/tony/bin/fish
   };
