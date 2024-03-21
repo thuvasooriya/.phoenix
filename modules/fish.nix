@@ -56,6 +56,7 @@ args @ {
       ip = "ipconfig getifaddr en0";
       d = "aria2c -x8";
       yt = "yt-dlp";
+      omnetpp = "opp_env run omnetpp-latest -c omnetpp";
     };
     plugins = with pkgs.fishPlugins; [
       # {

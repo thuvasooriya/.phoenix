@@ -7,13 +7,11 @@
 }: let
   user = "tony";
 in {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  # environment.systemPackages = with pkgs; [
-  # vim
-  # fish
-  # ];
-  # environment.shells = [ pkgs.fish ];
+  environment.systemPackages = with pkgs; [
+    vim
+  ];
+
+  environment.shells = [pkgs.fish pkgs.bashInteractive];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -37,10 +35,25 @@ in {
   # };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
-  # programs.fish.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableFzfCompletion = true;
+    # enableFzfGit = true;
+    enableFzfHistory = true;
+    enableSyntaxHighlighting = true;
+    # loginShellInit = '''';
+    shellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
+          if [[ -o login ]]; then
+              LOGIN_OPTION='--login'
+          else
+              LOGIN_OPTION=""
+          fi
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
 
-  # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
   nix.extraOptions =
     ''
@@ -54,8 +67,6 @@ in {
   # environment.variables = {
   #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   # };
-
-  # programs.nix-index.enable = true;
 
   fonts = {
     fontDir.enable = true;
@@ -89,7 +100,6 @@ in {
   security.pam.enableSudoTouchIdAuth = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
   system = {
     stateVersion = 4;
     # ./defaults.nix;
@@ -108,9 +118,5 @@ in {
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
-    # isHidden = false;
-    # shell = pkgs.fish; # not working use the following commands instead
-    # sudo sh -c 'echo /etc/profiles/per-user/tony/bin/fish >> /etc/shells'
-    # chsh -s /etc/profiles/per-user/tony/bin/fish
   };
 }

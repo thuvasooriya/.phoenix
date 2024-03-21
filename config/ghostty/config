@@ -33,7 +33,8 @@ mouse-hide-while-typing = true
 cursor-click-to-move = true
 mouse-shift-capture = true
 shell-integration = "detect"
-
+confirm-close-surface = false
+quit-after-last-window-closed = true
 # confirm-close-surface = false
 
 macos-option-as-alt = true
