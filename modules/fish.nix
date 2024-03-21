@@ -10,10 +10,11 @@ args @ {
     settings = pkgs.lib.importTOML ../config/starship.toml;
   };
 
+  programs.zoxide.enable = true;
+  programs.zoxide.enableFishIntegration = true;
+
   programs.fish = {
     enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
     functions = {
       starship_transient_prompt_func.body = ''
         starship module line_break
@@ -23,48 +24,38 @@ args @ {
         starship module time
         starship module directory
       '';
-      # _tide_item_nix_shell = { # displays nix shell env on the right of the prompt
-      #   body = ''
-      #     # mostly a babelfish conversion of nix-shell-info from any-nix-shell
-      #     # relies on the nix wrapper from any-nix-shell
-      #
-      #     if set -q IN_NIX_SHELL || set -q IN_NIX_RUN
-      #       set output (echo $ANY_NIX_SHELL_PKGS | xargs | string collect; or echo)
-      #       if test -n "$name" && test "$name" != 'shell'
-      #         set -a output ' '"$name"
-      #       end
-      #       if test -n "$output"
-      #         set output (echo $output $additional_pkgs | tr ' ' '\\n' | sort -u | tr '\\n' ' ' | xargs | string collect; or echo)
-      #         _tide_print_item nix_shell $tide_nix_shell_icon' ' $output
-      #       else
-      #         _tide_print_item nix_shell $tide_nix_shell_icon' [unknown environment]'
-      #       end
-      #     end
-      #   '';
-      # };
+      fish_user_key_bindings.body = ''
+        fish_vi_key_bindings
+        # bind -m default jk commandline -f repaint
+        # bind -m default jj commandline -f repaint
+        bind -M insert -m default jk backward-char force-repaint
+        bind -M insert -m default jj backward-char force-repaint
+      '';
+      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
     };
-    # shellInit = ''
-    #   ${lib.optionalString (!args ? osConfig) "source ${pkgs.nix}/etc/profile.d/nix-daemon.fish"}
-    # '';
-    interactiveShellInit = ''
+    shellInit = ''
       set -g fish_greeting
       starship init fish | source
       enable_transience
     '';
+    interactiveShellInit = ''
+    '';
     loginShellInit = ''
-      set -g fish_greeting
     '';
     shellAliases = {
-      # bubu = "brew update && brew upgrade";
-      # broom = "brew autoremove && brew cleanup";
-      fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
+      bubu = "brew update && brew upgrade";
+      broom = "brew autoremove && brew cleanup";
+      pact = "source ./.venv/bin/activate.fish";
+      pen = "python3 -m venv .venv";
+      # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
       # confish = "nvim $HOME/.config/fish/config.fish";
       # constar "code $HOME/.config/starship.toml"
-      # icat = "kitty +kitten icat";
     };
     shellAbbrs = {
       ssh-keygen-ed25519 = "ssh-keygen -t ed25519";
       ip = "ipconfig getifaddr en0";
+      d = "aria2c -x8";
+      yt = "yt-dlp";
     };
     plugins = with pkgs.fishPlugins; [
       # {
@@ -88,3 +79,5 @@ args @ {
     ];
   };
 }
+# ${lib.optionalString (!args ? osConfig) "source ${pkgs.nix}/etc/profile.d/nix-daemon.fish"}
+

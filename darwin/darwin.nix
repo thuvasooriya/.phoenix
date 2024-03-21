@@ -38,7 +38,7 @@ in {
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
@@ -73,8 +73,10 @@ in {
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
     brews = [];
     casks = [
-      # "visual-studio-code"
-      # "whatsapp"
+      "keyclu"
+      "orbstack"
+      "visual-studio-code"
+      "mactex-no-gui"
       "selfcontrol"
       "android-platform-tools"
     ];
@@ -107,7 +109,7 @@ in {
     name = "${user}";
     home = "/Users/${user}";
     # isHidden = false;
-    shell = pkgs.fish; # not working use the following commands instead
+    # shell = pkgs.fish; # not working use the following commands instead
     # sudo sh -c 'echo /etc/profiles/per-user/tony/bin/fish >> /etc/shells'
     # chsh -s /etc/profiles/per-user/tony/bin/fish
   };

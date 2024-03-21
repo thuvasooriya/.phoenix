@@ -27,12 +27,35 @@
         neofetch
         rsync
         hyperfine
+        aria2
+        cmatrix
+        fzf
         yt-dlp
+
+        luajit
+        # lua
+
+        verilog
+        verilator
+
+        nodejs
+        # nodejs_21
+
+        (python3.withPackages
+          (p: [
+            p.pandas
+            p.pip
+          ]))
+        pipx
+
+        (writeShellScriptBin "darwinix" ''
+          darwin-rebuild switch --flake ~/.phoenix/
+        '')
       ]
       ++ lib.optionals pkgs.stdenv.isLinux [
-        (writeShellScriptBin "update-home" ''
-          home-manager switch --flake ~/.phoenix/home/
-        '')
+        # (writeShellScriptBin "update-home" ''
+        #   home-manager switch --flake ~/.phoenix/home/
+        # '')
       ];
 
     file = {
@@ -41,6 +64,8 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin"];
   };
 
   programs = {
@@ -50,7 +75,6 @@
       enable = true;
       enableFishIntegration = true;
     };
-    zoxide.enable = true;
     man = {
       enable = true;
       generateCaches = true;

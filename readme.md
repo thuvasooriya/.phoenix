@@ -5,8 +5,9 @@ Apart from the sexy name, this config is nowhere near useable. I'm currently tes
 
 ## Current Goals
 - siphon the whole ghostty terminal setup on macOS to be reproducible
-- using homebrew nix module to switch all opensource apps to be reproducible
+- transfer all homebrew packages
 - setup universal nvchad config w/ wo/ nixvim
+- tmux setup for sexy ssh sessions with neofetch
 
 ## Looking Forward
 - balancing nix-darwin and home-manager to give maximum reusability between linux and macOS
@@ -21,6 +22,8 @@ Apart from the sexy name, this config is nowhere near useable. I'm currently tes
 ## Done
 - basic fish and starship setup
 - porting my starship and fish goodies to nix
+- transferred all homebrew casks
+- initial zig setup for zvm support
 
 
 ### References

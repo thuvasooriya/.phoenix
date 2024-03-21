@@ -43,10 +43,10 @@ M.treesitter = {
 
 M.mason = {
 	ensure_installed = {
+		"shfmt",
 		-- lua stuff
 		"lua-language-server",
 		"stylua",
-		-- "yaml-language-server",
 		-- web dev stuff
 		"css-lsp",
 		"html-lsp",
@@ -55,11 +55,7 @@ M.mason = {
 		-- c/cpp stuff
 		"clangd",
 		"clang-format",
-		-- "pyright",
-		-- hardware description
-		-- "verible",
-		-- "nixpkgs-fmt",
-		"nil",
+
 		"python-lsp-server",
 		-- "zls",
 	},
@@ -90,9 +86,9 @@ M.nvimproject = {
 		"~/arc/pro/code/hdl/*",
 		"~/arc/pro/code/tmp/*",
 		"~/arc/pro/code/lll/*dev/*",
-		"~/nix/omnix/omnetpp-6.0.3/samples",
-		"~/nix/omnix/inet-4.5.2/examples",
-		"~/nix/omnix/inet-4.5.2/src/inet",
+		"~/dev/omnix/omnetpp-6.0.3/samples",
+		"~/dev/omnix/inet-4.5.2/examples",
+		"~/dev/omnix/inet-4.5.2/src/inet",
 		-- linux specific
 		"~/dev/*",
 	},

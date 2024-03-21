@@ -37,29 +37,19 @@
         rm -rf ${config.xdg.cacheHome}/nvim
         rm -rf ${config.xdg.configHome}/nvim
       '')
-      # shfmt
       ripgrep
       unzip
-
+      fd
+      wget
       # Used for treesitter
       gcc
-
-      # Lua
-      # lua-language-server
-      # stylua
+      tree-sitter
+      # clang-tools_17
       # selene
-
-      # Python
-      # python311Packages.python-lsp-server
-
-      # Javascript
-      # prettierd
-
       # Rust
       # rust-analyzer
-
       # nix
-      # nil
+      nil
       alejandra
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
