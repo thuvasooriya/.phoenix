@@ -1,10 +1,13 @@
-args @ {pkgs, lib, ...}: {
-
+args @ {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.starship = {
-      enable = true;
-      # enableZshIntegration = true;
-      settings = pkgs.lib.importTOML ../config/starship.toml;
-    };
+    enable = true;
+    # enableZshIntegration = true;
+    settings = pkgs.lib.importTOML ../config/starship.toml;
+  };
 
   programs.fish = {
     enable = true;
@@ -33,7 +36,7 @@ args @ {pkgs, lib, ...}: {
       #         set output (echo $output $additional_pkgs | tr ' ' '\\n' | sort -u | tr '\\n' ' ' | xargs | string collect; or echo)
       #         _tide_print_item nix_shell $tide_nix_shell_icon' ' $output
       #       else
-      #         _tide_print_item nix_shell $tide_nix_shell_icon' [unknown environment]' 
+      #         _tide_print_item nix_shell $tide_nix_shell_icon' [unknown environment]'
       #       end
       #     end
       #   '';
@@ -66,7 +69,7 @@ args @ {pkgs, lib, ...}: {
       # {
       #   name = "plugin-git"; # git abbrs
       #   #src = plugin-git.src;
-      #   src = pkgs.fetchFromGitHub { # https://github.com/jhillyerd/plugin-git/pull/103 
+      #   src = pkgs.fetchFromGitHub { # https://github.com/jhillyerd/plugin-git/pull/103
       #     owner = "hexclover";
       #     repo = "plugin-git";
       #     rev = "master";

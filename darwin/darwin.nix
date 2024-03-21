@@ -1,5 +1,11 @@
-{ pkgs, config, lib, inputs, ... }:
-let user = "tony";
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}: let
+  user = "tony";
 in {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -8,7 +14,7 @@ in {
   # fish
   # ];
   # environment.shells = [ pkgs.fish ];
-  
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # services.karabiner-elements.enable = true;
@@ -23,7 +29,7 @@ in {
       Minute = 0;
     };
   };
-  
+
   # system.defaults.NSGlobalDomain = {
   # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
   # KeyRepeat = 2; # unit is 15ms, so 30ms
@@ -36,11 +42,13 @@ in {
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
-  nix.extraOptions = ''
-    auto-optimise-store = true
-  '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
+  nix.extraOptions =
+    ''
+      auto-optimise-store = true
+    ''
+    + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
 
   # https://github.com/nix-community/home-manager/issues/423
   # environment.variables = {
@@ -48,13 +56,12 @@ in {
   # };
 
   # programs.nix-index.enable = true;
-  
+
   fonts = {
     fontDir.enable = true;
     fonts = [
       (pkgs.nerdfonts.override {
-        fonts =
-          [ "CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono" ];
+        fonts = ["CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono"];
       })
     ];
   };
@@ -62,16 +69,16 @@ in {
   homebrew = {
     enable = true;
     #cleanup = "zap";
-    global = { brewfile = true; };
+    global = {brewfile = true;};
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
-    brews = [ ];
+    brews = [];
     casks = [
       # "visual-studio-code"
       # "whatsapp"
       "selfcontrol"
       "android-platform-tools"
     ];
-    masApps = { };
+    masApps = {};
   };
 
   # system.keyboard.enableKeyMapping = true;

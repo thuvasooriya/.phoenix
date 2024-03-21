@@ -10,8 +10,7 @@
   #   rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
   #   hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
   # };
-in
-{
+in {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -33,47 +32,49 @@ in
     recursive = true;
   };
 
-  programs.neovim.extraPackages = with pkgs; [
-    shfmt
-    ripgrep
-    unzip
+  # programs.neovim.extraPackages = with pkgs; [
+  # moves the extraPackages to home because they were giving some hazzle
 
-    # Used for treesitter
-    gcc
+  home.packages = with pkgs;
+    [
+      (writeShellScriptBin "clean-nvim" ''
+        rm -rf ${config.xdg.dataHome}/nvim
+        rm -rf ${config.xdg.stateHome}/nvim
+        rm -rf ${config.xdg.cacheHome}/nvim
+      '')
+      (writeShellScriptBin "clean-nvim-full" ''
+        rm -rf ${config.xdg.dataHome}/nvim
+        rm -rf ${config.xdg.stateHome}/nvim
+        rm -rf ${config.xdg.cacheHome}/nvim
+        rm -rf ${config.xdg.configHome}/nvim
+      '')
+      shfmt
+      ripgrep
+      unzip
 
-    # Lua
-    lua-language-server
-    stylua
-    selene
+      # Used for treesitter
+      gcc
 
-    # Python
-    python311Packages.python-lsp-server
+      # Lua
+      lua-language-server
+      stylua
+      selene
 
-    # Javascript
-    prettierd
+      # Python
+      python311Packages.python-lsp-server
 
-    # Rust
-    # rust-analyzer
+      # Javascript
+      prettierd
 
-    # nix
-    nil
-    alejandra
-    ] ++ lib.optionals pkgs.stdenv.isLinux([
-    wl-clipboard
-    xclip
-    ]);
+      # Rust
+      # rust-analyzer
 
-  home.packages = with pkgs; [
-    (writeShellScriptBin "clean-nvim" ''
-      rm -rf ${config.xdg.dataHome}/nvim
-      rm -rf ${config.xdg.stateHome}/nvim
-      rm -rf ${config.xdg.cacheHome}/nvim
-    '')
-    (writeShellScriptBin "clean-nvim-full" ''
-      rm -rf ${config.xdg.dataHome}/nvim
-      rm -rf ${config.xdg.stateHome}/nvim
-      rm -rf ${config.xdg.cacheHome}/nvim
-      rm -rf ${config.xdg.configHome}/nvim
-    '')
-  ];
+      # nix
+      nil
+      alejandra
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      wl-clipboard
+      xclip
+    ];
 }

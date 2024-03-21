@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-
   home = {
     packages = with pkgs; [
       tig
@@ -14,51 +13,51 @@
       userEmail = "thuvasooriya@gmail.com";
       aliases = {
         # Basic commands
-    a = "add";
-    aa = "add --all";
-    d = "diff";
-    dc = "diff --cached";
-    pl = "pull";
-    pu = "push";
-    puf = "push --force";
-    s = "status";
+        a = "add";
+        aa = "add --all";
+        d = "diff";
+        dc = "diff --cached";
+        pl = "pull";
+        pu = "push";
+        puf = "push --force";
+        s = "status";
 
-    # Checkout commands
-    co = "checkout";
-    cob = "checkout -b";
-    com = "checkout master";
+        # Checkout commands
+        co = "checkout";
+        cob = "checkout -b";
+        com = "checkout master";
 
-    # Commit commands
-    amend = "commit --amend --no-edit";
-    c = "commit";
-    ca = "commit -a";
-    cam = "commit -a -m";
-    cm = "commit -m";
+        # Commit commands
+        amend = "commit --amend --no-edit";
+        c = "commit";
+        ca = "commit -a";
+        cam = "commit -a -m";
+        cm = "commit -m";
 
-    # Rebase commands
-    rb = "rebase";
-    rba = "rebase --abort";
-    rbc = "rebase --continue";
-    rbi = "rebase --interactive";
-    rbs = "rebase --skip";
+        # Rebase commands
+        rb = "rebase";
+        rba = "rebase --abort";
+        rbc = "rebase --continue";
+        rbi = "rebase --interactive";
+        rbs = "rebase --skip";
 
-    # Reset commands
-    r = "reset HEAD";
-    r1 = "reset HEAD^";
-    r2 = "reset HEAD^^";
-    rhard = "reset --hard";
-    rhard1 = "reset HEAD^ --hard";
-    rhard2 = "reset HEAD^^ --hard";
+        # Reset commands
+        r = "reset HEAD";
+        r1 = "reset HEAD^";
+        r2 = "reset HEAD^^";
+        rhard = "reset --hard";
+        rhard1 = "reset HEAD^ --hard";
+        rhard2 = "reset HEAD^^ --hard";
 
-    # Stash commands
-    sd = "stash drop";
-    spo = "stash pop";
-    spu = "stash push";
-    spua = "stash push --all";
+        # Stash commands
+        sd = "stash drop";
+        spo = "stash pop";
+        spu = "stash push";
+        spua = "stash push --all";
 
-    # Other commands
-    lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
-    rs = "restore --staged";
+        # Other commands
+        lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
+        rs = "restore --staged";
         pushf = "push --force-with-lease"; # only force pushes if no new commits have pushed after the last pull
         blamex = "blame -w -C -C -C"; # ignores whitespaces and code that has just been moved around
         diffw = "diff --word-diff"; # inline diff
@@ -91,7 +90,7 @@
         #core.fsmonitor = true; # watch FS for faster git status
       };
       # signing = {
-        # key = "4AB1353033774DA3";
+      # key = "4AB1353033774DA3";
       # };
       lfs = {
         enable = true;

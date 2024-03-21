@@ -9,7 +9,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }:
+  outputs = inputs @ {
+    nixpkgs,
+    home-manager,
+    darwin,
+    ...
+  }:
   # { pkgs, lib, ... }:
   {
     darwinConfigurations = {
