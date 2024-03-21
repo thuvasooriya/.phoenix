@@ -102,15 +102,16 @@ return {
 		end,
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		-- init = function()
-		--   require("core.utils").load_mappings "harpoon"
-		-- end,
-		opts = overrides.harpoon,
-		-- dependencies = { "nvim-lua/plenary.nvim" },
-	},
+  -- Don't judge me I don't know how to set this up yet
+	-- {
+	-- 	"ThePrimeagen/harpoon",
+	-- 	branch = "harpoon2",
+	-- 	-- init = function()
+	-- 	--   require("core.utils").load_mappings "harpoon"
+	-- 	-- end,
+	-- 	opts = overrides.harpoon,
+	-- 	-- dependencies = { "nvim-lua/plenary.nvim" },
+	-- },
 }
 
 -- To make a plugin not be loaded

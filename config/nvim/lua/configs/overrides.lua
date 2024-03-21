@@ -35,9 +35,9 @@ M.treesitter = {
 	},
 	indent = {
 		enable = true,
-		-- disable = {
-		--   "python"
-		-- },
+		disable = {
+		  "python"
+		},
 	},
 }
 
@@ -55,10 +55,10 @@ M.mason = {
 		-- c/cpp stuff
 		"clangd",
 		"clang-format",
-		"pyright",
+		-- "pyright",
 		-- hardware description
-		"verible",
-    "nixpkgs-fmt",
+		-- "verible",
+    -- "nixpkgs-fmt",
     -- "nil",
 		-- "zls",
 	},
