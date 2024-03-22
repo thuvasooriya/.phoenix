@@ -4,8 +4,15 @@
   lib,
   ...
 }: {
-  xdg.configFile."ghostty" = {
-    source = ../config/ghostty;
-    recursive = true;
-  };
+  xdg.configFile =
+    {
+      # universal config files go here
+    }
+    ++ lib.optionals pkgs.stdenv.isDarwin {
+      "ghostty" = {
+        source = ../config/ghostty;
+        recursive = true;
+      };
+    }
+    ++ lib.optionals pkgs.stdenv.isLinux {};
 }

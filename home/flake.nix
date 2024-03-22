@@ -2,7 +2,6 @@
   description = "home-manager linux initial setup";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.hostPlatform = "aarch64-linux";
     home-manager = {
