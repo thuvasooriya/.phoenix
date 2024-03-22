@@ -16,11 +16,6 @@
     recursive = true;
   };
 
-  xdg.configFile."ghostty" = {
-    source = ../config/ghostty;
-    recursive = true;
-  };
-
   # programs.neovim.extraPackages = with pkgs; [
   # moves the extraPackages to home because they were giving some hazzle
 
@@ -41,14 +36,13 @@
       unzip
       fd
       wget
-      # Used for treesitter
+      ### treesitter ###
       gcc
       tree-sitter
       # clang-tools_17
-      # selene
-      # Rust
+      ### rust ###
       # rust-analyzer
-      # nix
+      ### nix ###
       nil
       alejandra
     ]

@@ -26,7 +26,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tony = import ./home/darwin-home.nix;
+            home-manager.users.tony = import ./modules/core.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix

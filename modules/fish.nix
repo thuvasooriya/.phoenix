@@ -3,16 +3,6 @@ args @ {
   lib,
   ...
 }: {
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-    settings = pkgs.lib.importTOML ../config/starship.toml;
-  };
-
-  programs.zoxide.enable = true;
-  programs.zoxide.enableFishIntegration = true;
-
   programs.fish = {
     enable = true;
     functions = {
@@ -26,8 +16,6 @@ args @ {
       '';
       fish_user_key_bindings.body = ''
         fish_vi_key_bindings
-        # bind -m default jk commandline -f repaint
-        # bind -m default jj commandline -f repaint
         bind -M insert -m default jk backward-char force-repaint
         bind -M insert -m default jj backward-char force-repaint
       '';
