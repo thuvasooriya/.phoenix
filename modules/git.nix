@@ -1,4 +1,33 @@
 {pkgs, ...}: {
+  gitIgnoreGlobal =
+    builtins.toFile "gitignore_global"
+    ''
+      # Compiled source
+      *.com
+      *.class
+      *.dll
+      *.exe
+      *.o
+      *.so
+      *.out
+
+      # Logs and databases
+      *.log
+      *.sql
+      *.sqlite
+
+      # OS generated files
+      .DS_Store
+      .DS_Store?
+      ._.DS_Store
+      **/.DS_Store
+      **/._.DS_Store
+      ._*
+      .Spotlight-V100
+      .Trashes
+      ehthumbs.db
+      Thumbs.db
+    '';
   home = {
     packages = with pkgs; [
       tig
@@ -78,6 +107,10 @@
       };
       extraConfig = {
         init.defaultBranch = "main";
+        core = {
+          editor = "nvim";
+          excludesFile = "${gitIgnoreGlobal}";
+        };
         pull.ff = "only";
         merge.conflictstyle = "diff3";
         rerere = {

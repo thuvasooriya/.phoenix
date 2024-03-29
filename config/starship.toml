@@ -78,12 +78,12 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
-$line_break\
 $jobs\
 $battery\
 $os\
 $container\
 $shell\
+$line_break\
 [⎩ ](bold white)$character\
 """
 
