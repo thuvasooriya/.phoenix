@@ -7,11 +7,11 @@
 }: let
   user = "tony";
 in {
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   vim
+  # ];
 
-  environment.shells = [pkgs.fish pkgs.bashInteractive];
+  # environment.shells = [pkgs.fish pkgs.bashInteractive];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -21,7 +21,7 @@ in {
   nix.settings.experimental-features = "nix-command flakes";
   nix.gc = {
     automatic = true;
-    options = "--delete-older-than 2d";
+    options = "--delete-older-than 10d";
     interval = {
       Hour = 5;
       Minute = 0;
@@ -79,7 +79,10 @@ in {
 
   homebrew = {
     enable = true;
-    #cleanup = "zap";
+    onActivation = {
+      upgrade = true;
+      cleanup = "zap";
+    };
     global = {brewfile = true;};
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
     brews = [];
@@ -87,7 +90,6 @@ in {
       "keyclu"
       "orbstack"
       "visual-studio-code"
-      "mactex-no-gui"
       "selfcontrol"
       "android-platform-tools"
     ];
