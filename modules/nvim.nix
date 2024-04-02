@@ -10,10 +10,6 @@
     vimdiffAlias = true;
     defaultEditor = true;
   };
-  # programs.vscode = {
-  #   enable = true;
-  #   package = pkgs.vscode.fhs;
-  # };
 
   xdg.configFile."nvim" = {
     source = ../config/nvim;

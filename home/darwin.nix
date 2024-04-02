@@ -90,7 +90,9 @@ in {
     };
     global = {brewfile = true;};
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
-    brews = [];
+    brews = [
+      "tectonic"
+    ];
     casks = [
       # dev
       "orbstack"
