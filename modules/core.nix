@@ -66,6 +66,7 @@
         cmatrix
         aria2
         verilog
+        # tectonic
         verilator
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
