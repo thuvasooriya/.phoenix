@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
   gitIgnoreGlobal =
     builtins.toFile "gitignore_global"
     ''
@@ -10,6 +10,9 @@
       *.o
       *.so
       *.out
+
+      # Virtual environments
+      **/.venv
 
       # Logs and databases
       *.log
@@ -28,6 +31,7 @@
       ehthumbs.db
       Thumbs.db
     '';
+in {
   home = {
     packages = with pkgs; [
       tig

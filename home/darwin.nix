@@ -13,6 +13,12 @@ in {
 
   # environment.shells = [pkgs.fish pkgs.bashInteractive];
 
+  # https://github.com/nix-community/home-manager/issues/423
+  environment.variables = {
+    # GHOSTTY TERMINFO CONFIG
+    # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
+  };
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # services.karabiner-elements.enable = true;
@@ -23,10 +29,19 @@ in {
     automatic = true;
     options = "--delete-older-than 10d";
     interval = {
-      Hour = 5;
+      Hour = 20;
       Minute = 0;
     };
   };
+
+  # nix.package = pkgs.nixUnstable;
+  nix.extraOptions =
+    ''
+      auto-optimise-store = true
+    ''
+    + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+      extra-platforms = x86_64-darwin aarch64-darwin
+    '';
 
   # system.defaults.NSGlobalDomain = {
   # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
@@ -43,6 +58,9 @@ in {
     enableSyntaxHighlighting = true;
     # loginShellInit = '''';
     shellInit = ''
+      if [[ $(uname -m) == 'arm64' ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
       if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
           if [[ -o login ]]; then
               LOGIN_OPTION='--login'
@@ -53,20 +71,6 @@ in {
       fi
     '';
   };
-
-  # nix.package = pkgs.nixUnstable;
-  nix.extraOptions =
-    ''
-      auto-optimise-store = true
-    ''
-    + lib.optionalString (pkgs.system == "aarch64-darwin") ''
-      extra-platforms = x86_64-darwin aarch64-darwin
-    '';
-
-  # https://github.com/nix-community/home-manager/issues/423
-  # environment.variables = {
-  #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
-  # };
 
   fonts = {
     fontDir.enable = true;

@@ -46,7 +46,7 @@
         rsync
         hyperfine
         fzf
-        docker
+        # docker
 
         luajit
         # lua
