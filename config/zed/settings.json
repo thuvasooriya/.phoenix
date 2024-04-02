@@ -1,0 +1,53 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "inlay_hints": {
+    "enabled": true
+  },
+  "autosave": "on_focus_change",
+  "vim_mode": true,
+  "base_keymap": "VSCode",
+  "theme": "Catppuccin Mocha",
+  "features": {
+    // "copilot": false
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "copilot": {
+    "disabled_globs": [".env"]
+  },
+  "buffer_font_size": 12,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  // "buffer_line_height": "standard",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 14,
+  "chat_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "assistant": {
+    "version": "1",
+    "button": false
+  },
+  "project_panel": {
+    "dock": "right",
+    "indent_size": 4
+  },
+  "terminal": {
+    "default_height": 160,
+    "line_height": "standard"
+  }
+}

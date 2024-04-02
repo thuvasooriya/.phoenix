@@ -10,6 +10,10 @@
       source = ../config/ghostty;
       recursive = true;
     };
+    "zed" = {
+      source = ../config/zed;
+      recursive = true;
+    };
   };
   # ++ lib.optionals pkgs.stdenv.isDarwin {
   #   "ghostty" = {

@@ -84,18 +84,35 @@ in {
   homebrew = {
     enable = true;
     onActivation = {
-      upgrade = true;
+      autoUpdate = true;
+      # upgrade = true;
       cleanup = "zap";
     };
     global = {brewfile = true;};
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
     brews = [];
     casks = [
-      "keyclu"
+      # dev
       "orbstack"
+      # editors
       "visual-studio-code"
-      "selfcontrol"
+      "zed"
+      # cli tools
       "android-platform-tools"
+      # utils
+      "keyclu"
+      "selfcontrol"
+      # tools
+      "kicad"
+      "capcut"
+      "anki"
+      "blender"
+      # "syncthing"
+      "obs"
+      "ltspice"
+      "handbrake"
+      "zoom"
+      "wireshark"
     ];
     masApps = {};
   };
