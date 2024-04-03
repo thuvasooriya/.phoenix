@@ -31,6 +31,7 @@ M.treesitter = {
 		-- mrk
 		"markdown",
 		"markdown_inline",
+		"latex",
 		"python",
 	},
 	indent = {
@@ -58,6 +59,7 @@ M.mason = {
 
 		"python-lsp-server",
 		-- "zls",
+		"texlab",
 	},
 }
 

@@ -12,6 +12,7 @@ local options = {
 		cpp = { "clang_format" },
 		c = { "clang_format" },
 		nix = { "alejandra" },
+		-- tex = { "texlab" },
 		-- sv = { "verible" },
 	},
 

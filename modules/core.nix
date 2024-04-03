@@ -66,7 +66,7 @@
         cmatrix
         aria2
         verilog
-        # tectonic
+        tectonic
         verilator
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
@@ -85,7 +85,7 @@
       EDITOR = "nvim";
     };
     # using bun and zvm outside of nix
-    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin"];
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin" "~/Library/TinyTeX"];
   };
   # ++ lib.optionals pkgs.stdenv.isLinux {
   #   username = "tony";

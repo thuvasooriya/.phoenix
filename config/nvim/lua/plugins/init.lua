@@ -101,8 +101,14 @@ return {
 			require("telescope").load_extension("lazygit")
 		end,
 	},
+	{
+		"lervag/vimtex",
+		init = function()
+			-- Use init for configuration, don't use the more common "config".
+		end,
+	},
 
-  -- Don't judge me I don't know how to set this up yet
+	-- Don't judge me I don't know how to set this up yet
 	-- {
 	-- 	"ThePrimeagen/harpoon",
 	-- 	branch = "harpoon2",

@@ -27,11 +27,11 @@ in {
   nix.settings.experimental-features = "nix-command flakes";
   nix.gc = {
     automatic = true;
-    options = "--delete-older-than 10d";
-    interval = {
-      Hour = 20;
-      Minute = 0;
-    };
+    # options = "--delete-older-than 10d";
+    # interval = {
+    #   Hour = 20;
+    #   Minute = 0;
+    # };
   };
 
   # nix.package = pkgs.nixUnstable;
@@ -90,9 +90,7 @@ in {
     };
     global = {brewfile = true;};
     # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
-    brews = [
-      "tectonic"
-    ];
+    brews = ["latexindent"];
     casks = [
       # dev
       "orbstack"
@@ -104,6 +102,7 @@ in {
       # utils
       "keyclu"
       "selfcontrol"
+      "loungy"
       # tools
       "kicad"
       "capcut"
