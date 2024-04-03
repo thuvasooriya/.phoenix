@@ -10,9 +10,9 @@
     vimdiffAlias = true;
     defaultEditor = true;
   };
-
   xdg.configFile."nvim" = {
-    source = ../config/nvim;
+    # source = ../config/nvim; # this will make a readonly config that syncs during switch command
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/nvim";
     recursive = true;
   };
 
