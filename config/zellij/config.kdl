@@ -20,6 +20,18 @@ on_force_close "detach"
 //    - false (Default)
 simplified_ui true
 
+ui {
+    pane_frames {
+    rounded_corners true
+    hide_session_name true
+    }
+}
+
+env {
+   // RUST_BACKTRACE 1
+    // FOO "bar"
+}
+
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
@@ -53,6 +65,9 @@ mouse_mode true
 // Valid values: positive integers
 // Default value: 10000
 scroll_buffer_size 100000
+session_serialization true
+pane_viewport_serialization true
+scrollback_lines_to_serialize 0
 
 // copy_command "xclip -selection clipboard" // x11
 // copy_command "wl-copy"                    // wayland
