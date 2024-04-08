@@ -23,6 +23,7 @@ M.treesitter = {
 		"nix",
 		"verilog",
 		"toml",
+		"kdl",
 		-- lll
 		"cpp",
 		"c",

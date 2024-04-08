@@ -50,6 +50,7 @@
         hyperfine
         fzf
         rsync
+        neofetch
         # docker
 
         luajit
