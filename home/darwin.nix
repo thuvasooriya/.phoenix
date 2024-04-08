@@ -7,11 +7,13 @@
 }: let
   user = "tony";
 in {
-  # environment.systemPackages = with pkgs; [
-  #   vim
-  # ];
+  environment.systemPackages = with pkgs; [
+    fish
+    zsh
+    # bashInteractive
+  ];
 
-  environment.shells = [pkgs.fish pkgs.zsh pkgs.bashInteractive];
+  environment.shells = [pkgs.fish pkgs.zsh];
 
   # https://github.com/nix-community/home-manager/issues/423
   environment.variables = {
@@ -43,12 +45,6 @@ in {
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-  # system.defaults.NSGlobalDomain = {
-  # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
-  # KeyRepeat = 2; # unit is 15ms, so 30ms
-  # NSDocumentSaveNewDocumentsToCloud = false;
-  # };
-
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
     enable = true;
@@ -56,8 +52,7 @@ in {
     # enableFzfGit = true;
     enableFzfHistory = true;
     enableSyntaxHighlighting = true;
-    # loginShellInit = '''';
-    shellInit = ''
+    loginShellInit = ''
       if [[ $(uname -m) == 'arm64' ]]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
       fi
@@ -70,6 +65,19 @@ in {
           exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
     '';
+    # shellInit = ''
+    #   if [[ $(uname -m) == 'arm64' ]]; then
+    #       eval "$(/opt/homebrew/bin/brew shellenv)"
+    #   fi
+    #   if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
+    #       if [[ -o login ]]; then
+    #           LOGIN_OPTION='--login'
+    #       else
+    #           LOGIN_OPTION=""
+    #       fi
+    #       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    #   fi
+    # '';
   };
 
   fonts = {
@@ -125,12 +133,12 @@ in {
   # system.keyboard.remapCapsLockToEscape = true;
   # system.configurationRevision = self.rev or self.dirtyRev or null;
   security.pam.enableSudoTouchIdAuth = true;
+  # system.defaults.NSGlobalDomain = {
+  # InitialKeyRepeat = 33; # unit is 15ms, so 500ms
+  # KeyRepeat = 2; # unit is 15ms, so 30ms
+  # NSDocumentSaveNewDocumentsToCloud = false;
+  # };
 
-  # Used for backwards compatibility, please read the changelog before changing.
-  system = {
-    stateVersion = 4;
-    # ./defaults.nix;
-  };
   # system.defaults = {
   #   dock.autohide = true;
   #   dock.mru-spaces = false;
@@ -140,6 +148,12 @@ in {
   #   # screencapture.location = "~/Pictures/screenshots";
   #   # screensaver.askForPasswordDelay = 10;
   # };
+
+  # Used for backwards compatibility, please read the changelog before changing.
+  system = {
+    stateVersion = 4;
+    # ./defaults.nix;
+  };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
   users.users.${user} = {

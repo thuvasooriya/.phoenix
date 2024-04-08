@@ -11,7 +11,7 @@
     ./git.nix
     ./nvim.nix
     ./config.nix
-    ./tmux.nix
+    # ./tmux.nix
   ];
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
@@ -36,6 +36,9 @@
       enable = true;
       generateCaches = true;
     };
+    keychain = {
+      enable = true;
+    };
   };
   home = {
     stateVersion = "23.11";
@@ -43,15 +46,24 @@
       [
         coreutils
         curl
-        neofetch
         rsync
         hyperfine
         fzf
         rsync
-        tmux
         # docker
 
         luajit
+        xonsh
+        bat
+        # exa
+        lsd
+        zellij
+        rmtrash
+        mcfly
+        dogdns
+        htop
+        gron
+        mosh
         # lua
 
         nodejs
@@ -59,7 +71,7 @@
 
         (python3.withPackages
           (p: [
-            p.pandas
+            # p.pandas
             p.pip
           ]))
         pipx
