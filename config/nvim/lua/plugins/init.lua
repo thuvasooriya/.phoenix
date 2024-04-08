@@ -107,6 +107,15 @@ return {
 			-- Use init for configuration, don't use the more common "config".
 		end,
 	},
+	{
+		"L3MON4D3/LuaSnip",
+		opts = {
+			history = true,
+			updateevents = "TextChanged,TextChangedI",
+			enable_autosnippets = true,
+			-- store_selection_keys = "<Tab>",
+		},
+	},
 
 	-- Don't judge me I don't know how to set this up yet
 	-- {

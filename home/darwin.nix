@@ -11,7 +11,7 @@ in {
   #   vim
   # ];
 
-  # environment.shells = [pkgs.fish pkgs.bashInteractive];
+  environment.shells = [pkgs.fish pkgs.zsh pkgs.bashInteractive];
 
   # https://github.com/nix-community/home-manager/issues/423
   environment.variables = {
@@ -99,12 +99,15 @@ in {
       "zed"
       # cli tools
       "android-platform-tools"
+      "logisim-evolution"
       # utils
       "keyclu"
       "selfcontrol"
       "loungy"
       # tools
       "kicad"
+      # "ngspice"
+      "digital"
       "capcut"
       "anki"
       "blender"

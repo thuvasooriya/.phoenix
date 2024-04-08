@@ -11,6 +11,7 @@
     ./git.nix
     ./nvim.nix
     ./config.nix
+    ./tmux.nix
   ];
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
@@ -46,6 +47,8 @@
         rsync
         hyperfine
         fzf
+        rsync
+        tmux
         # docker
 
         luajit
