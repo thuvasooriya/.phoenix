@@ -21,6 +21,7 @@
       enable = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
+      enableTransience = true;
       settings = pkgs.lib.importTOML ../config/starship.toml;
     };
     zoxide = {
@@ -38,6 +39,9 @@
     };
     keychain = {
       enable = true;
+      enableFishIntegration = true;
+      keys = ["id_ed25519"];
+      # agents = [];
     };
   };
   home = {
@@ -60,11 +64,11 @@
         lsd
         zellij
         rmtrash
-        mcfly
+        # mcfly
         dogdns
         htop
         gron
-        mosh
+        # mosh
         # lua
 
         nodejs

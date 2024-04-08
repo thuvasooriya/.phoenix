@@ -68,25 +68,29 @@ args @ {
     shellInit = ''
       set -g fish_greeting
       starship init fish | source
-      enable_transience
     '';
     interactiveShellInit = ''
     '';
     loginShellInit = ''
     '';
     shellAliases = {
+      # cd = "z";
       bubu = "brew update && brew upgrade";
       broom = "brew autoremove && brew cleanup";
+      ls = "lsd -Alt --date relative";
+      rm = "rmtrash";
+      ze = "zellij";
+      # python3 = "python";
       pact = "source ./.venv/bin/activate.fish";
-      pen = "python3 -m venv .venv";
+      pen = "python -m venv .venv";
+      d = "aria2c -x8";
       # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
       # confish = "nvim $HOME/.config/fish/config.fish";
       # constar "code $HOME/.config/starship.toml"
     };
     shellAbbrs = {
-      ssh-keygen-ed25519 = "ssh-keygen -t ed25519";
+      sshkey-ed255 = "ssh-keygen -t ed25519";
       ip = "ipconfig getifaddr en0";
-      d = "aria2c -x8";
       yt = "yt-dlp";
       omnetpp = "opp_env run omnetpp-latest -c omnetpp";
     };
