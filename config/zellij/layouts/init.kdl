@@ -1,24 +1,27 @@
 layout {
-  tab name="init" split_direction="horizontal" cwd="~"  {
-    pane split_direction="vertical" {
+tab name="init" split_direction="horizontal" cwd="~" {
+  pane split_direction="vertical" {
     pane {
-        name "term"
-        cwd "~"
-      }
-      pane {
       name "nvim"
       focus true
-      borderless true
-        command "nvim"
-        cwd "~"
-      }
-         pane split_direction="horizontal" {
-            pane
-            pane
-        }
+      command "nvim"
+      cwd "~"
     }
-    pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
+    pane split_direction="horizontal" {
+    pane {
+          name "hello"
+          cwd "~"
+      }
+    pane {
+          name "neofetch"
+          cwd "~"
+          size 22
+          command "neofetch"
+      }
     }
   }
+  pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+  }
+}
 }

@@ -2,6 +2,12 @@ local overrides = require("configs.overrides")
 
 return {
 	{
+		"goolord/alpha-nvim",
+		event = "VimEnter",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = require("configs.alpha").setup,
+	},
+	{
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
 		config = function()

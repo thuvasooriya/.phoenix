@@ -1,11 +1,25 @@
 theme "catppuccin-mocha"
 
-//plugins {
+// plugins {
 //   tab-bar { path "tab-bar"; }
-//  status-bar { path "status-bar"; }
-//    strider { path "strider"; }
-//    compact-bar { path "compact-bar"; }
-//}
+//   status-bar { path "status-bar"; }
+//   strider { path "strider"; }
+//   compact-bar { path "compact-bar"; }
+// }
+//
+// plugins {
+//     tab-bar location="zellij:tab-bar"
+//     status-bar location="zellij:status-bar"
+//     strider location="zellij:strider"
+//     compact-bar location="zellij:compact-bar"
+//     session-manager location="zellij:session-manager"
+//     welcome-screen location="zellij:session-manager" {
+//         welcome_screen true
+//     }
+//     filepicker location="zellij:strider" {
+//         cwd "/"
+//     }
+// }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 // eg. when terminal window with an active zellij session is closed
@@ -23,7 +37,7 @@ simplified_ui true
 ui {
     pane_frames {
     rounded_corners true
-    hide_session_name false
+    hide_session_name true
     }
 }
 // The name of the default layout to load on startup
