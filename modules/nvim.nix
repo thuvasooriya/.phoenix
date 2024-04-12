@@ -41,11 +41,27 @@
       gcc
       tree-sitter
       # clang-tools_17
+      clang-tools
       ### rust ###
       # rust-analyzer
       ### nix ###
       nil
       alejandra
+      ### mason migration ###
+      shfmt
+      lua-language-server
+      stylua
+      # typescript-language-server
+      prettierd
+      texlab
+      # python-lsp-server
+      pyright
+      ruff
+      ruff-lsp
+      vscode-langservers-extracted
+      zathura
+      entr
+      # zathura-with-plugins
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

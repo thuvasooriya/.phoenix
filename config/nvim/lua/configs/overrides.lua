@@ -1,100 +1,99 @@
 local M = {}
 
 M.treesitter = {
-	ensure_installed = {
-		-- vim stuff
-		"vim",
-		"vimdoc",
-		"lua",
-		-- web dev
-		"html",
-		"css",
-		"javascript",
-		"typescript",
-		"tsx",
-		"json",
-		"csv",
-		"astro",
-		"svelte",
-		"dockerfile",
-		-- utils
-		"fish",
-		"gitignore",
-		"nix",
-		"verilog",
-		"toml",
-		"kdl",
-		-- lll
-		"cpp",
-		"c",
-		"zig",
-		"arduino",
-		-- mrk
-		"markdown",
-		"markdown_inline",
-		"latex",
-		"python",
-	},
-	indent = {
-		enable = true,
-		disable = {
-			"python",
-		},
-	},
+  ensure_installed = {
+    -- vim stuff
+    'vim',
+    'vimdoc',
+    'lua',
+    -- web dev
+    'html',
+    'css',
+    'javascript',
+    'typescript',
+    'tsx',
+    'json',
+    'csv',
+    'astro',
+    'svelte',
+    'dockerfile',
+    -- utils
+    'fish',
+    'gitignore',
+    'nix',
+    'verilog',
+    'toml',
+    'kdl',
+    -- lll
+    'cpp',
+    'c',
+    'zig',
+    'arduino',
+    -- mrk
+    'markdown',
+    'markdown_inline',
+    'latex',
+    'python',
+  },
+  indent = {
+    enable = true,
+    disable = {
+      'python',
+    },
+  },
 }
 
 M.mason = {
-	ensure_installed = {
-		"shfmt",
-		-- lua stuff
-		"lua-language-server",
-		"stylua",
-		-- web dev stuff
-		"css-lsp",
-		"html-lsp",
-		"typescript-language-server",
-		"prettierd",
-		-- c/cpp stuff
-		"clangd",
-		"clang-format",
+  ensure_installed = {
+    -- lua stuff
+    'lua-language-server',
+    'stylua',
+    -- web dev stuff
+    'css-lsp',
+    'html-lsp',
+    'typescript-language-server',
+    'prettierd',
+    -- c/cpp stuff
+    'clangd',
+    'clang-format',
 
-		"python-lsp-server",
-		-- "zls",
-		"texlab",
-	},
+    'python-lsp-server',
+    -- "zls",
+    'texlab',
+  },
 }
 
 M.nvimtree = {
-	git = {
-		enable = true,
-	},
+  git = {
+    enable = true,
+  },
 
-	renderer = {
-		highlight_git = true,
-		icons = {
-			show = {
-				git = true,
-			},
-		},
-	},
+  renderer = {
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
+    },
+  },
 }
 
 M.nvimproject = {
-	-- scope_chdir = 'tab'
-	projects = {
-		"~/.phoenix",
-		"~/.phoenix/config/*",
-		-- mac specific
-		"~/arc/pro/code/pydev/*",
-		"~/arc/pro/code/hdl/*",
-		"~/arc/pro/code/tmp/*",
-		"~/arc/pro/code/lll/*dev/*",
-		"~/dev/omnix/omnetpp-6.0.3/samples",
-		"~/dev/omnix/inet-4.5.2/examples",
-		"~/dev/omnix/inet-4.5.2/src/inet",
-		-- linux specific
-		"~/dev/*",
-	},
+  -- scope_chdir = 'tab'
+  projects = {
+    '~/.phoenix',
+    '~/.phoenix/config/*',
+    -- mac specific
+    '~/arc/pro/code/pydev/*',
+    '~/arc/pro/code/hdl/*',
+    '~/arc/pro/code/tmp/*',
+    '~/arc/pro/code/lll/*dev/*',
+    '~/dev/omnix/omnetpp-6.0.3/samples',
+    '~/dev/omnix/inet-4.5.2/examples',
+    '~/dev/omnix/inet-4.5.2/src/inet',
+    -- linux specific
+    '~/dev/*',
+  },
 }
 -- M.nvimproject = {
 -- 	-- scope_chdir = 'tab'

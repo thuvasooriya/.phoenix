@@ -78,6 +78,7 @@
           (p: [
             # p.pandas
             p.pip
+            p.python-lsp-server
           ]))
         pipx
       ]
