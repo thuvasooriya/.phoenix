@@ -1,1 +1,4 @@
 **/.DS_Store
+**/.tmp**
+**/flake.lock
+**/lazy-lock.json

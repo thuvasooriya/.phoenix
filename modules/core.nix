@@ -43,6 +43,12 @@
       keys = ["id_ed25519"];
       # agents = [];
     };
+    go = {
+      enable = true;
+      packages = {
+        # "https://pkg.go.dev/github.com/yuin/goldmark" = builtins.fetchGit "https://github.com/yuin/goldmark";
+      };
+    };
   };
   home = {
     stateVersion = "23.11";
@@ -55,6 +61,7 @@
         fzf
         rsync
         neofetch
+        scrcpy
         # docker
 
         luajit
@@ -70,9 +77,12 @@
         gron
         # mosh
         # lua
+        # go
 
         nodejs
         # nodejs_21
+
+        raylib
 
         (python3.withPackages
           (p: [
@@ -86,9 +96,16 @@
         yt-dlp
         cmatrix
         aria2
-        verilog
-        tectonic
+        hugo
+        # tectonic
+        # llvmPackages.clang-unwrapped
+        # llvmPackages_17.clang-unwrapped
+
+        # digital design
         verilator
+        verilog
+        gtkwave
+        # verible
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
         '')

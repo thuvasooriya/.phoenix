@@ -54,6 +54,13 @@
       # typescript-language-server
       prettierd
       texlab
+      perl
+      perl538Packages.LatexIndent
+      perlPackages.YAMLTiny
+      perlPackages.FileHomeDir
+      perlPackages.UnicodeLineBreak
+      tectonic
+
       # python-lsp-server
       pyright
       ruff

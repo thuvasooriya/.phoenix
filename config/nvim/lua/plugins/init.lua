@@ -48,7 +48,11 @@ return {
     -- lazy = false,
     -- priority = 100,
   },
-
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = true, -- or `opts = {}`
+  },
   {
     'smoka7/hop.nvim',
     version = 'v2.5.1',

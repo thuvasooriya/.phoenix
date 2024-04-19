@@ -43,7 +43,8 @@ in {
     git = {
       enable = true;
       userName = "thuvasooriya";
-      userEmail = "thuvasooriya@gmail.com";
+      # userEmail = "thuvaragan28@gmail.com";
+      userEmail = "74165167+thuvasooriya@users.noreply.github.com";
       aliases = {
         # Basic commands
         a = "add";
@@ -125,6 +126,9 @@ in {
         color.ui = true;
         branch.sort = "-committerdate";
         #core.fsmonitor = true; # watch FS for faster git status
+        commit.gpgsign = true;
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/id_ed25519.pub";
       };
       # signing = {
       # key = "4AB1353033774DA3";

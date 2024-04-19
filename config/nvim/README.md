@@ -6,6 +6,7 @@ This is still under progress and still have much work to do :)
 Let's goooo
 
 ## to do
+
 - project and session management maintaining tabs
 - make it work in linux
 - build tasks and test tasks easy implementation
@@ -13,16 +14,19 @@ Let's goooo
 - figuring out glitches in filetree open and close
 
 ## long term goals
+
 - platformio setup
 - ghostty integration
 - moving to neovim 10
 
 ### memo
+
 - use :qa to quit to terminal easily closing all buffers
 - K is mapped to LSP highlight
 - <leader>gg to get lazygit
 - <leader>fp to navigate projects
 
 ### done
+
 - setup nix formatting using alejandra
 - nix compatibility to lsp and my workflow

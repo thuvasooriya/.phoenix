@@ -121,14 +121,14 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.verible.setup {
-  on_attach = on_attach,
-  root_dir = function()
-    return vim.loop.cwd() -- fixes git problem with verible
-  end,
-  cmd = { 'verible-verilog-ls', '--rules_config_search' },
-}
-
+-- lspconfig.verible.setup {
+--   on_attach = on_attach,
+--   root_dir = function()
+--     return vim.loop.cwd() -- fixes git problem with verible
+--   end,
+--   cmd = { 'verible-verilog-ls', '--rules_config_search' },
+-- }
+--
 -- lspconfig.ruff_lsp.setup {
 --   on_attach()
 --   -- init_options {
@@ -137,6 +137,12 @@ lspconfig.verible.setup {
 --   --   },
 --   -- },
 -- }
+lspconfig['svlangserver'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { 'verilog', 'systemverilog' },
+}
+--
 lspconfig.texlab.setup {
   texlab = {
     build = {
@@ -150,7 +156,7 @@ lspconfig.texlab.setup {
         '--keep-intermediates',
       },
       onSave = true,
-      -- forwardSearchAfter = false,
+      forwardSearchAfter = false,
     },
     -- auxDirectory = 'build',
     -- forwardSearch = {

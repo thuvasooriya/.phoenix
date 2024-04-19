@@ -93,12 +93,12 @@ in {
     enable = true;
     onActivation = {
       autoUpdate = true;
-      # upgrade = true;
+      upgrade = true;
       cleanup = "zap";
     };
     global = {brewfile = true;};
-    # taps = ["homebrew/bundle" "homebrew/cask" "homebrew/core"];
-    brews = ["latexindent"];
+    taps = ["krtirtho/apps"];
+    # brews = ["latexindent"];
     casks = [
       # dev
       "orbstack"
@@ -120,6 +120,7 @@ in {
       "anki"
       "blender"
       # "syncthing"
+      "spotube"
       "obs"
       "ltspice"
       "handbrake"
