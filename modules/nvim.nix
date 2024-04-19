@@ -38,37 +38,41 @@
       fd
       wget
       ### treesitter ###
-      gcc
       tree-sitter
+      gcc
       # clang-tools_17
       clang-tools
+
       ### rust ###
       # rust-analyzer
+
       ### nix ###
       nil
       alejandra
+
       ### mason migration ###
       shfmt
       lua-language-server
       stylua
       # typescript-language-server
       prettierd
-      texlab
-      perl
-      perl538Packages.LatexIndent
-      perlPackages.YAMLTiny
-      perlPackages.FileHomeDir
-      perlPackages.UnicodeLineBreak
-      tectonic
+      vscode-langservers-extracted
 
-      # python-lsp-server
+      ### latex ###
+      texlab
+      # perl
+      # perl538Packages.LatexIndent
+      # perlPackages.YAMLTiny
+      # perlPackages.FileHomeDir
+      # perlPackages.UnicodeLineBreak
+      tectonic
+      zathura
+      entr
+
+      ### python ###
       pyright
       ruff
       ruff-lsp
-      vscode-langservers-extracted
-      zathura
-      entr
-      # zathura-with-plugins
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

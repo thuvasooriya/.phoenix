@@ -81,14 +81,11 @@
 
         nodejs
         # nodejs_21
-
-        raylib
-
         (python3.withPackages
           (p: [
             # p.pandas
             p.pip
-            p.python-lsp-server
+            # p.python-lsp-server
           ]))
         pipx
       ]
@@ -97,7 +94,6 @@
         cmatrix
         aria2
         hugo
-        # tectonic
         # llvmPackages.clang-unwrapped
         # llvmPackages_17.clang-unwrapped
 
@@ -105,7 +101,7 @@
         verilator
         verilog
         gtkwave
-        # verible
+        verible
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
         '')
@@ -123,7 +119,7 @@
       EDITOR = "nvim";
     };
     # using bun and zvm outside of nix
-    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin" "~/Library/TinyTeX"];
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin"];
   };
   # ++ lib.optionals pkgs.stdenv.isLinux {
   #   username = "tony";
