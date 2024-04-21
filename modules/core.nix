@@ -101,7 +101,7 @@
         verilator
         verilog
         gtkwave
-        verible
+        # verible
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
         '')
@@ -119,7 +119,7 @@
       EDITOR = "nvim";
     };
     # using bun and zvm outside of nix
-    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.bun/bin"];
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin" "$HOME/.bun/bin"];
   };
   # ++ lib.optionals pkgs.stdenv.isLinux {
   #   username = "tony";

@@ -98,7 +98,7 @@ in {
     };
     global = {brewfile = true;};
     taps = ["krtirtho/apps"];
-    # brews = ["latexindent"];
+    brews = ["latexindent"];
     casks = [
       # dev
       "orbstack"
@@ -157,6 +157,7 @@ in {
   };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+  # nixpkgs.config.allowUnsupportedSystem = true;
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";

@@ -84,6 +84,7 @@ args @ {
       pact = "source ./.venv/bin/activate.fish";
       pen = "python -m venv .venv";
       d = "aria2c -x8";
+      n = "nvim";
       # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
       # confish = "nvim $HOME/.config/fish/config.fish";
       # constar "code $HOME/.config/starship.toml"

@@ -15,7 +15,7 @@ local options = {
     nix = { 'alejandra' },
     python = { 'ruff_fix', 'ruff_format' },
     tex = { 'latexindent' },
-    -- sv = { "verible" },
+    sv = { 'verible' },
   },
   ft_parsers = {
     --     javascript = "babel",

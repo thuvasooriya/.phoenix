@@ -13,6 +13,7 @@ window-padding-y = 0
 window-step-resize = true
 window-height=18
 window-width=72
+# unfocused-split-opacity = 0.95
 
 background-blur-radius=10
 background-opacity=0.97
@@ -23,19 +24,44 @@ font-size = 12
 # font-family = 'JetBrains Mono Nerd Font'
 
 clipboard-read = "allow"
-# copy-on-select = clipboard
+copy-on-select = clipboard
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
 
-cursor-style-blink = true
+cursor-style-blink = false
 # cursor-style = block
 mouse-hide-while-typing = true
 cursor-click-to-move = true
 mouse-shift-capture = true
-shell-integration = "detect"
+# shell-integration = "detect"
+shell-integration = fish
+shell-integration-features = cursor, sudo, no-title
 confirm-close-surface = false
 # quit-after-last-window-closed = true
 # confirm-close-surface = false
 
 macos-option-as-alt = true
 macos-titlebar-tabs = true
+
+# keymaps
+
+## page movement
+keybind = super+k=scroll_page_up
+keybind = super+j=scroll_page_down
+
+## pane control
+keybind = super+slash=new_split:right
+keybind = shift+super+slash=new_split:down
+
+## pane movement
+keybind = ctrl+super+h=goto_split:left
+keybind = ctrl+super+k=goto_split:top
+keybind = ctrl+super+j=goto_split:bottom
+keybind = ctrl+super+l=goto_split:right
+
+## pane maximize 
+keybind = ctrl+super+f=unbind
+keybind = ctrl+super+f=toggle_split_zoom
+
+## pane close
+# keybind = ctrl+super+w=close_surface
