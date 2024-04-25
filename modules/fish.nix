@@ -1,10 +1,46 @@
-args @ {
+# args @ {
+{
   pkgs,
   lib,
   ...
 }: {
   programs.fish = {
     enable = true;
+    shellInit = ''
+      set fish_greeting
+      starship init fish | source
+    '';
+    interactiveShellInit = ''
+    '';
+    shellInitLast = ''
+    '';
+    loginShellInit = ''
+    '';
+    shellAliases = {
+      # cd = "z";
+      bubu = "brew update && brew upgrade";
+      broom = "brew autoremove && brew cleanup";
+      ls = "lsd -Alt --date relative";
+      # rm = "rmtrash";
+      ze = "zellij";
+      # python3 = "python";
+      pact = "source ./.venv/bin/activate.fish";
+      pen = "python -m venv .venv && pact";
+      d = "aria2c -x8";
+      n = "nvim";
+      # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
+      constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
+    };
+    shellAbbrs = {
+      sshkey-ed255 = "ssh-keygen -t ed25519";
+      ip = "ipconfig getifaddr en0";
+      yt = "yt-dlp";
+      omnetpp = "opp_env run omnetpp-latest -c omnetpp";
+      cd = "z";
+      cat = "bat";
+    };
+    plugins = with pkgs.fishPlugins; [
+    ];
     functions = {
       starship_transient_prompt_func.body = ''
         starship module line_break
@@ -19,7 +55,7 @@ args @ {
         bind -M insert -m default jk backward-char force-repaint
         bind -M insert -m default jj backward-char force-repaint
       '';
-      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
+      gig = "curl -sL https://www.gitignore.io/api/$argv";
       zr = {
         body = ''
           set file_dir (dirname $argv)
@@ -64,57 +100,21 @@ args @ {
         '';
         # argument = file_path;
       };
+      iv = {
+        body = ''
+          set output_file (string split -m 1 '.' $argv[1])[1]".o"
+          iverilog -Wall -o $output_file $argv >/tmp/iver.out 2>&1
+          or return $status
+
+          if string match -r "VCD info" </tmp/iver.out
+              vvp $output_file
+              gtkwave
+          else
+              echo "No VCD info found in the output."
+          end
+        '';
+      };
     };
-    shellInit = ''
-      set -g fish_greeting
-      starship init fish | source
-    '';
-    interactiveShellInit = ''
-    '';
-    loginShellInit = ''
-    '';
-    shellAliases = {
-      # cd = "z";
-      bubu = "brew update && brew upgrade";
-      broom = "brew autoremove && brew cleanup";
-      ls = "lsd -Alt --date relative";
-      rm = "rmtrash";
-      ze = "zellij";
-      # python3 = "python";
-      pact = "source ./.venv/bin/activate.fish";
-      pen = "python -m venv .venv";
-      d = "aria2c -x8";
-      n = "nvim";
-      # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
-      # confish = "nvim $HOME/.config/fish/config.fish";
-      # constar "code $HOME/.config/starship.toml"
-    };
-    shellAbbrs = {
-      sshkey-ed255 = "ssh-keygen -t ed25519";
-      ip = "ipconfig getifaddr en0";
-      yt = "yt-dlp";
-      omnetpp = "opp_env run omnetpp-latest -c omnetpp";
-    };
-    plugins = with pkgs.fishPlugins; [
-      # {
-      #   name = "plugin-git"; # git abbrs
-      #   #src = plugin-git.src;
-      #   src = pkgs.fetchFromGitHub { # https://github.com/jhillyerd/plugin-git/pull/103
-      #     owner = "hexclover";
-      #     repo = "plugin-git";
-      #     rev = "master";
-      #     sha256 = "sha256-efKPbsXxjHm1wVWPJCV8teG4DgZN5dshEzX8PWuhKo4";
-      #   };
-      # }
-      # {
-      #  name = "done"; # doesn't work on wayland
-      #  src = done.src;
-      # }
-      # {
-      #  name = "async-prompt"; # pisces # auto pairing of ([{"'
-      #  src = async-prompt.src;
-      # }
-    ];
   };
 }
 # ${lib.optionalString (!args ? osConfig) "source ${pkgs.nix}/etc/profile.d/nix-daemon.fish"}

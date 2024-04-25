@@ -7,14 +7,6 @@
 }: let
   user = "tony";
 in {
-  environment.systemPackages = with pkgs; [
-    fish
-    zsh
-    # bashInteractive
-  ];
-
-  environment.shells = [pkgs.fish pkgs.zsh];
-
   # https://github.com/nix-community/home-manager/issues/423
   environment.variables = {
     # GHOSTTY TERMINFO CONFIG
@@ -24,28 +16,45 @@ in {
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # services.karabiner-elements.enable = true;
-  # nix.package = pkgs.nix;
 
+  ### nix config stuff need to move to another file ###
   nix.settings.experimental-features = "nix-command flakes";
   nix.gc = {
-    automatic = true;
+    # automatic = true;
     # options = "--delete-older-than 10d";
     # interval = {
     #   Hour = 20;
     #   Minute = 0;
     # };
   };
+  nix.optimise = {
+    automatic = true;
+    # options = "--delete-older-than 10d";
+    interval = {
+      Hour = 48;
+      Minute = 0;
+    };
+  };
 
-  # nix.package = pkgs.nixUnstable;
+  # nix.package = pkgs.nix;
+  nix.package = pkgs.nixUnstable;
+  nix.settings.auto-optimise-store = true;
   nix.extraOptions =
     ''
-      auto-optimise-store = true
     ''
     + lib.optionalString (pkgs.system == "aarch64-darwin") ''
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
+  programs.nix-index.enable = true;
+  nixpkgs.hostPlatform = {
+    config = "aarch64-apple-darwin";
+    system = "aarch64-darwin";
+  };
+  # nixpkgs.config.allowUnsupportedSystem = true;
+
+  programs.man.enable = true;
+
   programs.zsh = {
     enable = true;
     enableFzfCompletion = true;
@@ -56,62 +65,64 @@ in {
       if [[ $(uname -m) == 'arm64' ]]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
       fi
-      if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
-          if [[ -o login ]]; then
-              LOGIN_OPTION='--login'
-          else
-              LOGIN_OPTION=""
-          fi
-          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
     '';
-    # shellInit = ''
-    #   if [[ $(uname -m) == 'arm64' ]]; then
-    #       eval "$(/opt/homebrew/bin/brew shellenv)"
-    #   fi
-    #   if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
-    #       if [[ -o login ]]; then
-    #           LOGIN_OPTION='--login'
-    #       else
-    #           LOGIN_OPTION=""
-    #       fi
-    #       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-    #   fi
-    # '';
+  };
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+      if test (uname -m) = "arm64"
+          eval (/opt/homebrew/bin/brew shellenv)
+      end
+    '';
+  };
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
   };
 
   fonts = {
     fontDir.enable = true;
     fonts = [
       (pkgs.nerdfonts.override {
-        fonts = ["CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono"];
+        fonts = ["JetBrainsMono"];
+        # fonts = ["CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono"];
       })
     ];
   };
 
+  # TODO: write a script to check whether homebrew is installed and install it
   homebrew = {
     enable = true;
+    # brewPrefix = "/opt/homebrew";
     onActivation = {
-      autoUpdate = true;
+      # autoUpdate = true;
       upgrade = true;
       cleanup = "zap";
     };
     global = {brewfile = true;};
     taps = ["krtirtho/apps"];
-    brews = ["latexindent"];
+    brews = [
+      "latexindent"
+      "octave"
+    ];
+    /*
     casks = [
       # dev
       "orbstack"
+
       # editors
       "visual-studio-code"
       "zed"
+
       # cli tools
       "android-platform-tools"
       "logisim-evolution"
+
       # utils
       "keyclu"
-      "selfcontrol"
+      # "selfcontrol"
       "loungy"
+
       # tools
       "kicad"
       # "ngspice"
@@ -126,7 +137,9 @@ in {
       "handbrake"
       "zoom"
       "wireshark"
+      "utm"
     ];
+    */
     masApps = {};
   };
 
@@ -156,10 +169,27 @@ in {
     # ./defaults.nix;
   };
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  # nixpkgs.config.allowUnsupportedSystem = true;
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
   };
+
+  # environment.systemPackages = with pkgs; [
+  # fish
+  # zsh
+  # bashInteractive
+  # ];
+
+  # environment.shells = [pkgs.fish pkgs.zsh];
 }
+### following function can be used to call fish conditionally in zsh by including it in the loginShellInit
+### but I personally don't like it :)
+# if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
+#     if [[ -o login ]]; then
+#         LOGIN_OPTION='--login'
+#     else
+#         LOGIN_OPTION=""
+#     fi
+#     exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+# fi
+

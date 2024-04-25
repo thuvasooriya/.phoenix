@@ -28,6 +28,13 @@
       enable = true;
       enableFishIntegration = true;
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    bun = {
+      enable = true;
+    };
     nushell.enable = true;
     nix-index = {
       enable = true;
@@ -36,6 +43,10 @@
     man = {
       enable = true;
       generateCaches = true;
+    };
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
     };
     keychain = {
       enable = true;
@@ -58,7 +69,7 @@
         curl
         rsync
         hyperfine
-        fzf
+        # fzf
         rsync
         neofetch
         scrcpy
@@ -77,15 +88,13 @@
         gron
         # mosh
         # lua
-        # go
 
         nodejs
         # nodejs_21
         (python3.withPackages
           (p: [
-            # p.pandas
+            p.tkinter
             p.pip
-            # p.python-lsp-server
           ]))
         pipx
       ]
@@ -113,13 +122,18 @@
       ];
 
     file = {
+      # ".config/nvim" = {
+      #   source = ../config/nvim;
+      #   recursive = true;
+      ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
+      ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
     };
 
     sessionVariables = {
       EDITOR = "nvim";
     };
-    # using bun and zvm outside of nix
-    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin" "$HOME/.bun/bin"];
+    # need to do something about these things
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin"];
   };
   # ++ lib.optionals pkgs.stdenv.isLinux {
   #   username = "tony";

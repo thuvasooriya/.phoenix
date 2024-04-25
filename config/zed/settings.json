@@ -48,6 +48,15 @@
   },
   "terminal": {
     "default_height": 160,
-    "line_height": "standard"
+    "line_height": "standard",
+    "detect_venv": {
+      "on": {
+        // "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "fish"
+      }
+    }
+    // "shell": {
+    //   "program": "fish"
+    // }
   }
 }

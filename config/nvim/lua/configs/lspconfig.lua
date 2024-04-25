@@ -127,6 +127,7 @@ lspconfig.verible.setup {
     return vim.loop.cwd() -- fixes git problem with verible
   end,
   cmd = { 'verible-verilog-ls', '--rules_config_search' },
+  -- cmd = { 'verible-verilog-ls' },
   filetypes = { 'verilog', 'systemverilog' },
 }
 --

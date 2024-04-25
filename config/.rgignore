@@ -1,0 +1,9 @@
+*.mp4
+**/Applications/**
+**/Library/**
+**/Movies/**
+*.dmg
+**/desktop.ini
+**/Parallels/**
+**/Applications (Parallels)/**
+**/Photos/*
