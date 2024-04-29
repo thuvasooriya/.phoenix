@@ -6,28 +6,28 @@ Apart from the sexy name, this config is nowhere near useable. I'm currently tes
 
 ## Current Goals
 
-- siphon the whole ghostty terminal setup on macOS to be reproducible
-- transfer all homebrew packages
-- setup universal nvchad config w/ wo/ nixvim
-- tmux or zellij or just ghostty windows
+- [ ] siphon the whole ghostty terminal setup on macOS to be reproducible
+- [ ] transfer all homebrew packages
+- [ ] tmux or zellij or just ghostty windows
 
 ## Looking Forward
 
-- balancing nix-darwin and home-manager to give maximum reusability between linux and macOS
-- learn nix stuff
-- error handling
-- stability pinning
-- encryption and securities automation
-- below 5 line setup for generic linux and nixOS
-- system-manager for generic linux
-- installer prepare steps defining
+- [ ] balancing nix-darwin and home-manager to give maximum reusability between linux and macOS
+- [ ] learn nix stuff
+- [ ] error handling
+- [ ] stability pinning
+- [ ] encryption and securities automation
+- [ ] below 5 line setup for generic linux and nixOS
+- [ ] system-manager for generic linux
+- [ ] installer prepare steps defining
 
 ## Done
 
-- basic fish and starship setup
-- porting my starship and fish goodies to nix
-- transferred all homebrew casks
-- initial zig setup for zvm support
+- [x] basic fish and starship setup
+- [x] porting my starship and fish goodies to nix
+- [x] transferred all homebrew casks
+- [x] initial zig setup for zvm support
+- [x] initial nvim config with partial determinism
 
 ### References
 
