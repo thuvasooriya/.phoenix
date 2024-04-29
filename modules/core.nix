@@ -73,7 +73,11 @@
         rsync
         neofetch
         scrcpy
-        # docker
+        docker
+        colima
+        # x11docker
+        xquartz
+        xorg.xauth
 
         luajit
         xonsh
@@ -93,7 +97,6 @@
         # nodejs_21
         (python3.withPackages
           (p: [
-            p.tkinter
             p.pip
           ]))
         pipx

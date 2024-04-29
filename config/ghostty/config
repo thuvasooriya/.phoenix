@@ -31,7 +31,7 @@ clipboard-trim-trailing-spaces = true
 
 cursor-style-blink = false
 # cursor-style = block
-mouse-hide-while-typing = true
+mouse-hide-while-typing = false
 cursor-click-to-move = true
 mouse-shift-capture = true
 # shell-integration = "detect"
