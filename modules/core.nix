@@ -90,6 +90,7 @@
         dogdns
         htop
         gron
+        ollama
         # mosh
         # lua
 

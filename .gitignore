@@ -1,2 +1,5 @@
 **/.DS_Store
+
+# zed config tmp files
 **/.tmp**
+**/zed/**/**.mdb

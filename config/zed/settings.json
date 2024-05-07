@@ -55,8 +55,5 @@
         "activate_script": "fish"
       }
     }
-    // "shell": {
-    //   "program": "fish"
-    // }
   }
 }

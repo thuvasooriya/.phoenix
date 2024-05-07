@@ -7,25 +7,19 @@
 }: let
   user = "tony";
 in {
-  # https://github.com/nix-community/home-manager/issues/423
   environment.variables = {
-    # GHOSTTY TERMINFO CONFIG
+    ## todo: ghostty terminfo config for sbcs
     # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   };
 
-  # Auto upgrade nix package and the daemon service.
+  ## auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # services.karabiner-elements.enable = true;
 
-  ### nix config stuff need to move to another file ###
+  ## todo: nix config stuff need to move to another file ###
   nix.settings.experimental-features = "nix-command flakes";
   nix.gc = {
-    # automatic = true;
-    # options = "--delete-older-than 10d";
-    # interval = {
-    #   Hour = 20;
-    #   Minute = 0;
-    # };
+    automatic = true;
   };
   nix.optimise = {
     automatic = true;
@@ -36,8 +30,7 @@ in {
     };
   };
 
-  # nix.package = pkgs.nix;
-  nix.package = pkgs.nixUnstable;
+  nix.package = pkgs.nixFlakes;
   nix.settings.auto-optimise-store = true;
   nix.extraOptions =
     ''
@@ -46,15 +39,15 @@ in {
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-  programs.nix-index.enable = true;
   nixpkgs.hostPlatform = {
     config = "aarch64-apple-darwin";
     system = "aarch64-darwin";
   };
   # nixpkgs.config.allowUnsupportedSystem = true;
 
+  ## darwin programs
+  programs.nix-index.enable = true;
   programs.man.enable = true;
-
   programs.zsh = {
     enable = true;
     enableFzfCompletion = true;
@@ -90,7 +83,7 @@ in {
     ];
   };
 
-  # TODO: write a script to check whether homebrew is installed and install it
+  # todo: write a script to check whether homebrew is installed and install it
   homebrew = {
     enable = true;
     # brewPrefix = "/opt/homebrew";
@@ -100,46 +93,52 @@ in {
       cleanup = "zap";
     };
     global = {brewfile = true;};
-    taps = ["krtirtho/apps"];
+    taps = ["krtirtho/apps" "mongodb/brew"];
     brews = [
       "latexindent"
       "octave"
+      "mongodb-community@7.0"
     ];
-    /*
     casks = [
       # dev
       "orbstack"
-
-      # editors
       "visual-studio-code"
       "zed"
 
       # cli tools
       "android-platform-tools"
+
+      # digital design tools
       "logisim-evolution"
+      "ltspice"
+      "wireshark"
+      # "kicad"
+      # "ngspice"
+      # "digital"
 
       # utils
       "keyclu"
-      # "selfcontrol"
-      "loungy"
-
-      # tools
-      "kicad"
-      # "ngspice"
-      "digital"
-      "capcut"
-      "anki"
-      "blender"
+      "notion"
+      "notion-calendar"
+      "obsidian"
+      "telegram"
+      "whatsapp"
+      "orion"
       # "syncthing"
-      "spotube"
+      # "spotube"
+      # "arc"
       "obs"
-      "ltspice"
-      "handbrake"
       "zoom"
-      "wireshark"
-      "utm"
+      "keka"
+      "skim"
+      # "selfcontrol"
+      # "loungy"
+      # "raycast"
+      "anki"
+      # "blender"
+      "handbrake"
+      # "utm"
     ];
-    */
     masApps = {};
   };
 
@@ -163,7 +162,6 @@ in {
   #   # screensaver.askForPasswordDelay = 10;
   # };
 
-  # Used for backwards compatibility, please read the changelog before changing.
   system = {
     stateVersion = 4;
     # ./defaults.nix;
@@ -173,14 +171,6 @@ in {
     name = "${user}";
     home = "/Users/${user}";
   };
-
-  # environment.systemPackages = with pkgs; [
-  # fish
-  # zsh
-  # bashInteractive
-  # ];
-
-  # environment.shells = [pkgs.fish pkgs.zsh];
 }
 ### following function can be used to call fish conditionally in zsh by including it in the loginShellInit
 ### but I personally don't like it :)
