@@ -2,24 +2,41 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in normal & visual mode
+      // normal & visual mode
       "space /": [
         "editor::ToggleComments",
         {
           "advance_downwards": false
         }
-      ]
+      ],
+      "J": ["workspace::SendKeystrokes", "5 j"],
+      "K": ["workspace::SendKeystrokes", "5 k"]
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space f f": "file_finder::Toggle"
     }
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work only in normal mode
-      // "space g g": ["task:spawn", "lazygit"]
-      // "space g": [
-      //   "workspace::sendKeystrokes",
-      //   ": task:spawn enter Test Under Cursor enter"
-      // ]
+      // only in normal mode
+      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "space f f": "file_finder::Toggle"
     }
   },
   {
@@ -31,18 +48,20 @@
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in insert mode
-      "j k": ["vim::SwitchMode", "Normal"],
-      "k j": ["vim::SwitchMode", "Normal"]
+      // insert mode
+      // "j k": ["vim::SwitchMode", "Normal"],
+      "j k": ["workspace::SendKeystrokes", "escape"],
+      "j j": ["workspace::SendKeystrokes", "escape"]
+      // "j j": ["vim::SwitchMode", "Normal"]
     }
   },
-  {
-    "context": "Pane",
-    "bindings": {
-      "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePrevItem"
-    }
-  },
+  // {
+  //   "context": "Pane",
+  //   "bindings": {
+  //     "ctrl-tab": "pane::ActivateNextItem",
+  //     "ctrl-shift-tab": "pane::ActivatePrevItem"
+  //   }
+  // },
   {
     "context": "Dock",
     "bindings": {
