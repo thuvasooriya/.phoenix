@@ -1,2 +1,9 @@
 -o "~/Downloads/vids/%(playlist|)s/%(playlist_index|)s_%(title)s.%(ext)s"
 --restrict-filenames
+--user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+--cookies-from-browser safari
+--downloader aria2c
+--concurrent-fragment 10
+-S proto:dash
+--alias get-audio,-X "-S=aext:{0},abr -x --audio-format {0}"
+--min-filesize 100k

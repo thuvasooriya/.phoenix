@@ -105,6 +105,8 @@ in {
       "visual-studio-code"
       "zed"
 
+      "amethyst"
+
       # cli tools
       "android-platform-tools"
 

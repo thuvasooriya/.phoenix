@@ -66,3 +66,6 @@ keybind = ctrl+super+f=toggle_split_zoom
 
 ## pane close
 # keybind = ctrl+super+w=close_surface
+
+## i mean for gods sake macos
+window-vsync=true

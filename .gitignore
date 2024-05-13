@@ -3,3 +3,4 @@
 # zed config tmp files
 **/.tmp**
 **/zed/**/**.mdb
+**/aria2.session

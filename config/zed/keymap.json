@@ -16,14 +16,22 @@
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      // "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space enter"
+      ],
       "space f f": "file_finder::Toggle"
     }
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      // "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space enter"
+      ],
       "space f f": "file_finder::Toggle"
     }
   },
@@ -31,7 +39,11 @@
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       // only in normal mode
-      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      // "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space enter"
+      ],
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],

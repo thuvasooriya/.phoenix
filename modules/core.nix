@@ -91,6 +91,7 @@
         htop
         gron
         ollama
+        ffmpeg
         # mosh
         # lua
 
@@ -103,7 +104,7 @@
         pipx
       ]
       ++ lib.optionals pkgs.stdenv.isDarwin [
-        yt-dlp
+        # yt-dlp use nightly bin files instead
         cmatrix
         aria2
         hugo
@@ -114,6 +115,7 @@
         verilator
         verilog
         gtkwave
+        typst
         # verible
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
@@ -129,6 +131,7 @@
       # ".config/nvim" = {
       #   source = ../config/nvim;
       #   recursive = true;
+      # ".aria2/aria2.conf".source = config.lib.file.mkOutOfStoreSymlink ../config/aria2.conf;
       ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
       ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
     };
@@ -137,7 +140,7 @@
       EDITOR = "nvim";
     };
     # need to do something about these things
-    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin"];
+    sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin" "$HOME/.cargo/bin"];
   };
   # ++ lib.optionals pkgs.stdenv.isLinux {
   #   username = "tony";
