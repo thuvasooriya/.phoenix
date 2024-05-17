@@ -104,8 +104,8 @@ in {
       "orbstack"
       "visual-studio-code"
       "zed"
-
-      "amethyst"
+      # "ava"
+      # "amethyst"
 
       # cli tools
       "android-platform-tools"

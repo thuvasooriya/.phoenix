@@ -26,8 +26,10 @@
       # python3 = "python";
       pact = "source ./.venv/bin/activate.fish";
       pen = "python -m venv .venv && pact";
-      d = "aria2c -x8";
-      n = "nvim";
+      a = "python3 ~/.config/aria2/aria2.py";
+      n = "nnn";
+      v = "nvim";
+      nv = "nvim";
       # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
       constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
     };

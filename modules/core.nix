@@ -60,6 +60,18 @@
         # "https://pkg.go.dev/github.com/yuin/goldmark" = builtins.fetchGit "https://github.com/yuin/goldmark";
       };
     };
+    nnn = {
+      enable = true;
+      extraPackages = [];
+      package = pkgs.nnn.override {withNerdIcons = true;};
+      plugins = {
+        mappings = {
+          d = "fzcd";
+          # p = "preview-tui";
+          f = "finder";
+        };
+      };
+    };
   };
   home = {
     stateVersion = "23.11";
@@ -91,6 +103,7 @@
         htop
         gron
         ollama
+        llama-cpp
         ffmpeg
         # mosh
         # lua
@@ -108,6 +121,7 @@
         cmatrix
         aria2
         hugo
+        flyctl
         # llvmPackages.clang-unwrapped
         # llvmPackages_17.clang-unwrapped
 
