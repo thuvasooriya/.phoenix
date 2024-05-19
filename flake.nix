@@ -52,8 +52,12 @@
         ./modules/nix-core.nix
         ./modules/system.nix
         ./modules/apps.nix
-        ./modules/homebrew-mirror.nix # comment this line if you don't need a homebrew mirror
+        # ./modules/homebrew-mirror.nix # comment this line if you don't need a homebrew mirror
         ./modules/host-users.nix
+        # ./modules/git.nix
+        # ./modules/nvim.nix
+        # ./modules/fish.nix
+        # ./modules/config.nix
         # ./home/darwin.nix
 
         home-manager.darwinModules.home-manager

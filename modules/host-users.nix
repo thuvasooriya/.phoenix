@@ -8,7 +8,7 @@
   system.defaults.smb.NetBIOSName = hostname;
 
   users.users."${username}" = {
-    name = "${user}";
+    name = "${username}";
     home = "/Users/${username}";
     description = username;
   };

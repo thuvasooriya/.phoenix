@@ -7,8 +7,6 @@
 }: let
   # user = "tony";
 in {
-
-
   ## darwin programs
   programs.nix-index.enable = true;
   programs.man.enable = true;

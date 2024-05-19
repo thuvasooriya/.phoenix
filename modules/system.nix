@@ -125,17 +125,17 @@
         "com.apple.ImageCapture".disableHotPlug = true;
       };
 
-      ZoomChat = {
-        ZMEnableShowUserName = false;
-        ZoomFitDock = true;
-        ZoomFitXPos = 620;
-        ZoomFitYPos = 864;
-        ZoomRememberPhoneKey = true;
-        "com.zoom.client.langid" = 1033;
-        "conf.crash.enable.auto.uploaddumps" = true;
-        "conf.webserver" = "https://us04web.zoom.us";
-        "conf.webserver.vendor.default" = "https://zoom.us";
-      };
+      # ZoomChat = {
+      #   ZMEnableShowUserName = false;
+      #   ZoomFitDock = true;
+      #   ZoomFitXPos = 620;
+      #   ZoomFitYPos = 864;
+      #   ZoomRememberPhoneKey = true;
+      #   "com.zoom.client.langid" = 1033;
+      #   "conf.crash.enable.auto.uploaddumps" = true;
+      #   "conf.webserver" = "https://us04web.zoom.us";
+      #   "conf.webserver.vendor.default" = "https://zoom.us";
+      # };
 
       loginwindow = {
         GuestEnabled = false; # disable guest user

@@ -3,7 +3,10 @@
   imports = [
     ./shell.nix
     ./core.nix
+    ./fish.nix
+    ./nvim.nix
     ./git.nix
+    ./config.nix
   ];
 
   home = {
