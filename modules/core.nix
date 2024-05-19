@@ -15,64 +15,6 @@
   ];
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
-  programs = {
-    home-manager.enable = true;
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
-      enableTransience = true;
-      settings = pkgs.lib.importTOML ../config/starship.toml;
-    };
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-    bun = {
-      enable = true;
-    };
-    nushell.enable = true;
-    nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    man = {
-      enable = true;
-      generateCaches = true;
-    };
-    fzf = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    keychain = {
-      enable = true;
-      enableFishIntegration = true;
-      keys = ["id_ed25519"];
-      # agents = [];
-    };
-    go = {
-      enable = true;
-      packages = {
-        # "https://pkg.go.dev/github.com/yuin/goldmark" = builtins.fetchGit "https://github.com/yuin/goldmark";
-      };
-    };
-    nnn = {
-      enable = true;
-      extraPackages = [];
-      package = pkgs.nnn.override {withNerdIcons = true;};
-      plugins = {
-        mappings = {
-          d = "fzcd";
-          # p = "preview-tui";
-          f = "finder";
-        };
-      };
-    };
-  };
   home = {
     stateVersion = "23.11";
     packages = with pkgs;
@@ -93,17 +35,8 @@
 
         luajit
         xonsh
-        bat
-        # exa
-        lsd
-        zellij
         rmtrash
         # mcfly
-        dogdns
-        htop
-        gron
-        ollama
-        llama-cpp
         ffmpeg
         # mosh
         # lua
@@ -117,20 +50,6 @@
         pipx
       ]
       ++ lib.optionals pkgs.stdenv.isDarwin [
-        # yt-dlp use nightly bin files instead
-        cmatrix
-        aria2
-        hugo
-        flyctl
-        # llvmPackages.clang-unwrapped
-        # llvmPackages_17.clang-unwrapped
-
-        # digital design
-        verilator
-        verilog
-        gtkwave
-        typst
-        # verible
         (writeShellScriptBin "darwinix" ''
           darwin-rebuild switch --flake ~/.phoenix/
         '')
@@ -150,9 +69,9 @@
       ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
     };
 
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
+    # sessionVariables = {
+    #   EDITOR = "nvim";
+    # };
     # need to do something about these things
     sessionPath = ["$HOME/.zvm/bin" "$HOME/.zvm/self" "$HOME/.local/bin" "$HOME/.cargo/bin"];
   };

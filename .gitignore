@@ -4,3 +4,5 @@
 **/.tmp**
 **/zed/**/**.mdb
 **/aria2.session
+result
+result/
