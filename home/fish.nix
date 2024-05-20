@@ -12,20 +12,12 @@
       # loginShellInit = ''
       # '';
       shellAliases = {
-        # cd = "z";
         bubu = "brew update && brew upgrade";
         broom = "brew autoremove && brew cleanup";
-        # ls = "lsd -Alt --date relative";
-        # rm = "rmtrash";
         ze = "zellij";
-        # python3 = "python";
-        pact = "source ./.venv/bin/activate.fish";
-        pen = "python -m venv .venv && pact";
         a = "python3 ~/.config/aria2/aria2.py";
-        n = "nnn";
         v = "nvim";
         nv = "nvim";
-        # fishpaths = "echo (set_color green)$fish_user_paths(set_color normal)";
         constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
       };
       shellAbbrs = {
@@ -33,6 +25,8 @@
         ip = "ipconfig getifaddr en0";
         yt = "yt-dlp";
         y = "yazi";
+        n = "nnn";
+        dx = "darwinix";
         omnetpp = "opp_env run omnetpp-latest -c omnetpp";
         cd = "z";
         cat = "bat";
@@ -54,6 +48,34 @@
           bind -M insert -m default jj backward-char force-repaint
         '';
         gig = "curl -sL https://www.gitignore.io/api/$argv";
+        pact = {
+          body = ''
+            if test (count $argv) -eq 0
+                set venv_path ".venv/bin/activate.fish"
+            else
+                set venv_path "$argv[1]/bin/activate.fish"
+            end
+
+            if test -f $venv_path
+                source $venv_path
+            else
+                echo "venv not found at $venv_path"
+            end
+          '';
+        };
+        pen = {
+          body = ''
+            if test (count $argv) -eq 0
+                set venv_path ".venv"
+            else
+                set venv_path "$argv[1]"
+                echo "creating and activating at $argv[1]"
+            end
+
+            python -m venv $venv_path
+            source "$venv_path/bin/activate.fish"
+          '';
+        };
         iv = {
           body = ''
             set output_file (string split -m 1 '.' $argv[1])[1]".o"

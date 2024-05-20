@@ -124,74 +124,71 @@
         # xonsh
         # luajit
 
-        ### file managers ###
-        # nnn # terminal file manager configured in hm
-        # yazi # terminal file manager configured in hm
-
-        ### archives ###
+        ### utils ###
+        # coreutils
+        file
+        which
+        tree
         # zip
         # xz
         # unzip
         # p7zip
-
-        ### utils ###
-        # coreutils
-        hyperfine
-        # yq-go # yaml processer https://github.com/mikefarah/yq
-        # fzf # A command-line fuzzy finder
-        curl
-        wget
-        rsync
-        neofetch
-        rmtrash
-        dogdns
-        gron
-        ffmpeg
-
-        scrcpy
-
-        ollama
-        llama-cpp
-
-        # socat # replacement of openbsd-netcat
-        nmap # A utility for network discovery and security auditing
-
-        docker
-        colima
-        xquartz
-
-        # discord
-        # vencord
-
-        flyctl
-
-        # misc
-        # file
-        # which
-        # tree
         # gnused
         # gnutar
-        # gawk
+        gawk
         # zstd
         # caddy
         # gnupg
+        hyperfine
+        # yq-go # yaml processer https://github.com/mikefarah/yq
+        rsync
+        neofetch
+        rmtrash
+        gron
+        ffmpeg
+        flyctl
 
-        ### productivity ###
+        ### android ###
+        scrcpy
+
+        ### gen ###
+        ollama
+        llama-cpp
+
+        ### network ###
+        # socat # replacement of openbsd-netcat
+        curl
+        wget
+        dogdns
+        nmap # A utility for network discovery and security auditing
+
+        ### containers ###
+        docker
+        colima
+        xquartz
+        cachix
+
+        ### gui apps ###
+        # discord
+        # vencord
+
+        ### typesetting ###
         glow # markdown previewer in terminal
         typst
+        hugo
 
         ### fun ###
         cmatrix
         cowsay
 
-        # # digital design
-        # verilator
-        # verilog
-        # gtkwave
+        ### hdl ###
+        verilator
+        verilog
+        gtkwave
         # verible
-        hugo
-        nodejs
 
+        ### essentials ###
+        nodejs
         # nodejs_21
         (python3.withPackages
           (p: [
@@ -205,16 +202,12 @@
         '')
       ]
       ++ lib.optionals pkgs.stdenv.isLinux [
-        (writeShellScriptBin "update-home" ''
+        (writeShellScriptBin "hmnix" ''
           home-manager switch --flake ~/.phoenix/home/
         '')
       ];
 
     file = {
-      # ".config/nvim" = {
-      #   source = ../config/nvim;
-      #   recursive = true;
-      # ".aria2/aria2.conf".source = config.lib.file.mkOutOfStoreSymlink ../config/aria2.conf;
       ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
       ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
     };

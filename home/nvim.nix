@@ -10,6 +10,8 @@
     vimAlias = true;
     vimdiffAlias = true;
     defaultEditor = true;
+    withPython3 = true;
+    withNodeJs = true;
   };
   xdg.configFile."nvim" = {
     # source = ../config/nvim; # this will make a readonly config that syncs during switch command
@@ -33,10 +35,8 @@
         rm -rf ${config.xdg.cacheHome}/nvim
         rm -rf ${config.xdg.configHome}/nvim
       '')
-      ripgrep
       unzip
       fd
-      wget
       ### treesitter ###
       tree-sitter
       gcc

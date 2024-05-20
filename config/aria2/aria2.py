@@ -8,34 +8,37 @@ def ps_runnin(ps):
     return res.returncode == 0
 
 
+def addin():
+    addd = True
+    while addd:
+        try:
+            cin3 = input("enter the link: ")
+            sp.run(["aria2p", "add", cin3], stdout=sp.PIPE, stdin=sp.PIPE)
+        except KeyboardInterrupt:
+            addd = False
+
+
 def aria2():
     try:
         c_runnin = ps_runnin("aria2c")
         p_runnin = ps_runnin("aria2p")
         if c_runnin:
-            cin1 = input("do you want to exit? (y/n): ")
-            if cin1.lower() == "y":
-                if p_runnin:
-                    print("aria2p also running, it will be exited first")
-                    sp.run(["pkill", "-f", "aria2p"])
-                sp.run(["pkill", "-f", "aria2c"])
-                print("aria2c process killed.")
-            else:
-                cin2 = input("do you want to add a download? (y/n): ")
-                if cin2.lower() == "y":
-                    cin3 = input("enter the link: ")
-                    sp.run(["aria2p", "add", cin3], stdout=sp.PIPE, stdin=sp.PIPE)
-
-                sp.run(["aria2p"])
+            addin()
+            sp.run(["aria2p"])
         else:
             sp.run(["aria2c"], stdout=sp.PIPE, stdin=sp.PIPE)
-            cin4 = input("do you want to add a download? (y/n): ")
-            if cin4.lower() == "y":
-                cin5 = input("enter the link: ")
-                sp.run(["aria2p", "add", cin5], stdout=sp.PIPE, stdin=sp.PIPE)
+            addin()
             sp.run(["aria2p"])
     except ValueError as ve:
         print(ve)
+    except KeyboardInterrupt:
+        cin1 = input("do you want to exit? (y/n): ")
+        if cin1.lower() == "y":
+            if p_runnin:
+                print("aria2p also running, it will be exited first")
+                sp.run(["pkill", "-f", "aria2p"])
+            sp.run(["pkill", "-f", "aria2c"])
+            print("aria2c process killed.")
 
 
 aria2()

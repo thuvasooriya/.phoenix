@@ -1,15 +1,23 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     neovim
-    fish
     git
-    just # use Justfile to simplify nix-darwin's commands
+    just
   ];
 
   ## todo: ghostty terminfo config for sbcs
   # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
-  environment.variables.EDITOR = "nvim";
-  environment.shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish];
+  environment = {
+    variables.EDITOR = "nvim";
+    shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish];
+    pathsToLink = [];
+    systemPath = [
+      "$HOME/.local/bin"
+      "$HOME/.bun/bin"
+      "$HOME/.zvm/bin"
+      "$HOME/.zvm/self"
+    ];
+  };
   programs.nix-index.enable = true;
   programs.man.enable = true;
   programs.zsh = {
