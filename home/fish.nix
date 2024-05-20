@@ -34,6 +34,7 @@
         sshkey-ed255 = "ssh-keygen -t ed25519";
         ip = "ipconfig getifaddr en0";
         yt = "yt-dlp";
+        y = "yazi";
         omnetpp = "opp_env run omnetpp-latest -c omnetpp";
         cd = "z";
         cat = "bat";

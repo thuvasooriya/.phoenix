@@ -29,8 +29,8 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/aria2";
       recursive = true;
     };
-    "yazi" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
+    "yazi/flavors" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi/flavors";
       recursive = true;
     };
   };
