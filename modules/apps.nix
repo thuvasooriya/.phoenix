@@ -14,9 +14,9 @@
   programs.man.enable = true;
   programs.zsh = {
     enable = true;
-    enableFzfCompletion = true;
+    # enableFzfCompletion = true;
     # enableFzfGit = true;
-    enableFzfHistory = true;
+    # enableFzfHistory = true;
     enableSyntaxHighlighting = true;
     loginShellInit = ''
       if [[ $(uname -m) == 'arm64' ]]; then
@@ -27,6 +27,7 @@
   programs.fish = {
     enable = true;
     shellInit = ''
+      set fish_greeting
       if test (uname -m) = "arm64"
           eval (/opt/homebrew/bin/brew shellenv)
       end

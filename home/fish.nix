@@ -4,15 +4,13 @@
     fish = {
       enable = true;
       # shellInit = ''
-      #   set fish_greeting
       # '';
       # interactiveShellInit = ''
       # '';
       # shellInitLast = ''
       # '';
-      loginShellInit = ''
-        set fish_greeting
-      '';
+      # loginShellInit = ''
+      # '';
       shellAliases = {
         # cd = "z";
         bubu = "brew update && brew upgrade";
