@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     neovim
+    fish
     git
     just # use Justfile to simplify nix-darwin's commands
   ];
@@ -8,6 +9,8 @@
   ## todo: ghostty terminfo config for sbcs
   # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   environment.variables.EDITOR = "nvim";
+  environment.shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish];
+
   # services.karabiner-elements.enable = true;
 
   # todo: write a script to check whether homebrew is installed and install it
@@ -77,7 +80,7 @@
       "obsidian"
       "telegram"
       "whatsapp"
-      "discord"
+      # "discord"
       "orion"
       # "syncthing"
       # "spotube"

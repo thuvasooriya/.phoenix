@@ -3,9 +3,9 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      bashrcExtra = ''
-        export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin"
-      '';
+      # bashrcExtra = ''
+      #   export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin"
+      # '';
     };
     nushell.enable = true;
     starship = {

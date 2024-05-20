@@ -4,7 +4,7 @@
   nixConfig = {
     substituters = [
       # Query the mirror of USTC first, and then the official cache.
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
     ];
   };
@@ -49,16 +49,7 @@
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
       inherit system specialArgs;
       modules = [
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/apps.nix
-        # ./modules/homebrew-mirror.nix # comment this line if you don't need a homebrew mirror
-        ./modules/host-users.nix
-        # ./modules/git.nix
-        # ./modules/nvim.nix
-        # ./modules/fish.nix
-        # ./modules/config.nix
-        # ./home/darwin.nix
+        ./modules
 
         home-manager.darwinModules.home-manager
         {

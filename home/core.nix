@@ -1,80 +1,11 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    ### move to hm ###
-    ripgrep # recursively searches directories for a regex pattern
-    aria2
-    jq
-    bat
-    zellij
-    htop
-    # xonsh
-    # luajit
-
-    ### file managers ###
-    # nnn # terminal file manager configured in hm
-    # yazi # terminal file manager configured in hm
-
-    ### archives ###
-    # zip
-    # xz
-    # unzip
-    # p7zip
-
-    ### utils ###
-    # coreutils
-    hyperfine
-    # yq-go # yaml processer https://github.com/mikefarah/yq
-    # fzf # A command-line fuzzy finder
-    curl
-    wget
-    rsync
-    neofetch
-    rmtrash
-    dogdns
-    gron
-    ffmpeg
-
-    scrcpy
-
-    ollama
-    llama-cpp
-
-    # socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-
-    docker
-    colima
-    xquartz
-
-    flyctl
-
-    # misc
-    # file
-    # which
-    # tree
-    # gnused
-    # gnutar
-    # gawk
-    # zstd
-    # caddy
-    # gnupg
-
-    ### productivity ###
-    glow # markdown previewer in terminal
-    typst
-
-    ### fun ###
-    cmatrix
-    cowsay
-
-    # # digital design
-    # verilator
-    # verilog
-    # gtkwave
-    # verible
-    # hugo
-  ];
-
+{
+  pkgs,
+  outputs,
+  config,
+  inputs,
+  lib,
+  ...
+}: {
   programs = {
     bun = {
       enable = true;
@@ -86,11 +17,11 @@
       };
     };
     # modern vim
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    #   vimAlias = true;
+    # };
     nnn = {
       enable = true;
       extraPackages = [];
@@ -184,6 +115,114 @@
     skim = {
       enable = true;
       enableBashIntegration = true;
+    };
+  };
+  home = {
+    packages = with pkgs;
+      [
+        ### move to hm ###
+        ripgrep # recursively searches directories for a regex pattern
+        aria2
+        jq
+        bat
+        zellij
+        htop
+        # xonsh
+        # luajit
+
+        ### file managers ###
+        # nnn # terminal file manager configured in hm
+        # yazi # terminal file manager configured in hm
+
+        ### archives ###
+        # zip
+        # xz
+        # unzip
+        # p7zip
+
+        ### utils ###
+        # coreutils
+        hyperfine
+        # yq-go # yaml processer https://github.com/mikefarah/yq
+        # fzf # A command-line fuzzy finder
+        curl
+        wget
+        rsync
+        neofetch
+        rmtrash
+        dogdns
+        gron
+        ffmpeg
+
+        scrcpy
+
+        ollama
+        llama-cpp
+
+        # socat # replacement of openbsd-netcat
+        nmap # A utility for network discovery and security auditing
+
+        docker
+        colima
+        xquartz
+
+        # discord
+        # vencord
+
+        flyctl
+
+        # misc
+        # file
+        # which
+        # tree
+        # gnused
+        # gnutar
+        # gawk
+        # zstd
+        # caddy
+        # gnupg
+
+        ### productivity ###
+        glow # markdown previewer in terminal
+        typst
+
+        ### fun ###
+        cmatrix
+        cowsay
+
+        # # digital design
+        # verilator
+        # verilog
+        # gtkwave
+        # verible
+        hugo
+        nodejs
+
+        # nodejs_21
+        (python3.withPackages
+          (p: [
+            p.pip
+          ]))
+        pipx
+      ]
+      ++ lib.optionals pkgs.stdenv.isDarwin [
+        (writeShellScriptBin "darwinix" ''
+          darwin-rebuild switch --flake ~/.phoenix/
+        '')
+      ]
+      ++ lib.optionals pkgs.stdenv.isLinux [
+        (writeShellScriptBin "update-home" ''
+          home-manager switch --flake ~/.phoenix/home/
+        '')
+      ];
+
+    file = {
+      # ".config/nvim" = {
+      #   source = ../config/nvim;
+      #   recursive = true;
+      # ".aria2/aria2.conf".source = config.lib.file.mkOutOfStoreSymlink ../config/aria2.conf;
+      ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
+      ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
     };
   };
 }
