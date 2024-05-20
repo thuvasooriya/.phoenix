@@ -13,15 +13,8 @@
     go = {
       enable = true;
       packages = {
-        # "https://pkg.go.dev/github.com/yuin/goldmark" = builtins.fetchGit "https://github.com/yuin/goldmark";
       };
     };
-    # modern vim
-    # neovim = {
-    #   enable = true;
-    #   defaultEditor = true;
-    #   vimAlias = true;
-    # };
     nnn = {
       enable = true;
       extraPackages = [];
@@ -74,19 +67,22 @@
       #     }
       #   ];
       # };
-      # # package
-      # settings = {
-      #   log = {
-      #     enabled = false;
-      #   };
-      #   manager = {
-      #     show_hidden = false;
-      #     sort_by = "modified";
-      #     sort_dir_first = true;
-      #     sort_reverse = true;
-      #   };
-      # };
+      # package
+      settings = {
+        log = {
+          enabled = false;
+        };
+        manager = {
+          show_hidden = false;
+          sort_by = "modified";
+          sort_dir_first = true;
+          sort_reverse = true;
+        };
+      };
       # theme = {
+      #   flavor = {
+      #     use = "catppuccin-mocha"
+      #   };
       #   filetype = {
       #     rules = [
       #       {
@@ -106,15 +102,14 @@
       #         mime = "application/x-bzip";
       #       }
       #     ];
-      #   };
+      # };
       # };
     };
 
-    # skim provides a single executable: sk.
-    # Basically anywhere you would want to use grep, try sk instead.
     skim = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
     };
   };
   home = {

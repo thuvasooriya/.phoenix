@@ -10,6 +10,32 @@
   # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   environment.variables.EDITOR = "nvim";
   environment.shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish];
+  programs.nix-index.enable = true;
+  programs.man.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableFzfCompletion = true;
+    # enableFzfGit = true;
+    enableFzfHistory = true;
+    enableSyntaxHighlighting = true;
+    loginShellInit = ''
+      if [[ $(uname -m) == 'arm64' ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+    '';
+  };
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+      if test (uname -m) = "arm64"
+          eval (/opt/homebrew/bin/brew shellenv)
+      end
+    '';
+  };
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
 
   # services.karabiner-elements.enable = true;
 

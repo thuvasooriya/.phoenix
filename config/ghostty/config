@@ -22,12 +22,13 @@ font-thicken = true
 # font-variation = wght=400
 font-size = 12
 # font-family = 'JetBrains Mono Nerd Font'
-command = /etc/profiles/per-user/tony/bin/fish
 
 clipboard-read = "allow"
 copy-on-select = clipboard
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
+
+command = /etc/profiles/per-user/tony/bin/fish
 
 cursor-style-blink = false
 # cursor-style = block

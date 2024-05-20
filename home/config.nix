@@ -29,6 +29,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/aria2";
       recursive = true;
     };
+    "yazi" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
+      recursive = true;
+    };
   };
 }
 # TODO: making platform specific config file assignments
