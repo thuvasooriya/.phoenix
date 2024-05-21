@@ -1,0 +1,41 @@
+[log]
+enabled = false
+
+[manager]
+ratio = [1, 2, 3]
+show_hidden = false
+sort_by = "modified"
+sort_dir_first = true
+sort_reverse = true
+
+[[plugin.prepend_previewers]]
+name = "*.md"
+run = "glow"
+
+[[plugin.prepend_previewers]]
+mime = "text/csv"
+run = "miller"
+
+[[plugin.prepend_previewers]]
+mime = "application/*zip"
+run = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "application/x-tar"
+run = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "application/x-bzip2"
+run = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "application/x-7z-compressed"
+run = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "application/x-rar"
+run = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "application/x-xz"
+run = "ouch"

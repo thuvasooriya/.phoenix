@@ -33,76 +33,110 @@
       enableNushellIntegration = true;
       enable = true;
       enableZshIntegration = true;
+      keymap = pkgs.lib.importTOML ../config/yazi/keymap.toml;
       # keymap = {
-      #   input.keymap = [
+      #   # input.keymap = [
+      #   # ];
+      #   # manager.keymap = [
+      #   # ];
+      #   manager.prepend_keymap = [
       #     {
-      #       exec = "close";
-      #       on = [""];
+      #       on = ["u" "a"];
+      #       run = "plugin bookmarks-persistence --args=save";
+      #       desc = "Save current position as a bookmark";
       #     }
       #     {
-      #       exec = "close --submit";
-      #       on = [""];
+      #       on = ["u" "g"];
+      #       run = "plugin bookmarks-persistence --args=jump";
+      #       desc = "Jump to a bookmark";
       #     }
       #     {
-      #       exec = "escape";
-      #       on = [""];
+      #       on = ["u" "d"];
+      #       run = "plugin bookmarks-persistence --args=delete";
+      #       desc = "Delete a bookmark";
       #     }
       #     {
-      #       exec = "backspace";
-      #       on = [""];
-      #     }
-      #   ];
-      #   manager.keymap = [
-      #     {
-      #       exec = "escape";
-      #       on = [""];
-      #     }
-      #     {
-      #       exec = "quit";
-      #       on = ["q"];
-      #     }
-      #     {
-      #       exec = "close";
-      #       on = [""];
+      #       on = ["u" "D"];
+      #       run = "plugin bookmarks-persistence --args=delete_all";
+      #       desc = "Delete all bookmarks";
       #     }
       #   ];
       # };
       # package
-      settings = {
-        log = {
-          enabled = false;
-        };
-        manager = {
-          show_hidden = true;
-          sort_by = "modified";
-          sort_dir_first = true;
-          sort_reverse = true;
-        };
-      };
-      theme = {
-        flavor = {
-          use = "catppuccin-mocha";
-        };
-        #   filetype = {
-        #     rules = [
-        #       {
-        #         fg = "#7AD9E5";
-        #         mime = "image/*";
-        #       }
-        #       {
-        #         fg = "#F3D398";
-        #         mime = "video/*";
-        #       }
-        #       {
-        #         fg = "#F3D398";
-        #         mime = "audio/*";
-        #       }
-        #       {
-        #         fg = "#CD9EFC";
-        #         mime = "application/x-bzip";
-        #       }
-        #     ];
-      };
+      settings = pkgs.lib.importTOML ../config/yazi/yazi.toml;
+      # settings = {
+      #   log = {
+      #     enabled = false;
+      #   };
+      #   manager = {
+      #     ratio = [2 3 3];
+      #     show_hidden = false;
+      #     sort_by = "modified";
+      #     sort_dir_first = true;
+      #     sort_reverse = true;
+      #   };
+      #   plugin = {
+      #     prepend_previewers = [
+      #       {
+      #         name = "*.md";
+      #         run = "glow";
+      #       }
+      #       {
+      #         mime = "text/csv";
+      #         run = "miller";
+      #       }
+      #       {
+      #         mime = "application/*zip";
+      #         run = "ouch";
+      #       }
+      #       {
+      #         mime = "application/x-tar";
+      #         run = "ouch";
+      #       }
+      #       {
+      #         mime = "application/x-bzip2";
+      #         run = "ouch";
+      #       }
+      #       {
+      #         mime = "application/x-7z-compressed";
+      #         run = "ouch";
+      #       }
+      #       {
+      #         mime = "application/x-rar";
+      #         run = "ouch";
+      #       }
+      #       {
+      #         mime = "application/x-xz";
+      #         run = "ouch";
+      #       }
+      #     ];
+      #   };
+      # };
+      theme = pkgs.lib.importTOML ../config/yazi/theme.toml;
+      # theme = {
+      #   flavor = {
+      #     use = "catppuccin-mocha";
+      #   };
+      #   #   filetype = {
+      #   #     rules = [
+      #   #       {
+      #   #         fg = "#7AD9E5";
+      #   #         mime = "image/*";
+      #   #       }
+      #   #       {
+      #   #         fg = "#F3D398";
+      #   #         mime = "video/*";
+      #   #       }
+      #   #       {
+      #   #         fg = "#F3D398";
+      #   #         mime = "audio/*";
+      #   #       }
+      #   #       {
+      #   #         fg = "#CD9EFC";
+      #   #         mime = "application/x-bzip";
+      #   #       }
+      #   #     ];
+      # };
     };
 
     skim = {
@@ -136,6 +170,8 @@
         # gnused
         # gnutar
         gawk
+        ouch
+        miller
         # zstd
         # caddy
         # gnupg
@@ -177,14 +213,27 @@
         typst
         hugo
 
+        # anki-bin
+        # obs-studio
+        # obsidian
+        # zed-editor
+        # zoom-us
+        skimpdf
+
         ### fun ###
         cmatrix
         cowsay
+        # spotifyd
 
         ### hdl ###
         verilator
         verilog
         gtkwave
+        # kicad
+        logisim-evolution
+        wireshark
+        termshark
+        ngspice
         # verible
 
         ### essentials ###

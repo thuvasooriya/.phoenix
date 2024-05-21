@@ -33,6 +33,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi/flavors";
       recursive = true;
     };
+    "yazi/plugins" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi/plugins";
+      recursive = true;
+    };
   };
 }
 # TODO: making platform specific config file assignments

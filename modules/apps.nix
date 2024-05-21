@@ -18,8 +18,8 @@
       "$HOME/.zvm/self"
     ];
   };
-  programs.nix-index.enable = true;
-  programs.man.enable = true;
+  # programs.nix-index.enable = true;
+  # programs.man.enable = true;
   programs.zsh = {
     enable = true;
     # enableFzfCompletion = true;
@@ -95,27 +95,29 @@
       "orbstack"
       "visual-studio-code"
       "zed"
-      # "ava"
+      "ava"
       # "amethyst"
 
       "android-platform-tools"
 
-      # digital design tools
-      "logisim-evolution"
+      ### hdl ###
+      # "logisim-evolution"
       "ltspice"
-      "wireshark"
+      # "wireshark"
       # "kicad"
       # "ngspice"
       # "digital"
 
-      # utils
+      ### social ###
+      "telegram"
+      "whatsapp"
+      # "discord"
+
+      ### utils ###
       "keyclu"
       "notion"
       "notion-calendar"
       "obsidian"
-      "telegram"
-      "whatsapp"
-      # "discord"
       "orion"
       # "syncthing"
       # "spotube"
@@ -123,19 +125,16 @@
       "obs"
       "zoom"
       "keka"
-      "skim"
+      # "skim"
       # "selfcontrol"
-      # "loungy"
+      "loungy"
       # "raycast"
       "anki"
       # "blender"
       "handbrake"
       # "utm"
-
       # "iina" # video player
       # "stats" # beautiful system monitor
-      # "eudic" # 欧路词典
-
       # "insomnia" # REST client
     ];
   };
