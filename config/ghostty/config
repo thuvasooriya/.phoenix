@@ -15,8 +15,8 @@ window-height=18
 window-width=72
 # unfocused-split-opacity = 0.95
 
-background-blur-radius=10
-background-opacity=0.97
+# background-blur-radius=10
+# background-opacity=0.97
 
 font-thicken = true
 # font-variation = wght=400
@@ -43,7 +43,7 @@ confirm-close-surface = false
 # confirm-close-surface = false
 
 macos-option-as-alt = true
-macos-titlebar-tabs = true
+# macos-titlebar-tabs = true
 
 # keymaps
 
@@ -69,4 +69,4 @@ keybind = ctrl+super+f=toggle_split_zoom
 # keybind = ctrl+super+w=close_surface
 
 ## i mean for gods sake macos
-window-vsync=false
+# window-vsync=false

@@ -28,115 +28,14 @@
       };
     };
     yazi = {
+      enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
       enableNushellIntegration = true;
-      enable = true;
       enableZshIntegration = true;
-      keymap = pkgs.lib.importTOML ../config/yazi/keymap.toml;
-      # keymap = {
-      #   # input.keymap = [
-      #   # ];
-      #   # manager.keymap = [
-      #   # ];
-      #   manager.prepend_keymap = [
-      #     {
-      #       on = ["u" "a"];
-      #       run = "plugin bookmarks-persistence --args=save";
-      #       desc = "Save current position as a bookmark";
-      #     }
-      #     {
-      #       on = ["u" "g"];
-      #       run = "plugin bookmarks-persistence --args=jump";
-      #       desc = "Jump to a bookmark";
-      #     }
-      #     {
-      #       on = ["u" "d"];
-      #       run = "plugin bookmarks-persistence --args=delete";
-      #       desc = "Delete a bookmark";
-      #     }
-      #     {
-      #       on = ["u" "D"];
-      #       run = "plugin bookmarks-persistence --args=delete_all";
-      #       desc = "Delete all bookmarks";
-      #     }
-      #   ];
-      # };
-      # package
-      settings = pkgs.lib.importTOML ../config/yazi/yazi.toml;
-      # settings = {
-      #   log = {
-      #     enabled = false;
-      #   };
-      #   manager = {
-      #     ratio = [2 3 3];
-      #     show_hidden = false;
-      #     sort_by = "modified";
-      #     sort_dir_first = true;
-      #     sort_reverse = true;
-      #   };
-      #   plugin = {
-      #     prepend_previewers = [
-      #       {
-      #         name = "*.md";
-      #         run = "glow";
-      #       }
-      #       {
-      #         mime = "text/csv";
-      #         run = "miller";
-      #       }
-      #       {
-      #         mime = "application/*zip";
-      #         run = "ouch";
-      #       }
-      #       {
-      #         mime = "application/x-tar";
-      #         run = "ouch";
-      #       }
-      #       {
-      #         mime = "application/x-bzip2";
-      #         run = "ouch";
-      #       }
-      #       {
-      #         mime = "application/x-7z-compressed";
-      #         run = "ouch";
-      #       }
-      #       {
-      #         mime = "application/x-rar";
-      #         run = "ouch";
-      #       }
-      #       {
-      #         mime = "application/x-xz";
-      #         run = "ouch";
-      #       }
-      #     ];
-      #   };
-      # };
-      theme = pkgs.lib.importTOML ../config/yazi/theme.toml;
-      # theme = {
-      #   flavor = {
-      #     use = "catppuccin-mocha";
-      #   };
-      #   #   filetype = {
-      #   #     rules = [
-      #   #       {
-      #   #         fg = "#7AD9E5";
-      #   #         mime = "image/*";
-      #   #       }
-      #   #       {
-      #   #         fg = "#F3D398";
-      #   #         mime = "video/*";
-      #   #       }
-      #   #       {
-      #   #         fg = "#F3D398";
-      #   #         mime = "audio/*";
-      #   #       }
-      #   #       {
-      #   #         fg = "#CD9EFC";
-      #   #         mime = "application/x-bzip";
-      #   #       }
-      #   #     ];
-      # };
+      # keymap = pkgs.lib.importTOML ../config/yazi/keymap.toml;
+      # settings = pkgs.lib.importTOML ../config/yazi/yazi.toml;
+      # theme = pkgs.lib.importTOML ../config/yazi/theme.toml;
     };
 
     skim = {
@@ -153,8 +52,10 @@
         aria2
         jq
         bat
-        zellij
+        # zellij
+        # helix
         htop
+        # mpv
         # xonsh
         # luajit
 
@@ -163,6 +64,8 @@
         file
         which
         tree
+        rclone
+        rsync
         # zip
         # xz
         # unzip
@@ -171,6 +74,7 @@
         # gnutar
         gawk
         ouch
+        notcurses
         miller
         # zstd
         # caddy
@@ -218,7 +122,10 @@
         # obsidian
         # zed-editor
         # zoom-us
-        skimpdf
+        sioyek
+
+        copier
+        pre-commit
 
         ### fun ###
         cmatrix
@@ -237,9 +144,11 @@
         # verible
 
         ### essentials ###
+        rustup
         nodejs
         # nodejs_21
-        (python3.withPackages
+        # python312Full
+        (python312Full.withPackages
           (p: [
             p.pip
           ]))

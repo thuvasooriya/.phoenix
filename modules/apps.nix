@@ -14,10 +14,12 @@
     systemPath = [
       "$HOME/.local/bin"
       "$HOME/.bun/bin"
+      "$HOME/.cargo/bin"
       "$HOME/.zvm/bin"
       "$HOME/.zvm/self"
     ];
   };
+  # services.karabiner-elements.enable = true;
   # programs.nix-index.enable = true;
   # programs.man.enable = true;
   programs.zsh = {
@@ -46,8 +48,6 @@
     enableCompletion = true;
   };
 
-  # services.karabiner-elements.enable = true;
-
   # todo: write a script to check whether homebrew is installed and install it
   homebrew = {
     enable = true;
@@ -73,19 +73,16 @@
       # "homebrew/cask-fonts"
       # "homebrew/services"
       # "homebrew/cask-versions"
-      "krtirtho/apps"
-      "mongodb/brew"
+      # "krtirtho/apps"
+      # "mongodb/brew"
     ];
 
     # `brew install`
     brews = [
-      "latexindent"
-      "octave"
-      "mongodb-community@7.0"
-
-      # "wget" # download tool
+      # "latexindent"
+      # "octave"
+      # "mongodb-community@7.0"
       # "curl" # no not install curl via nixpkgs, it's not working well on macOS!
-      # "aria2" # download tool
       # "httpie" # http client
     ];
 
@@ -95,13 +92,13 @@
       "orbstack"
       "visual-studio-code"
       "zed"
-      "ava"
+      # "ava"
       # "amethyst"
 
       "android-platform-tools"
+      "cloudflare-warp"
 
       ### hdl ###
-      # "logisim-evolution"
       "ltspice"
       # "wireshark"
       # "kicad"
@@ -115,7 +112,7 @@
 
       ### utils ###
       "keyclu"
-      "notion"
+      # "notion"
       "notion-calendar"
       "obsidian"
       "orion"
@@ -125,7 +122,6 @@
       "obs"
       "zoom"
       "keka"
-      # "skim"
       # "selfcontrol"
       "loungy"
       # "raycast"

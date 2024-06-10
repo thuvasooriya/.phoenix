@@ -17,3 +17,39 @@ run = "plugin bookmarks-persistence --args=delete"
 desc = "Delete all bookmarks"
 on = ["u", "D"]
 run = "plugin bookmarks-persistence --args=delete_all"
+
+[[manager.prepend_keymap]]
+on = [ "P", "s" ]
+run = "plugin projects --args=save"
+desc = "Save current project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "l" ]
+run = "plugin projects --args=load"
+desc = "Load project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "P" ]
+run = "plugin projects --args=load_last"
+desc = "Load last project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "d" ]
+run = "plugin projects --args=delete"
+desc = "Delete project"
+
+[[manager.prepend_keymap]]
+on = [ "P", "D" ]
+run = "plugin projects --args=delete_all"
+desc = "Delete all projects"
+
+[[manager.prepend_keymap]]
+on = [ "P", "m" ]
+run = "plugin projects --args='merge current'"
+desc = "Merge current tab to other projects"
+
+[[manager.prepend_keymap]]
+on = [ "P", "M" ]
+run = "plugin projects --args='merge all'"
+desc = "Merge current project to other projects"
+

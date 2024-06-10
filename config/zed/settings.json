@@ -13,7 +13,9 @@
     "enable_preview_from_file_finder": true,
     "enable_preview_from_code_navigation": true
   },
-
+  "tab_bar": {
+    "show": false
+  },
   "autosave": "on_focus_change",
   "vim_mode": true,
   "base_keymap": "VSCode",
@@ -71,6 +73,20 @@
     "inline_blame": {
       "enabled": false,
       "delay_ms": 500
+    }
+  },
+  "language_overrides": {
+    "Python": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "ruff check --select=I --fix --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}"
+          ]
+        }
+      }
     }
   }
 }

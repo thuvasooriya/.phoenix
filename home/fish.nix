@@ -12,21 +12,16 @@
       # loginShellInit = ''
       # '';
       shellAliases = {
-        bubu = "brew update && brew upgrade";
-        broom = "brew autoremove && brew cleanup";
-        ze = "zellij";
-        a = "python3 ~/.config/aria2/aria2.py";
-        v = "nvim";
+        # ze = "zellij";
+        # a = "python3 ~/.config/aria2/aria2.py";
+        # v = "nvim";
         nv = "nvim";
         constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
       };
       shellAbbrs = {
         sshkey-ed255 = "ssh-keygen -t ed25519";
-        ip = "ipconfig getifaddr en0";
-        yt = "yt-dlp";
-        y = "yazi";
-        n = "nnn";
-        dx = "darwinix";
+        # ip = "ipconfig getifaddr en0";
+        # dx = "darwinix";
         omnetpp = "opp_env run omnetpp-latest -c omnetpp";
         cd = "z";
         cat = "bat";

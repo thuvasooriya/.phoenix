@@ -2,40 +2,31 @@
 enabled = false
 
 [manager]
-ratio = [1, 2, 3]
+ratio = [2, 3, 3]
 show_hidden = false
 sort_by = "modified"
 sort_dir_first = true
 sort_reverse = true
 
-[[plugin.prepend_previewers]]
-name = "*.md"
-run = "glow"
-
-[[plugin.prepend_previewers]]
-mime = "text/csv"
-run = "miller"
-
-[[plugin.prepend_previewers]]
-mime = "application/*zip"
-run = "ouch"
-
-[[plugin.prepend_previewers]]
-mime = "application/x-tar"
-run = "ouch"
-
-[[plugin.prepend_previewers]]
-mime = "application/x-bzip2"
-run = "ouch"
-
-[[plugin.prepend_previewers]]
-mime = "application/x-7z-compressed"
-run = "ouch"
-
-[[plugin.prepend_previewers]]
-mime = "application/x-rar"
-run = "ouch"
-
-[[plugin.prepend_previewers]]
-mime = "application/x-xz"
-run = "ouch"
+[plugin]
+prepend_previewers = [
+  {name = "*.md", run = "glow"},
+  {mime = "text/csv", run = "miller"},
+  {mime = "application/*zip", run = "ouch"},
+  {mime = "application/x-tar", run = "ouch"},
+  {mime = "application/x-rar", run = "ouch"},
+  {mime = "application/x-xz", run = "ouch"},
+  {mime = "application/x-7z-compressed", run = "ouch"},
+]
+  
+[open]
+prepend_rules = [
+	# { mime = "text/*", use = "edit" },
+	{ mime = "video/*", use = ["open", "reveal"] },
+	{ mime = "audio/*", use = ["open", "reveal"] },
+	# { mime = "application/pdf", use = "open" },
+	# { mime = "application/json", use = "edit" },
+	# { name = "*.json", use = "edit" },
+	# Multiple openers for a single rule
+	# { name = "*.html", use = [ "open", "edit" ] }
+]

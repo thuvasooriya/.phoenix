@@ -72,7 +72,6 @@
       ### python ###
       pyright
       ruff
-      ruff-lsp
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard
