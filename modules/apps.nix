@@ -108,7 +108,7 @@
       ### social ###
       "telegram"
       "whatsapp"
-      # "discord"
+      "discord"
 
       ### utils ###
       "keyclu"

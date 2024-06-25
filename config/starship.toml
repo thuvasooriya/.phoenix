@@ -1,33 +1,16 @@
+"$schema" = 'https://starship.rs/config-schema.json'
 # prompt config
 ###############
 format = """
-[⎧](bold white) [to the stars   ](bold yellow)\
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$vcsh\
-$pijul_channel\
-$docker_context\
+[⎧ ](bold white)([$username@$hostname ](bold blue))[limitless   ](bold yellow)\
 $package\
 $c\
 $cmake\
-$cobol\
-$daml\
 $dart\
 $deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
 $golang\
 $guix_shell\
 $haskell\
-$haxe\
-$helm\
 $java\
 $julia\
 $kotlin\
@@ -38,25 +21,20 @@ $nodejs\
 $ocaml\
 $opa\
 $perl\
-$php\
 $pulumi\
 $purescript\
 $python\
 $raku\
 $rlang\
-$red\
 $ruby\
 $rust\
 $scala\
-$solidity\
 $swift\
 $terraform\
 $vlang\
 $vagrant\
 $zig\
 $bun\
-$nix_shell\
-$conda\
 $meson\
 $spack\
 $memory_usage\
@@ -70,6 +48,14 @@ $custom\
 $sudo\
 $line_break\
 [⎪ ](bold white)\
+$shell\
+$shlvl\
+$nix_shell\
+$conda\
+$singularity\
+$kubernetes\
+$container\
+$docker_context\
 $directory\
 $fossil_branch\
 $git_branch\
@@ -80,9 +66,6 @@ $git_status\
 $hg_branch\
 $jobs\
 $battery\
-$os\
-$container\
-$shell\
 $line_break\
 [⎩ ](bold white)$character\
 """
@@ -91,7 +74,6 @@ right_format = """
 $status\
 $cmd_duration
 """
-
 # continuation_prompt = '▶▶ '
 add_newline = true
 scan_timeout = 10
@@ -141,15 +123,34 @@ time_format = '%T'
 # utc_time_offset = '+5'
 # time_range = '10:00:00-14:00:00'
 
+[[battery.display]] # 'bold red' style and discharging_symbol when capacity is between 0% and 10%
+threshold = 10
+style = 'bold red'
+
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
+
 [shell]
-unknown_indicator = "mystery shell" # The default value to be displayed when the shell is unknown.
+fish_indicator = ''
+powershell_indicator = '_'
+bash_indicator = 'bash'
+unknown_indicator = ' '
+zsh_indicator = 'zsh'
+style = 'cyan bold'
 disabled = true
-# zsh_indicator
-# powershell_indicator
+format = '[$indicator]($style)'
 # ion_indicator
 # elvish_indicator
 # tcsh_indicator
-# format
+
+[shlvl]
+disabled = false
+format = '[$symbol ]($style)'
+repeat = true
+symbol = '❯'
+repeat_offset = 1
+threshold = 0
 
 [directory]
 read_only = " "
@@ -333,9 +334,6 @@ Ubuntu = " "
 Unknown = " "
 Windows = " "
 
-[rlang]
-symbol = "ﳒ "
-
 [ruby]
 symbol = " "
 
@@ -347,9 +345,6 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
-
-# symbol dump
-#############
 
 # ╭────╮
 # │test│

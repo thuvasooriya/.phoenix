@@ -37,12 +37,6 @@
       # settings = pkgs.lib.importTOML ../config/yazi/yazi.toml;
       # theme = pkgs.lib.importTOML ../config/yazi/theme.toml;
     };
-
-    skim = {
-      enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-    };
   };
   home = {
     packages = with pkgs;
@@ -81,7 +75,6 @@
         # gnupg
         hyperfine
         # yq-go # yaml processer https://github.com/mikefarah/yq
-        rsync
         neofetch
         rmtrash
         gron
@@ -126,6 +119,7 @@
 
         copier
         pre-commit
+        exiftool
 
         ### fun ###
         cmatrix
@@ -148,7 +142,7 @@
         nodejs
         # nodejs_21
         # python312Full
-        (python312Full.withPackages
+        (python3.withPackages
           (p: [
             p.pip
           ]))
