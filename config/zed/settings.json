@@ -16,6 +16,17 @@
   "tab_bar": {
     "show": false
   },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/**.pdf"
+  ],
   "autosave": "on_focus_change",
   "vim_mode": true,
   "base_keymap": "VSCode",
@@ -75,7 +86,7 @@
       "delay_ms": 500
     }
   },
-  "language_overrides": {
+  "languages": {
     "Python": {
       "format_on_save": "on",
       "formatter": {

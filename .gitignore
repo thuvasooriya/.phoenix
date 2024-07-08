@@ -1,5 +1,4 @@
 **/.DS_Store
-
 # zed config tmp files
 **/.tmp**
 **/zed/**/**.mdb
@@ -7,3 +6,5 @@
 testin/
 result
 result/
+.direnv/
+.pre-commit-config.yaml
