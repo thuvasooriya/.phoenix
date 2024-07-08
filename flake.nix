@@ -44,6 +44,7 @@
       url = "github:nix-community/haumea/v0.2.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     # microvm = {
     #   url = "github:astro/microvm.nix";

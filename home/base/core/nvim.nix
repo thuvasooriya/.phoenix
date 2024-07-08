@@ -2,11 +2,12 @@
   pkgs,
   config,
   lib,
+  neovim-nightly,
   ...
 }: {
   programs.neovim = {
     enable = true;
-    # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = neovim-nightly.packages.${pkgs.system}.default;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
