@@ -1,10 +1,4 @@
-_:
-#############################################################
-#
-#  Fern - MacBook Pro 2022 13-inch M2 16G, mainly for business.
-#
-#############################################################
-let
+_: let
   hostname = "madhu";
 in {
   networking.hostName = hostname;
