@@ -1,12 +1,12 @@
 {
   pkgs,
   myvars,
-  nuenv,
+  # nuenv,
   ...
 } @ args: {
   nixpkgs.overlays =
     [
-      nuenv.overlays.default
+      # nuenv.overlays.default
     ]
     ++ (import ../overlays args);
 

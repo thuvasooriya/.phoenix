@@ -46,8 +46,8 @@ darwin-rollback:
   use utils.nu *; \
   darwin-rollback
 
-[macos]
 # deploy modhu
+[macos]
 ma mode="default":
   use utils.nu *; \
   darwin-build "madhu" {{mode}}; \
@@ -60,30 +60,3 @@ yabai-reload:
   launchctl kickstart -k "gui/502/org.nixos.yabai";
   launchctl kickstart -k "gui/502/org.nixos.skhd"; 
 
-############################################################################
-#
-#  nix related commands
-#
-############################################################################
-
-
-update:
-  nix flake update
-
-history:
-  nix profile history --profile /nix/var/nix/profiles/system
-
-gc:
-  # remove all generations older than 7 days
-  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
-
-  # garbage collect all unused nix store entries
-  sudo nix store gc --debug
-
-
-fmt:
-  # format the nix files in this repo
-  nix fmt
-
-clean:
-  rm -rf result

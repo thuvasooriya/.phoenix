@@ -1,7 +1,7 @@
 {
   self,
   nixpkgs,
-  pre-commit-hooks,
+  # pre-commit-hooks,
   ...
 } @ inputs: let
   inherit (inputs.nixpkgs) lib;
@@ -33,13 +33,13 @@
 
   # modules for each supported system
   nixosSystems = {
-    x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
-    aarch64-linux = import ./aarch64-linux (args // {system = "aarch64-linux";});
-    riscv64-linux = import ./riscv64-linux (args // {system = "riscv64-linux";});
+    # x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
+    # aarch64-linux = import ./aarch64-linux (args // {system = "aarch64-linux";});
+    # riscv64-linux = import ./riscv64-linux (args // {system = "riscv64-linux";});
   };
   darwinSystems = {
     aarch64-darwin = import ./aarch64-darwin (args // {system = "aarch64-darwin";});
-    x86_64-darwin = import ./x86_64-darwin (args // {system = "x86_64-darwin";});
+    # x86_64-darwin = import ./x86_64-darwin (args // {system = "x86_64-darwin";});
   };
   allSystems = nixosSystems // darwinSystems;
   allSystemNames = builtins.attrNames allSystems;
@@ -58,25 +58,25 @@ in {
     lib.attrsets.mergeAttrsList (map (it: it.nixosConfigurations or {}) nixosSystemValues);
 
   # Colmena - remote deployment via SSH
-  colmena =
-    {
-      meta =
-        (
-          let
-            system = "x86_64-linux";
-          in {
-            # colmena's default nixpkgs & specialArgs
-            nixpkgs = import nixpkgs {inherit system;};
-            specialArgs = genSpecialArgs system;
-          }
-        )
-        // {
-          # per-node nixpkgs & specialArgs
-          nodeNixpkgs = lib.attrsets.mergeAttrsList (map (it: it.colmenaMeta.nodeNixpkgs or {}) nixosSystemValues);
-          nodeSpecialArgs = lib.attrsets.mergeAttrsList (map (it: it.colmenaMeta.nodeSpecialArgs or {}) nixosSystemValues);
-        };
-    }
-    // lib.attrsets.mergeAttrsList (map (it: it.colmena or {}) nixosSystemValues);
+  # colmena =
+  #   {
+  #     meta =
+  #       (
+  #         let
+  #           system = "x86_64-linux";
+  #         in {
+  #           # colmena's default nixpkgs & specialArgs
+  #           nixpkgs = import nixpkgs {inherit system;};
+  #           specialArgs = genSpecialArgs system;
+  #         }
+  #       )
+  #       // {
+  #         # per-node nixpkgs & specialArgs
+  #         nodeNixpkgs = lib.attrsets.mergeAttrsList (map (it: it.colmenaMeta.nodeNixpkgs or {}) nixosSystemValues);
+  #         nodeSpecialArgs = lib.attrsets.mergeAttrsList (map (it: it.colmenaMeta.nodeSpecialArgs or {}) nixosSystemValues);
+  #       };
+  #   }
+  #   // lib.attrsets.mergeAttrsList (map (it: it.colmena or {}) nixosSystemValues);
 
   # macOS Hosts
   darwinConfigurations =
@@ -88,70 +88,68 @@ in {
   );
 
   # Eval Tests for all NixOS & darwin systems.
-  evalTests = lib.lists.all (it: it.evalTests == {}) allSystemValues;
+  # evalTests = lib.lists.all (it: it.evalTests == {}) allSystemValues;
 
-  checks = forAllSystems (
-    system: {
-      # eval-tests per system
-      eval-tests = allSystems.${system}.evalTests == {};
-
-      pre-commit-check = pre-commit-hooks.lib.${system}.run {
-        src = mylib.relativeToRoot ".";
-        hooks = {
-          alejandra.enable = true; # formatter
-          # Source code spell checker
-          typos = {
-            enable = true;
-            settings = {
-              write = true; # Automatically fix typos
-              configPath = "./.typos.toml"; # relative to the flake root
-            };
-          };
-          prettier = {
-            enable = true;
-            settings = {
-              write = true; # Automatically format files
-              configPath = "./.prettierrc.yaml"; # relative to the flake root
-            };
-          };
-          # deadnix.enable = true; # detect unused variable bindings in `*.nix`
-          # statix.enable = true; # lints and suggestions for Nix code(auto suggestions)
-        };
-      };
-    }
-  );
+  # checks = forAllSystems (
+  #   system: {
+  #     # eval-tests per system
+  #     eval-tests = allSystems.${system}.evalTests == {};
+  #
+  #     pre-commit-check = pre-commit-hooks.lib.${system}.run {
+  #       src = mylib.relativeToRoot ".";
+  #       hooks = {
+  #         alejandra.enable = true; # formatter
+  #         # Source code spell checker
+  #         typos = {
+  #           enable = true;
+  #           settings = {
+  #             write = true; # Automatically fix typos
+  #             configPath = "./.typos.toml"; # relative to the flake root
+  #           };
+  #         };
+  #         prettier = {
+  #           enable = true;
+  #           settings = {
+  #             write = true; # Automatically format files
+  #             configPath = "./.prettierrc.yaml"; # relative to the flake root
+  #           };
+  #         };
+  #         # deadnix.enable = true; # detect unused variable bindings in `*.nix`
+  #         # statix.enable = true; # lints and suggestions for Nix code(auto suggestions)
+  #       };
+  #     };
+  #   }
+  # );
 
   # Development Shells
-  devShells = forAllSystems (
-    system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          # fix https://discourse.nixos.org/t/non-interactive-bash-errors-from-flake-nix-mkshell/33310
-          bashInteractive
-          # fix `cc` replaced by clang, which causes nvim-treesitter compilation error
-          gcc
-          # Nix-related
-          alejandra
-          deadnix
-          statix
-          # spell checker
-          typos
-          # code formatter
-          nodePackages.prettier
-        ];
-        name = "dots";
-        shellHook = ''
-          ${self.checks.${system}.pre-commit-check.shellHook}
-        '';
-      };
-    }
-  );
+  # devShells = forAllSystems (
+  #   system: let
+  #     pkgs = nixpkgs.legacyPackages.${system};
+  #   in {
+  #     default = pkgs.mkShell {
+  #       packages = with pkgs; [
+  #         # fix https://discourse.nixos.org/t/non-interactive-bash-errors-from-flake-nix-mkshell/33310
+  #         bashInteractive
+  #         # fix `cc` replaced by clang, which causes nvim-treesitter compilation error
+  #         gcc
+  #         # Nix-related
+  #         alejandra
+  #         deadnix
+  #         statix
+  #         # spell checker
+  #         typos
+  #         # code formatter
+  #         nodePackages.prettier
+  #       ];
+  #       name = "dots";
+  #       shellHook = ''
+  #         ${self.checks.${system}.pre-commit-check.shellHook}
+  #       '';
+  #     };
+  #   }
+  # );
 
-  # Format the nix code in this flake
   formatter = forAllSystems (
-    # alejandra is a nix formatter with a beautiful output
     system: nixpkgs.legacyPackages.${system}.alejandra
   );
 }
