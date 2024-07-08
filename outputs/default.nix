@@ -54,8 +54,8 @@ in {
   debugAttrs = {inherit nixosSystems darwinSystems allSystems allSystemNames;};
 
   # NixOS Hosts
-  nixosConfigurations =
-    lib.attrsets.mergeAttrsList (map (it: it.nixosConfigurations or {}) nixosSystemValues);
+  # nixosConfigurations =
+  #   lib.attrsets.mergeAttrsList (map (it: it.nixosConfigurations or {}) nixosSystemValues);
 
   # Colmena - remote deployment via SSH
   # colmena =

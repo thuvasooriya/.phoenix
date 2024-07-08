@@ -1,6 +1,5 @@
 {
   nixpkgs,
-  pkgs,
   lib,
   ...
 }: {
@@ -43,7 +42,7 @@
   # nix.useDaemon = true;
 
   # nix.package = pkgs.nix;
-  nix.package = pkgs.nixFlakes;
+  # nix.package = pkgs.nixFlakes;
   nix.registry.nixpkgs.flake = nixpkgs;
 
   environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";

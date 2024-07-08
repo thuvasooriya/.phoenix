@@ -1,4 +1,10 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  lib,
+  myvars,
+  ...
+}: let
   gitIgnoreGlobal =
     builtins.toFile "gitignore_global"
     ''
@@ -42,8 +48,8 @@ in {
     lazygit.enable = true;
     git = {
       enable = true;
-      userName = "thuvasooriya";
-      userEmail = "thuvaragan28@gmail.com";
+      userName = myvars.userfullname;
+      userEmail = myvars.useremail;
       # userEmail = "74165167+thuvasooriya@users.noreply.github.com";
       aliases = {
         # Basic commands
