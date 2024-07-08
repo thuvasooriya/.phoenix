@@ -15,7 +15,7 @@
       enableBashIntegration = true;
       enableNushellIntegration = true;
       enableTransience = true;
-      settings = pkgs.lib.importTOML ../config/starship.toml;
+      settings = pkgs.lib.importTOML ../../../config/starship.toml;
     };
     zoxide = {
       enable = true;

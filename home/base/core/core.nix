@@ -130,8 +130,8 @@
       gtkwave
       # kicad
       logisim-evolution
-      wireshark
-      termshark
+      # wireshark
+      # termshark
       ngspice
       # verible
       maven

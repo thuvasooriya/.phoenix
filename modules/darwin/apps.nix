@@ -23,9 +23,7 @@
       "$HOME/.zvm/self"
     ];
   };
-  # services.karabiner-elements.enable = true;
-  # programs.nix-index.enable = true;
-  # programs.man.enable = true;
+
   programs.zsh = {
     enable = true;
     # enableFzfCompletion = true;
@@ -38,6 +36,7 @@
       fi
     '';
   };
+
   programs.fish = {
     enable = true;
     shellInit = ''
@@ -47,6 +46,7 @@
       end
     '';
   };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -85,8 +85,7 @@
     brews = [
       # "latexindent"
       # "octave"
-      # "mongodb-community@7.0"
-      # "curl" # no not install curl via nixpkgs, it's not working well on macOS!
+      "curl"
       # "httpie" # http client
     ];
 
@@ -104,8 +103,7 @@
 
       ### hdl ###
       "ltspice"
-      # "wireshark"
-      # "kicad"
+      "wireshark"
       # "ngspice"
       # "digital"
 
@@ -116,7 +114,6 @@
 
       ### utils ###
       "keyclu"
-      # "notion"
       "notion-calendar"
       "obsidian"
       "orion"
@@ -127,16 +124,11 @@
       "zoom"
       "keka"
       "macwhisper"
-      # "selfcontrol"
       # "loungy"
       # "raycast"
-      # "anki"
       # "blender"
       "handbrake"
       # "utm"
-      # "iina" # video player
-      # "stats" # beautiful system monitor
-      # "insomnia" # REST client
     ];
   };
 }

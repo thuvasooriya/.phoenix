@@ -9,6 +9,6 @@ builtins.map
     f:
       f
       != "default.nix" # ignore default.nix
-      && f != "README.md" # ignore README.md
+      && f != "readme.md" # ignore README.md
   )
   (builtins.attrNames (builtins.readDir ./.)))
