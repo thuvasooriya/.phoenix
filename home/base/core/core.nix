@@ -13,27 +13,12 @@
       packages = {
       };
     };
-    nnn = {
-      enable = true;
-      extraPackages = [];
-      # package = pkgs.nnn.override {withNerdIcons = true;};
-      plugins = {
-        mappings = {
-          d = "fzcd";
-          # p = "preview-tui";
-          f = "finder";
-        };
-      };
-    };
     yazi = {
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
-      # keymap = pkgs.lib.importTOML ../config/yazi/keymap.toml;
-      # settings = pkgs.lib.importTOML ../config/yazi/yazi.toml;
-      # theme = pkgs.lib.importTOML ../config/yazi/theme.toml;
     };
   };
   home = {
@@ -46,6 +31,7 @@
       # zellij
       # helix
       htop
+      btop
       # mpv
       # xonsh
       # luajit
@@ -108,11 +94,6 @@
       typst
       hugo
 
-      # anki-bin
-      # obs-studio
-      # obsidian
-      # zed-editor
-      # zoom-us
       sioyek
 
       copier
@@ -128,12 +109,10 @@
       verilator
       verilog
       gtkwave
-      # kicad
       logisim-evolution
-      # wireshark
-      # termshark
+      wireshark
       ngspice
-      # verible
+      verible
       maven
 
       ### essentials ###
@@ -146,21 +125,11 @@
           p.pip
         ]))
       pipx
-      # ]
-      # ++ lib.optionals pkgs.stdenv.isDarwin [
-      #   (writeShellScriptBin "darwinix" ''
-      #     darwin-rebuild switch --flake ~/.phoenix/
-      #   '')
-      # ]
-      # ++ lib.optionals pkgs.stdenv.isLinux [
-      #   (writeShellScriptBin "hmnix" ''
-      #     home-manager switch --flake ~/.phoenix/home/
-      #   '')
     ];
 
-    # file = {
-    #   ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
-    #   ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
-    # };
+    file = {
+      ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
+      ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
+    };
   };
 }

@@ -89,5 +89,3 @@
     };
   };
 }
-# ${lib.optionalString (!args ? osConfig) "source ${pkgs.nix}/etc/profile.d/nix-daemon.fish"}
-

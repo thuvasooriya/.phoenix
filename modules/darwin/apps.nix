@@ -4,21 +4,11 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    just
+    m-cli
   ];
 
-  ## todo: ghostty terminfo config for sbcs
-  # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   environment = {
-    variables.EDITOR = "nvim";
-    shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish];
-    pathsToLink = [];
     systemPath = [
-      "$HOME/.local/bin"
-      "$HOME/.bun/bin"
-      "$HOME/.cargo/bin"
       "$HOME/.zvm/bin"
       "$HOME/.zvm/self"
     ];

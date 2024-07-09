@@ -1,4 +1,3 @@
-# {myvars, ...}: {
-#   programs.ssh.extraConfig = myvars.networking.ssh.extraConfig;
-# }
-{}
+{myvars, ...}: {
+  # programs.ssh.extraConfig = myvars.networking.ssh.extraConfig;
+}

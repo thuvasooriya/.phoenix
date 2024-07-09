@@ -3,9 +3,6 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      # bashrcExtra = ''
-      #   export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin"
-      # '';
     };
     nushell.enable = true;
     starship = {
@@ -43,14 +40,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    # nix-index = {
-    #   enable = true;
-    #   enableFishIntegration = true;
-    # };
-    # man = {
-    #   enable = true;
-    #   generateCaches = true;
-    # };
     fzf = {
       enable = true;
       enableFishIntegration = true;
