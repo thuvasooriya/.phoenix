@@ -128,8 +128,8 @@
     ];
 
     file = {
-      ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../config/.rgignore;
-      ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../config/.rules.verible_lint;
+      ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../../../config/.rgignore;
+      ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../../../config/.rules.verible_lint;
     };
   };
 }

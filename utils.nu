@@ -57,18 +57,18 @@ export def darwin-rollback [] {
 # ==================== Virtual Machines related =====================
 
 # Build and upload a VM image
-export def upload-vm [
-    name: string
-    mode: string
-] {
-    let target = $".#($name)"
-    if "debug" == $mode {
-        nom build $target --show-trace --verbose
-    } else {
-        nix build $target
-    }
-
-    let remote = $"root@rakushun:/var/lib/caddy/fileserver/vms/kubevirt-($name).qcow2"
-    rsync -avz --progress --copy-links result $remote
-}
+# export def upload-vm [
+#     name: string
+#     mode: string
+# ] {
+#     let target = $".#($name)"
+#     if "debug" == $mode {
+#         nom build $target --show-trace --verbose
+#     } else {
+#         nix build $target
+#     }
+#
+#     let remote = $"root@rakushun:/var/lib/caddy/fileserver/vms/kubevirt-($name).qcow2"
+#     rsync -avz --progress --copy-links result $remote
+# }
 
