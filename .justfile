@@ -24,18 +24,30 @@ repl:
     nix repl -f flake:nixpkgs
 
 # remove all generations older than 7 days
-clean:
-    sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+clean_history:
+    sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 1d
 
 # garbage collect all unused nix store entries
 gc:
     sudo nix store gc --debug
+    nix store gc --debug
     sudo nix-collect-garbage --delete-old
+    nix-collect-garbage -d
 
 # remove all reflog entries and prune unreachable objects
 gitgc:
     git reflog expire --expire-unreachable=now --all
     git gc --prune=now
+
+# repair errors and cleanup store
+repair:
+    sudo nix store optimise
+    nix store optimise
+    sudo nix-store --verify --check-contents --repair
+    nix-store --verify --check-contents --repair
+
+# all cleaning scripts
+clean: clean_history gc gitgc repair
 
 # [macos]
 # darwin-set-proxy:
