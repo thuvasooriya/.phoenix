@@ -1,6 +1,6 @@
 {lib, ...}:
 # ===================================================================
-# Remove packages that are not well supported for the Darwin platform
+# remove packages that are not well supported for the darwin platform
 # ===================================================================
 let
   brokenPackages = [
@@ -17,12 +17,13 @@ let
     "verible"
     "gdb"
     "ncdu"
+    "curl"
   ];
 in {
   nixpkgs.overlays = [
     (_: super: let
       removeUnwantedPackages = pname:
-        lib.warn "the ${pname} has been removed on the darwin platform"
+        lib.warn "`${pname}` pkg has been removed since it's broken on darwin"
         super.emptyDirectory;
     in
       lib.genAttrs

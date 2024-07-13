@@ -5,35 +5,35 @@
   ...
 }: {
   xdg.configFile = {
-    # universal config files go here
-    # won't work properly if the .phoenix was not cloned to home directory
     "ghostty" = {
-      # source = ../config/ghostty;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/ghostty";
+      # source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/ghostty";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/ghostty;
       recursive = true;
     };
     "zed" = {
-      # source = ../config/zed;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/zed";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/zed;
       recursive = true;
     };
     "zellij" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/zellij";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/zellij;
       recursive = true;
     };
     "yt-dlp" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yt-dlp";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/yt-dlp;
       recursive = true;
     };
     "aria2" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/aria2";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/aira2;
       recursive = true;
     };
     "yazi" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/yazi;
       recursive = true;
     };
   };
-}
-# TODO: making platform specific config file assignments
 
+  home.file = {
+    ".rgignore".source = config.lib.file.mkOutOfStoreSymlink ../../../config/.rgignore;
+    ".rules.verible_lint".source = config.lib.file.mkOutOfStoreSymlink ../../../config/.rules.verible_lint;
+  };
+}
