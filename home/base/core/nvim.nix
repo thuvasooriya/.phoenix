@@ -14,7 +14,7 @@
     defaultEditor = true;
   };
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/nimsh";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/nvim";
     recursive = true;
   };
 
