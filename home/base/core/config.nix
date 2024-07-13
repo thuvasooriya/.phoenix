@@ -23,7 +23,7 @@
       recursive = true;
     };
     "aria2" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/aira2;
+      source = config.lib.file.mkOutOfStoreSymlink ../../../config/aria2;
       recursive = true;
     };
     "yazi" = {

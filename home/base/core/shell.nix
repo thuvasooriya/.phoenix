@@ -3,12 +3,7 @@
     zsh = {
       enable = true;
       autocd = true;
-      autosuggestion = {
-        enable = true;
-        highlight = true;
-      };
       defaultKeymap = "vicmd";
-      enableSyntaxHighlighting = true;
       enableCompletion = true;
     };
     fish = {

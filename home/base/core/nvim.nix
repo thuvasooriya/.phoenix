@@ -8,16 +8,13 @@
   programs.neovim = {
     enable = true;
     package = neovim-nightly.packages.${pkgs.system}.default;
-    # viAlias = true;
-    # vimAlias = true;
-    # vimdiffAlias = true;
-    # defaultEditor = true;
-    # withPython3 = true;
-    # withNodeJs = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    defaultEditor = true;
   };
   xdg.configFile."nvim" = {
-    # source = ../config/nvim; # this will make a readonly config that syncs during switch command
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/nimsh";
     recursive = true;
   };
 

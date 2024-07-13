@@ -4,6 +4,45 @@
   ...
 }: {
   # todo: write a script to check whether homebrew is installed and install it
+  environment.systemPackages = with pkgs; [
+    m-cli
+  ];
+
+  programs.zsh = {
+    enable = true;
+    shellInit = ''
+      if [[ $(uname -m) == 'arm64' ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+    '';
+  };
+
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+      set fish_greeting
+      if test (uname -m) = "arm64"
+          eval (/opt/homebrew/bin/brew shellenv)
+      end
+    '';
+  };
+
+  # programs.bash = {
+  #   enable = true;
+  #   initExtra = ''
+  #     if [[ $(uname -m) == 'arm64' ]]; then
+  #         eval "$(/opt/homebrew/bin/brew shellenv)"
+  #     fi
+  #   '';
+  # };
+
+  environment = {
+    systemPath = [
+      "$HOME/.zvm/bin"
+      "$HOME/.zvm/self"
+    ];
+  };
+
   homebrew = {
     enable = true;
     # brewPrefix = "/opt/homebrew";

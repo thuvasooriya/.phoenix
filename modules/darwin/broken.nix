@@ -17,7 +17,7 @@ let
     "verible"
     "gdb"
     "ncdu"
-    "curl"
+    # "curl"
   ];
 in {
   nixpkgs.overlays = [

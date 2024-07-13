@@ -5,9 +5,6 @@
   ...
 }: {
   programs = {
-    aria2 = {
-      enable = true;
-    };
     htop = {
       enable = true;
     };
@@ -28,6 +25,22 @@
     };
   };
   home = {
+    activation = {
+      bun_install = lib.hm.dag.entryAfter ["installPackages"] ''
+        PATH="${config.home.path}/bin:$PATH"
+        BUN_PATH="$HOME/.bun/bin/bun"
+
+        if [ -x "$BUN_PATH" ]; then
+          echo "bun found at $BUN_PATH"
+          if "$BUN_PATH" --version &>/dev/null; then
+            echo "bun is installed and functional"
+        else
+          echo "bun not found or not working. installing..."
+          curl -fsSL https://bun.sh/install | bash
+          echo "bun installed"
+        fi
+      '';
+    };
     packages = with pkgs; [
       ### utils ###
       coreutils
@@ -61,6 +74,7 @@
       wget
       dogdns
       nmap # A utility for network discovery and security auditing
+      aria2
 
       ### containers ###
       docker
@@ -77,6 +91,7 @@
       ### essentials ###
       rustup
       nodejs
+      go
       # nodejs_21
       # python312Full
       (python3.withPackages
