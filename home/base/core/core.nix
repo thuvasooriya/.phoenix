@@ -34,6 +34,7 @@
           echo "bun found at $BUN_PATH"
           if "$BUN_PATH" --version &>/dev/null; then
             echo "bun is installed and functional"
+          fi
         else
           echo "bun not found or not working. installing..."
           curl -fsSL https://bun.sh/install | bash

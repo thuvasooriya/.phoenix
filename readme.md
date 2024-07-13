@@ -34,6 +34,11 @@ just ma debug
 > [what y'all will need when nix drives you to drink.](https://www.youtube.com/watch?v=Eni9PPPPBpg)
 > (copy from ryan4yin's nix-config repo, when i pulled an all nighter to finish the damn restructuring, this thing really held me togeather)
 
+## todo
+
+- [ ] make nvim config cloning independent of where .phoenix is
+- [ ] zig overlay setup
+
 ## current goals
 
 - [ ] error free mac config: madhu
