@@ -6,28 +6,27 @@
 }: {
   xdg.configFile = {
     "ghostty" = {
-      # source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/ghostty";
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/ghostty;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/ghostty";
       recursive = true;
     };
     "zed" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/zed;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/zed";
       recursive = true;
     };
     "zellij" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/zellij;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/zellij";
       recursive = true;
     };
     "yt-dlp" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/yt-dlp;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yt-dlp";
       recursive = true;
     };
     "aria2" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/aria2;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/aria2";
       recursive = true;
     };
     "yazi" = {
-      source = config.lib.file.mkOutOfStoreSymlink ../../../config/yazi;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
       recursive = true;
     };
   };

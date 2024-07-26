@@ -3,7 +3,6 @@
     zsh = {
       enable = true;
       autocd = true;
-      defaultKeymap = "vicmd";
       enableCompletion = true;
     };
     fish = {
@@ -140,7 +139,6 @@
     urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
     nv = "nvim";
     constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
-    cd = "z";
     cat = "bat";
     edsshgen = "ssh-keygen -t ed25519";
     # omnetpp = "opp_env run omnetpp-latest -c omnetpp";
@@ -149,5 +147,7 @@
     v = "nvim";
     vi = "nvim";
     vim = "nvim";
+    spotx = "bash -c 'bash <(curl -sSL https://spotx-official.github.io/run.sh) -B -dh --installmac'";
+    j = "just";
   };
 }

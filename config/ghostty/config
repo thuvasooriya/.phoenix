@@ -1,10 +1,5 @@
-# theme = catppuccin-frappe
-# theme = catppuccin-latte
-# theme = catppuccin-macchiato
-# theme = OneHalfDark
 theme = catppuccin-mocha
 
-# window-decoration = false
 window-padding-balance = true
 window-padding-x = 0
 window-padding-y = 0
@@ -19,9 +14,7 @@ window-width=72
 # background-opacity=0.97
 
 font-thicken = true
-# font-variation = wght=400
-font-size = 12
-# font-family = 'JetBrains Mono Nerd Font'
+# font-size = 12
 
 clipboard-read = "allow"
 copy-on-select = clipboard
@@ -29,44 +22,73 @@ clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
 
 command = /etc/profiles/per-user/tony/bin/fish
+# command = /etc/profiles/per-user/tony/bin/nu
 
 cursor-style-blink = false
-# cursor-style = block
-mouse-hide-while-typing = false
+cursor-style = underline
+mouse-hide-while-typing = true
 cursor-click-to-move = true
 mouse-shift-capture = true
-# shell-integration = "detect"
-shell-integration = fish
-shell-integration-features = cursor, sudo, no-title
+shell-integration = detect
+shell-integration-features = cursor, sudo, title
 confirm-close-surface = false
 # quit-after-last-window-closed = true
-# confirm-close-surface = false
 
 macos-option-as-alt = true
-# macos-titlebar-tabs = true
+macos-titlebar-style = transparent
 
-# keymaps
-
-## page movement
 keybind = super+k=scroll_page_up
-keybind = super+j=scroll_page_down
-
-## pane control
-keybind = super+slash=new_split:right
-keybind = shift+super+slash=new_split:down
-
-## pane movement
-keybind = ctrl+super+h=goto_split:left
-keybind = ctrl+super+k=goto_split:top
+# keybind = super+page_up=scroll_page_up
+keybind = super+shift+up=jump_to_prompt:-1
+keybind = super+physical:four=goto_tab:4
+keybind = super+comma=open_config
+keybind = super+shift+comma=reload_config
+keybind = super+minus=decrease_font_size:1
+keybind = super+a=select_all
+keybind = super+shift+down=jump_to_prompt:1
+keybind = super+w=close_surface
+keybind = super+shift+w=close_window
+keybind = super+shift+left_bracket=previous_tab
+keybind = super+shift+enter=toggle_split_zoom
 keybind = ctrl+super+j=goto_split:bottom
+keybind = alt+shift+equal=equalize_splits
+keybind = super+physical:eight=goto_tab:8
 keybind = ctrl+super+l=goto_split:right
-
-## pane maximize 
-keybind = ctrl+super+f=unbind
-keybind = ctrl+super+f=toggle_split_zoom
-
-## pane close
-# keybind = ctrl+super+w=close_surface
-
-## i mean for gods sake macos
-# window-vsync=false
+keybind = super+ctrl+right=resize_split:right,10
+keybind = super+n=new_window
+keybind = super+enter=toggle_fullscreen
+keybind = super+alt+i=inspector:toggle
+keybind = super+ctrl+f=toggle_fullscreen
+keybind = ctrl+super+h=goto_split:left
+keybind = super+j=scroll_page_down
+# keybind = super+page_down=scroll_page_down
+keybind = super+alt+shift+w=close_all_windows
+keybind = ctrl+super+k=goto_split:top
+keybind = super+t=new_tab
+keybind = super+c=copy_to_clipboard
+keybind = super+shift+right_bracket=next_tab
+keybind = super+physical:one=goto_tab:1
+keybind = super+physical:nine=goto_tab:9
+keybind = super+left_bracket=goto_split:previous
+keybind = super+equal=increase_font_size:1
+keybind = super+physical:three=goto_tab:3
+keybind = super+end=scroll_to_bottom
+keybind = super+right_bracket=goto_split:next
+# keybind = super+slash=new_split:right
+keybind = super+d=new_split:right
+keybind = super+shift+j=write_scrollback_file
+keybind = super+q=quit
+keybind = super+plus=increase_font_size:1
+keybind = super+zero=reset_font_size
+keybind = super+physical:five=goto_tab:5
+keybind = super+home=scroll_to_top
+keybind = super+physical:seven=goto_tab:7
+keybind = super+ctrl+d=new_split:down
+keybind = super+shift+d=unbind
+keybind = super+alt+j=resize_split:down,50
+keybind = super+ctrl+left=resize_split:left,10
+keybind = super+k=clear_screen
+keybind = super+alt+k=resize_split:up,50
+keybind = super+physical:two=goto_tab:2
+keybind = super+physical:six=goto_tab:6
+keybind = super+v=paste_from_clipboard

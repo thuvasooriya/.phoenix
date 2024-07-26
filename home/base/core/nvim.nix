@@ -28,12 +28,6 @@
         rm -rf ${config.xdg.stateHome}/nvim
         rm -rf ${config.xdg.cacheHome}/nvim
       '')
-      (writeShellScriptBin "clean-nvim-full" ''
-        rm -rf ${config.xdg.dataHome}/nvim
-        rm -rf ${config.xdg.stateHome}/nvim
-        rm -rf ${config.xdg.cacheHome}/nvim
-        rm -rf ${config.xdg.configHome}/nvim
-      '')
       unzip
       fd
       ### treesitter ###
@@ -53,7 +47,6 @@
       shfmt
       lua-language-server
       stylua
-      # typescript-language-server
       prettierd
       vscode-langservers-extracted
       biome
@@ -61,11 +54,10 @@
       ### latex ###
       texlab
       tectonic
-      zathura
       entr
 
       ### python ###
-      pyright
+      # pyright
       ruff
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [

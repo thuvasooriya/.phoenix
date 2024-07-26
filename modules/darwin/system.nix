@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   system = {
-    # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
-      # activateSettings -u will reload the settings from the database and apply them to the current session,
+      # will reload the settings from the database and apply them to the current session,
       # so we do not need to logout and login again to make the changes take effect.
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
@@ -10,7 +9,6 @@
     defaults = {
       # menuExtraClock.Show24Hour = true;  # show 24 hour clock
 
-      # customize dock
       dock = {
         autohide = true;
         show-recents = false; # disable recent apps
@@ -21,7 +19,6 @@
         # wvous-br-corner = 4; # bottom-right - Desktop
       };
 
-      # customize finder
       finder = {
         _FXShowPosixPathInTitle = true; # show full path in finder title
         AppleShowAllExtensions = true; # show all file extensions
@@ -35,16 +32,13 @@
         # When performing a search, search the current folder by default
       };
 
-      # customize trackpad
       trackpad = {
-        # tap - 轻触触摸板, click - 点击触摸板
-        Clicking = true; # enable tap to click(轻触触摸板相当于点击)
+        Clicking = true; # enable tap to click
         TrackpadRightClick = true; # enable two finger right click
         TrackpadThreeFingerDrag = true; # enable three finger drag
       };
 
-      # screencapture.location = "~/pictures/screenshots";
-      # screensaver.askforpassworddelay = 10;
+      screencapture.location = "~/arc/now/ss";
 
       # customize settings that not supported by nix-darwin directly
       # https://github.com/yannbertrand/macos-defaults
@@ -88,6 +82,11 @@
           # add a context menu item for showing the web inspector in web views
           WebKitDeveloperExtras = true;
         };
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            "70".enabled = false;
+          };
+        };
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = false;
           ShowHardDrivesOnDesktop = false;
@@ -116,7 +115,7 @@
           askForPasswordDelay = 0;
         };
         "com.apple.screencapture" = {
-          location = "~/Desktop";
+          location = "~/arc/now/ss";
           type = "png";
         };
         "com.apple.AdLib" = {
@@ -124,6 +123,93 @@
         };
         # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
+        "pl.maketheweb.cleanshotx" = {
+          annotateLastSaveURL = "/Users/tony/arc/now/ss";
+          exportPath = "/Users/tony/arc/now/ss";
+          SUAutomaticallyUpdate = 0;
+          SUEnableAutomaticChecks = 0;
+          SUHasLaunchedBefore = 1;
+          analyticsAllowed = 0;
+          automaticallyCheckForUpdates = 0;
+          captureWithoutDesktopIcons = 1;
+          deletePopupAfterDragging = 1;
+          didAskAboutURLSchemesAPI = 1;
+          highlightClicks = 1;
+          lastAcceptedEulaVersion = 1;
+          onboardingDisplayed = 1;
+          onboardingOCRDisplayed = 1;
+          playSounds = 0;
+          popupAskForDestinationWhenSaving = 0;
+          recordComputerAudio = 0;
+          snapInAnnotateCrop = 1;
+          textRecognitionKeepLineBreaks = 1;
+          afterScreenshotActions = [
+            0
+            1
+          ];
+          annotateExpandCanvas = 1;
+          autoClosePopup = 1;
+          crosshairMode = 1;
+          doNotDisturbWhileRecording = 1;
+          historyCapacity = 3;
+          lastAutoIncrement = 0;
+          lastLegitVersionNumber = 7;
+          mediaNameTemplate = [
+            "ss"
+            "%m"
+            "%d"
+            "@"
+            "%H"
+            "%M"
+            "%S"
+          ];
+          popupSize = 0;
+          rememberRecordingArea = 1;
+          # s000 = 1721273623;
+          # s008 = 1;
+          showMenubarIcon = 0;
+          transparentWindowBackground = 0;
+          windowBackgroundPadding = 0;
+          # LAVAqaoRestore = mkDataTag "LAVAqaoRestore" "eyJjYXJib25LZXkiOjMzLCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
+          # LAVAtakeAllInOne = mkDataTag "LAVAtakeAllInOne" "eyJjYXJib25LZXkiOjI4LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
+          # LAVAtakeArea = mkDataTag "LAVAtakeArea" "eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6MjR9";
+          # LAVAtakeFullscreen = mkDataTag "LAVAtakeFullscreen" "eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6Mjl9";
+          # LAVAtakeOCR = mkDataTag "LAVAtakeOCR" "eyJjYXJib25LZXkiOjI1LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
+          # LAVAtakePreviousArea = mkDataTag "LAVAtakePreviousArea" "eyJjYXJib25LZXkiOjI3LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
+          # LAVAqaoRestore = {
+          #   length = 39;
+          #   bytes = eyJjYXJib25LZXkiOjMzLCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
+          #   # bytes = "0x7b226361 72626f6e 4b657922 3a33332c ... 73223a36 3931327d";
+          # };
+          # LAVAtakeAllInOne = {
+          #   length = 39;
+          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32382c ... 73223a36 3931327d";
+          #   bytes = eyJjYXJib25LZXkiOjI4LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
+          # };
+          # LAVAtakeArea = {
+          #   length = 39;
+          #   # bytes = "0x7b226361 72626f6e 4d6f6469 66696572 ... 4b657922 3a32347d";
+          #   bytes = eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6MjR9;
+          # };
+          # LAVAtakeFullscreen = {
+          #   length = 39;
+          #   # bytes = "0x7b226361 72626f6e 4d6f6469 66696572 ... 4b657922 3a32397d";
+          #   bytes = eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6Mjl9;
+          # };
+          # LAVAtakeOCR = {
+          #   length = 39;
+          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32352c ... 73223a36 3931327d";
+          #   bytes = eyJjYXJib25LZXkiOjI1LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
+          # };
+          # LAVAtakePreviousArea = {
+          #   length = 39;
+          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32372c ... 73223a36 3931327d";
+          #   bytes = eyJjYXJib25LZXkiOjI3LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
+          # };
+          "LaunchAtLogin__hasMigrated" = 1;
+          # MGR001 = 1;
+          # MGR002 = 1;
+        };
       };
 
       # ZoomChat = {
@@ -195,9 +281,6 @@
     packages = with pkgs; [
       # packages = with pkgs; [
       # icon fonts
-      material-design-icons
-      font-awesome
-
       # nerdfonts
       # https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/data/fonts/nerdfonts/shas.nix
       (nerdfonts.override {
@@ -206,7 +289,6 @@
           "NerdFontsSymbolsOnly"
           # characters
           "JetBrainsMono"
-          "Iosevka"
         ];
         # fonts = ["CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono"];
       })

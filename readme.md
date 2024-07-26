@@ -16,6 +16,19 @@ apart from the sexy name, this config is nowhere near useable. i'm currently tes
 
 directory strcture and helper functions are copied from ryan4yin's config
 
+> [!NOTE]
+>
+> You'll see a lot of weird blank configurations like `font-family =`. This
+> is a valid syntax to specify the default behavior (no value). The
+> `+show-config` outputs it so its clear that key is defaulting and also
+> to have something to attach the doc comment to.
+
+> [!WARNING]
+>
+> **Fallback does not support advanced terminal features.** Because
+> `xterm-256color` does not include all of Ghostty's capabilities, terminal
+> features beyond xterm's like colored and styled underlines will not work.
+
 ## setup note
 
 ```bash

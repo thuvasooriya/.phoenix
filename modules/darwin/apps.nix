@@ -40,6 +40,7 @@
     systemPath = [
       "$HOME/.zvm/bin"
       "$HOME/.zvm/self"
+      "$GHOSTTY_BIN_DIR"
     ];
   };
 
@@ -84,7 +85,7 @@
       "orbstack"
       "visual-studio-code"
       "zed"
-
+      # "utm"
       "android-platform-tools"
 
       "ltspice"
@@ -99,19 +100,20 @@
 
       ### utils ###
       "keyclu"
+      # "syncthing"
+      "keka"
+      # "raycast"
+      # "loungy"
       "notion-calendar"
       "orion"
-      # "syncthing"
       # "spotube"
       # "arc"
+
+      "inkscape"
       "obs"
       "zoom"
-      "keka"
-      # "loungy"
-      # "raycast"
       # "blender"
       "handbrake"
-      # "utm"
     ];
   };
 }
