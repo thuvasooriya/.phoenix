@@ -15,10 +15,10 @@
       # '';
       # loginShellInit = ''
       # '';
-      shellAbbrs = {
-      };
-      plugins = with pkgs.fishPlugins; [
-      ];
+      # shellAbbrs = {
+      # };
+      # plugins = with pkgs.fishPlugins; [
+      # ];
       functions = {
         starship_transient_prompt_func.body = ''
           starship module line_break
@@ -62,20 +62,20 @@
             source "$venv_path/bin/activate.fish"
           '';
         };
-        iv = {
-          body = ''
-            set output_file (string split -m 1 '.' $argv[1])[1]".o"
-            iverilog -Wall -o $output_file $argv >/tmp/iver.out 2>&1
-            or return $status
-
-            if string match -r "VCD info" </tmp/iver.out
-                vvp $output_file
-                gtkwave
-            else
-                echo "No VCD info found in the output."
-            end
-          '';
-        };
+        # iv = {
+        #   body = ''
+        #     set output_file (string split -m 1 '.' $argv[1])[1]".o"
+        #     iverilog -Wall -o $output_file $argv >/tmp/iver.out 2>&1
+        #     or return $status
+        #
+        #     if string match -r "VCD info" </tmp/iver.out
+        #         vvp $output_file
+        #         gtkwave
+        #     else
+        #         echo "No VCD info found in the output."
+        #     end
+        #   '';
+        # };
       };
     };
     nushell.enable = true;
@@ -113,10 +113,12 @@
       enableNushellIntegration = true;
       enableZshIntegration = true;
     };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
+
     fzf = {
       enable = true;
       enableFishIntegration = true;
@@ -149,5 +151,6 @@
     vim = "nvim";
     spotx = "bash -c 'bash <(curl -sSL https://spotx-official.github.io/run.sh) -B -dh --installmac'";
     j = "just";
+    f = "find -type f -name";
   };
 }
