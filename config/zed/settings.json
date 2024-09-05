@@ -8,13 +8,18 @@
     "scroll_debounce_ms": 50
   },
 
-  "preview_tabs": {
-    "enabled": true,
-    "enable_preview_from_file_finder": true,
-    "enable_preview_from_code_navigation": true
-  },
+  // "preview_tabs": {
+  //   "enabled": true,
+  //   "enable_preview_from_file_finder": true,
+  //   "enable_preview_from_code_navigation": true
+  // },
+
   "tab_bar": {
     "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
   },
   "file_scan_exclusions": [
     "**/.git",
@@ -52,11 +57,19 @@
   "collaboration_panel": {
     "button": false
   },
+  "load_direnv": "shell_hook",
   "notification_panel": {
     "button": false
   },
+  "inline_completions": {
+    "disabled_globs": [".env"]
+  },
   "assistant": {
-    "version": "1",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2",
     "button": false
   },
   "project_panel": {
@@ -64,15 +77,23 @@
     "indent_size": 4
   },
   "terminal": {
-    "default_height": 160,
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "dock": "bottom",
+    "env": {},
+    // "font_family": null,
+    // "font_features": null,
+    // "font_size": null,
     "line_height": "standard",
-    "shell": {
-      "program": "fish"
-      // "with_arguments": {
-      //   "program": "fish",
-      //   "args": ["--login"]
-      // }
+    "default_height": 160,
+    "option_as_meta": true,
+    "button": false,
+    // "shell": {},
+    "toolbar": {
+      "title": false
     },
+    "working_directory": "current_project_directory",
     "detect_venv": {
       "on": {
         // "directories": [".env", "env", ".venv", "venv"],

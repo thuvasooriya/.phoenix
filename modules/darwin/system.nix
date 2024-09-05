@@ -95,12 +95,12 @@
           _FXSortFoldersFirst = true;
         };
         "com.apple.desktopservices" = {
-          # Avoid creating .DS_Store files on network or USB volumes
+          # avoid creating .ds_store files on network or usb volumes
           DSDontWriteNetworkStores = true;
           DSDontWriteUSBStores = true;
         };
         "com.apple.spaces" = {
-          "spans-displays" = 0; # Display have seperate spaces
+          "spans-displays" = 0; # display have seperate spaces
         };
         "com.apple.WindowManager" = {
           EnableStandardClickToShowDesktop = 0; # Click wallpaper to reveal desktop
@@ -110,7 +110,7 @@
           StandardHideWidgets = 0;
         };
         "com.apple.screensaver" = {
-          # Require password immediately after sleep or screen saver begins
+          # require password immediately after sleep or screen saver begins
           askForPassword = 1;
           askForPasswordDelay = 0;
         };
@@ -121,7 +121,7 @@
         "com.apple.AdLib" = {
           allowApplePersonalizedAdvertising = false;
         };
-        # Prevent Photos from opening automatically when devices are plugged in
+        # prevent photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
         "pl.maketheweb.cleanshotx" = {
           annotateLastSaveURL = "/Users/tony/arc/now/ss";
@@ -165,68 +165,15 @@
           ];
           popupSize = 0;
           rememberRecordingArea = 1;
-          # s000 = 1721273623;
-          # s008 = 1;
           showMenubarIcon = 0;
           transparentWindowBackground = 0;
           windowBackgroundPadding = 0;
-          # LAVAqaoRestore = mkDataTag "LAVAqaoRestore" "eyJjYXJib25LZXkiOjMzLCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
-          # LAVAtakeAllInOne = mkDataTag "LAVAtakeAllInOne" "eyJjYXJib25LZXkiOjI4LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
-          # LAVAtakeArea = mkDataTag "LAVAtakeArea" "eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6MjR9";
-          # LAVAtakeFullscreen = mkDataTag "LAVAtakeFullscreen" "eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6Mjl9";
-          # LAVAtakeOCR = mkDataTag "LAVAtakeOCR" "eyJjYXJib25LZXkiOjI1LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
-          # LAVAtakePreviousArea = mkDataTag "LAVAtakePreviousArea" "eyJjYXJib25LZXkiOjI3LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9";
-          # LAVAqaoRestore = {
-          #   length = 39;
-          #   bytes = eyJjYXJib25LZXkiOjMzLCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
-          #   # bytes = "0x7b226361 72626f6e 4b657922 3a33332c ... 73223a36 3931327d";
-          # };
-          # LAVAtakeAllInOne = {
-          #   length = 39;
-          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32382c ... 73223a36 3931327d";
-          #   bytes = eyJjYXJib25LZXkiOjI4LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
-          # };
-          # LAVAtakeArea = {
-          #   length = 39;
-          #   # bytes = "0x7b226361 72626f6e 4d6f6469 66696572 ... 4b657922 3a32347d";
-          #   bytes = eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6MjR9;
-          # };
-          # LAVAtakeFullscreen = {
-          #   length = 39;
-          #   # bytes = "0x7b226361 72626f6e 4d6f6469 66696572 ... 4b657922 3a32397d";
-          #   bytes = eyJjYXJib25Nb2RpZmllcnMiOjY5MTIsImNhcmJvbktleSI6Mjl9;
-          # };
-          # LAVAtakeOCR = {
-          #   length = 39;
-          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32352c ... 73223a36 3931327d";
-          #   bytes = eyJjYXJib25LZXkiOjI1LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
-          # };
-          # LAVAtakePreviousArea = {
-          #   length = 39;
-          #   # bytes = "0x7b226361 72626f6e 4b657922 3a32372c ... 73223a36 3931327d";
-          #   bytes = eyJjYXJib25LZXkiOjI3LCJjYXJib25Nb2RpZmllcnMiOjY5MTJ9;
-          # };
-          "LaunchAtLogin__hasMigrated" = 1;
-          # MGR001 = 1;
-          # MGR002 = 1;
         };
       };
 
-      # ZoomChat = {
-      #   ZMEnableShowUserName = false;
-      #   ZoomFitDock = true;
-      #   ZoomFitXPos = 620;
-      #   ZoomFitYPos = 864;
-      #   ZoomRememberPhoneKey = true;
-      #   "com.zoom.client.langid" = 1033;
-      #   "conf.crash.enable.auto.uploaddumps" = true;
-      #   "conf.webserver" = "https://us04web.zoom.us";
-      #   "conf.webserver.vendor.default" = "https://zoom.us";
-      # };
-
       loginwindow = {
         GuestEnabled = false; # disable guest user
-        SHOWFULLNAME = true; # show full name in login window
+        SHOWFULLNAME = false; # show full name in login window
         LoginwindowText = "we create our own demons";
       };
     };
@@ -263,34 +210,13 @@
     enableSyntaxHighlighting = true;
   };
 
-  # stateVersion = 4;
-
-  # set your time zone.
-  # comment this due to the issue:
-  #   https://github.com/LnL7/nix-darwin/issues/359
-  # time.timeZone = "Asia/shanghai";
-
-  # fonts
   fonts = {
-    # will be removed after this PR is merged:
-    #   https://github.com/LnL7/nix-darwin/pull/754
-    # fontDir.enable = true;
-
-    # will change to `fonts.packages` after this PR is merged:
-    #   https://github.com/LnL7/nix-darwin/pull/754
     packages = with pkgs; [
-      # packages = with pkgs; [
-      # icon fonts
-      # nerdfonts
-      # https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/data/fonts/nerdfonts/shas.nix
       (nerdfonts.override {
         fonts = [
-          # symbols icon only
           "NerdFontsSymbolsOnly"
-          # characters
           "JetBrainsMono"
         ];
-        # fonts = ["CascadiaCode" "Hasklig" "Inconsolata" "Iosevka" "JetBrainsMono"];
       })
     ];
   };

@@ -3,9 +3,8 @@
     activation = {
     };
     packages = with pkgs; [
-      notcurses
+      # notcurses
       flyctl
-
       ### android ###
       scrcpy
 
@@ -19,15 +18,17 @@
       hugo
 
       ### hdl ###
+      bear
       verilator
       verilog #iverilog
       gtkwave
       logisim-evolution
-      ngspice
+      # ngspice
       verible
+      platformio-core
 
       ### network ###
-      wireshark
+      # wireshark
 
       ### java ###
       maven

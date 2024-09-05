@@ -29,6 +29,10 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
       recursive = true;
     };
+    "neovide" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/neovide";
+      recursive = true;
+    };
   };
 
   home.file = {

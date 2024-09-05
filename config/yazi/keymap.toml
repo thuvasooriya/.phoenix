@@ -1,20 +1,20 @@
 [[manager.prepend_keymap]]
-desc = "Save current position as a bookmark"
+desc = "save current position as a bookmark"
 on = ["u", "a"]
 run = "plugin bookmarks-persistence --args=save"
 
 [[manager.prepend_keymap]]
-desc = "Jump to a bookmark"
+desc = "jump to a bookmark"
 on = ["u", "g"]
 run = "plugin bookmarks-persistence --args=jump"
 
 [[manager.prepend_keymap]]
-desc = "Delete a bookmark"
+desc = "delete a bookmark"
 on = ["u", "d"]
 run = "plugin bookmarks-persistence --args=delete"
 
 [[manager.prepend_keymap]]
-desc = "Delete all bookmarks"
+desc = "delete all bookmarks"
 on = ["u", "D"]
 run = "plugin bookmarks-persistence --args=delete_all"
 
@@ -53,3 +53,8 @@ on = [ "P", "M" ]
 run = "plugin projects --args='merge all'"
 desc = "Merge current project to other projects"
 
+[[manager.prepend_keymap]]
+on  = "y"
+run = [ '''
+	shell 'open -a Yoink "$@"' --confirm
+''', "yank" ]

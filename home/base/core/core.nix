@@ -77,6 +77,7 @@
       ### containers ###
       docker
       cachix
+      devenv
 
       copier
       pre-commit
@@ -90,6 +91,7 @@
       rustup
       nodejs
       go
+      lua
       # nodejs_21
       # python312Full
       (python3.withPackages

@@ -89,14 +89,14 @@
       "android-platform-tools"
 
       "ltspice"
-      "wireshark"
+      # "wireshark"
       # "ngspice"
       # "digital"
 
       ### social ###
       "telegram"
       "whatsapp"
-      "discord"
+      # "discord"
 
       ### utils ###
       "keyclu"
@@ -104,12 +104,12 @@
       "keka"
       # "raycast"
       # "loungy"
-      "notion-calendar"
-      "orion"
+      # "notion-calendar"
+      # "orion"
       # "spotube"
       # "arc"
 
-      "inkscape"
+      # "inkscape"
       "obs"
       "zoom"
       # "blender"

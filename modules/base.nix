@@ -28,6 +28,7 @@
       "$HOME/.local/bin"
       "$HOME/.bun/bin"
       "$HOME/.cargo/bin"
+      "$HOME/.luarocks/bin"
     ];
   };
 
