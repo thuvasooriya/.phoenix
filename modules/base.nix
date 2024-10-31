@@ -22,13 +22,9 @@
   # TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
   environment = {
     variables.EDITOR = "nvim";
-    shells = [pkgs.bashInteractive pkgs.zsh pkgs.fish pkgs.nushell];
+    # shells = [pkgs.zsh];
     pathsToLink = [];
     systemPath = [
-      "$HOME/.local/bin"
-      "$HOME/.bun/bin"
-      "$HOME/.cargo/bin"
-      "$HOME/.luarocks/bin"
     ];
   };
 
@@ -62,6 +58,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
 
+    # extract these to a separate project file
     extra-substituters = [
       "https://openlane.cachix.org"
     ];

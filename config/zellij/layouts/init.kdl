@@ -1,27 +1,64 @@
-layout {
-tab name="init" split_direction="horizontal" cwd="~" {
-  pane split_direction="vertical" {
-    pane {
-      name "nvim"
-      focus true
-      command "nvim"
-      cwd "~"
-    }
-    pane split_direction="horizontal" {
-    pane {
-          name "hello"
-          cwd "~"
-      }
-    pane {
-          name "neofetch"
-          cwd "~"
-          size 22
-          command "neofetch"
-      }
-    }
-  }
-  pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
-  }
-}
-}
+// layout {
+// tab name="init" split_direction="horizontal" cwd="~" {
+//   pane split_direction="vertical" {
+//     pane {
+//       name "nvim"
+//       focus true
+//       command "nvim"
+//       cwd "~"
+//     }
+//     pane split_direction="horizontal" {
+//     pane {
+//           name "hello"
+//           cwd "~"
+//       }
+//     pane {
+//           name "neofetch"
+//           cwd "~"
+//           size 22
+//           command "neofetch"
+//       }
+//     }
+//   }
+//   pane size=1 borderless=true {
+//         plugin location="zellij:compact-bar"
+//   }
+// }
+// }
+// layout {
+//     pane split_direction="vertical" {
+//         pane edit="src/main.rs"
+//         pane split_direction="horizontal" {
+//             pane command="cargo" {
+//                 args "check"
+//                 start_suspended true
+//             }
+//             pane command="cargo" {
+//                 args "run"
+//                 start_suspended true
+//             }
+//             pane command="cargo" {
+//                 args "test"
+//                 start_suspended true
+//             }
+//         }
+//     }
+// }
+//
+// layout {
+//     pane split_direction="vertical" {
+//         pane edit="src/main.rs"
+//         pane split_direction="horizontal" {
+//             cargo { args "check"; }
+//             cargo { args "run"; }
+//             cargo { args "test"; }
+//         }
+//     }
+//     pane size=1 borderless=true {
+//         plugin location="zellij:compact-bar"
+//     }
+//     pane_template name="cargo" {
+//         command "cargo"
+//         start_suspended true
+//     }
+// }

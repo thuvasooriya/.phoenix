@@ -21,8 +21,6 @@ copy-on-select = clipboard
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
 
-command = /etc/profiles/per-user/tony/bin/fish
-
 cursor-style-blink = false
 cursor-style = block
 mouse-hide-while-typing = true
@@ -84,6 +82,7 @@ keybind = super+plus=increase_font_size:1
 keybind = super+zero=reset_font_size
 keybind = super+home=scroll_to_top
 keybind = super+ctrl+d=new_split:down
+keybind = alt+ctrl+d=ignore
 keybind = super+shift+d=unbind
 keybind = super+alt+j=resize_split:down,50
 keybind = super+ctrl+left=resize_split:left,10

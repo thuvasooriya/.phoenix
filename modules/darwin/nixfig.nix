@@ -7,7 +7,7 @@
 
   services.nix-daemon.enable = true;
 
-  nix.registry.nixpkgs.flake = nixpkgs;
+  # nix.registry.nixpkgs.flake = lib.mkDefault nixpkgs;
   nix.settings.auto-optimise-store = false;
   nix.gc.automatic = false;
 

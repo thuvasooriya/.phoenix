@@ -14,7 +14,6 @@ let
     "wireshark"
     "jsonnet"
     "zls"
-    "verible"
     "gdb"
     "ncdu"
     # "curl"

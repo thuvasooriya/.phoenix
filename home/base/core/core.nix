@@ -13,12 +13,23 @@
     };
     bat = {
       enable = true;
+      # config = {
+      #   theme = "Catppuccin Mocha";
+      # };
+      # themes = {
+      #   dracula = {
+      #     src = pkgs.fetchFromGitHub {
+      #       owner = "catppuccin";
+      #       repo = "bat"; # Bat uses sublime syntax for its themes
+      #       rev = "d3feec47b16a8e99eabb34cdfbaa115541d374fc";
+      #       sha256 = "s0CHTihXlBMCKmbBBb8dUhfgOOQu9PBCQ+uviy7o47w=";
+      #     };
+      #     file = "themes/Catppuccin Mocha.tmTheme";
+      #   };
+      # };
     };
     zellij = {
-      enable = false;
-      enableFishIntegration = true;
-      enableZshIntegration = true;
-      enableBashIntegration = true;
+      enable = true;
     };
   };
   home = {
@@ -47,28 +58,19 @@
       tree
       rclone
       rsync
-      # zip
-      # xz
-      # unzip
-      # p7zip
-      # gnused
-      # gnutar
       gawk
       ouch
       miller
-      # zstd
-      # caddy
-      # gnupg
+      autoconf
       hyperfine
-      ncdu
-      neofetch
-      rmtrash
-      gron
       ffmpeg
+      copier
+      pre-commit
+      exiftool
 
       ### network ###
       # socat # replacement of openbsd-netcat
-      curl
+      # curl
       wget
       dogdns
       nmap # A utility for network discovery and security auditing
@@ -77,28 +79,15 @@
       ### containers ###
       docker
       cachix
-      devenv
 
-      copier
-      pre-commit
-      exiftool
+      ccache
 
       ### fun ###
       cmatrix
-      cowsay
 
-      ### essentials ###
-      rustup
-      nodejs
-      go
-      lua
-      # nodejs_21
-      # python312Full
-      (python3.withPackages
-        (p: [
-          p.pip
-        ]))
-      pipx
+      ### system defaults ###
+      nodejs_22
+      python312
     ];
   };
 }

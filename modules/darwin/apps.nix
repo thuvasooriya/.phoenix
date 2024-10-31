@@ -10,49 +10,37 @@
 
   programs.zsh = {
     enable = true;
-    shellInit = ''
-      if [[ $(uname -m) == 'arm64' ]]; then
-          eval "$(/opt/homebrew/bin/brew shellenv)"
-      fi
-    '';
+    enableCompletion = false;
   };
-
-  programs.fish = {
-    enable = true;
-    shellInit = ''
-      set fish_greeting
-      if test (uname -m) = "arm64"
-          eval (/opt/homebrew/bin/brew shellenv)
-      end
-    '';
-  };
-
-  # programs.bash = {
-  #   enable = true;
-  #   initExtra = ''
-  #     if [[ $(uname -m) == 'arm64' ]]; then
-  #         eval "$(/opt/homebrew/bin/brew shellenv)"
-  #     fi
-  #   '';
-  # };
 
   environment = {
     systemPath = [
+      "$HOME/.local/bin"
       "$HOME/.zvm/bin"
       "$HOME/.zvm/self"
       "$GHOSTTY_BIN_DIR"
+      "$HOME/.bun/bin"
+      "$HOME/.cargo/bin"
+      "$HOME/.luarocks/bin"
+      "$HOME/.pixi/bin"
     ];
+    # shells = [
+    #   pkgs.zsh
+    # ];
+    # shellInit = ''
+    #   eval "$(/opt/homebrew/bin/brew shellenv)"
+    # '';
   };
 
   homebrew = {
     enable = true;
-    # brewPrefix = "/opt/homebrew";
+    # brewPrefix = "/opt/homebrew/bin";
     onActivation = {
-      autoUpdate = false;
-      # 'zap': uninstalls all formulae(and related files) not listed here.
-      # upgrade = true;
+      autoUpdate = true;
+      upgrade = true;
       cleanup = "zap";
     };
+    global = {brewfile = true;};
 
     # applications to install from mac app store using mas.
     # you need to install all these apps manually first so that your apple account have records for them.
@@ -60,16 +48,11 @@
     # for details, see https://github.com/mas-cli/mas
     masApps = {
       # Xcode = 497799835;
-      # QQMusic = 595615424;
     };
-    global = {brewfile = true;};
 
     taps = [
-      # "homebrew/cask-fonts"
-      # "homebrew/services"
-      # "homebrew/cask-versions"
-      # "krtirtho/apps"
       # "mongodb/brew"
+      # "osrf/simulation"
     ];
 
     # `brew install`
@@ -77,6 +60,8 @@
       # "latexindent"
       # "octave"
       "curl"
+      # "gazebo11"
+      # "gz-harmonic"
     ];
 
     # `brew install --cask`
@@ -85,21 +70,20 @@
       "orbstack"
       "visual-studio-code"
       "zed"
+      # "xquartz"
       # "utm"
       "android-platform-tools"
 
-      "ltspice"
+      # "ltspice"
       # "wireshark"
       # "ngspice"
       # "digital"
 
       ### social ###
-      "telegram"
       "whatsapp"
-      # "discord"
 
       ### utils ###
-      "keyclu"
+      # "keyclu"
       # "syncthing"
       "keka"
       # "raycast"

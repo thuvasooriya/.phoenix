@@ -39,7 +39,7 @@
       // only in normal mode
       "space g g": [
         "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit space enter"
+        ": new center terminal enter lazygit space && space exit enter"
       ],
       "space f f": "file_finder::Toggle",
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],

@@ -51,6 +51,8 @@ just ma debug
 
 - [ ] make nvim config cloning independent of where .phoenix is
 - [ ] zig overlay setup
+- [ ] zsh shell optimize
+- [ ] build and set to path git repo packages
 
 ## current goals
 

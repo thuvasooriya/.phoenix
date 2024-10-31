@@ -18,9 +18,6 @@
     recursive = true;
   };
 
-  # programs.neovim.extraPackages = with pkgs; [
-  # moves the extraPackages to home because they were giving some hazzle
-
   home.packages = with pkgs;
     [
       (writeShellScriptBin "clean-nvim" ''
@@ -28,36 +25,32 @@
         rm -rf ${config.xdg.stateHome}/nvim
         rm -rf ${config.xdg.cacheHome}/nvim
       '')
+
       unzip
       fd
-      ### treesitter ###
       tree-sitter
-      gcc
-      # clang-tools_17
+
+      # zls managed by zvm
       clang-tools
 
-      ### rust ###
-      # rust-analyzer
-
-      ### nix ###
       nil
       alejandra
 
-      ### mason migration ###
       shfmt
+
+      lua
       lua-language-server
       stylua
+
       prettierd
       vscode-langservers-extracted
       biome
 
-      ### latex ###
-      texlab
       tectonic
-      entr
+      typst
+      glow # markdown previewer in terminal
+      hugo
 
-      ### python ###
-      # pyright
       ruff
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [

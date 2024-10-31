@@ -8,7 +8,7 @@
   gitIgnoreGlobal =
     builtins.toFile "gitignore_global"
     ''
-      # Compiled source
+      # compiled source
       *.com
       *.class
       *.dll
@@ -17,15 +17,15 @@
       *.so
       *.out
 
-      # Virtual environments
+      # virtual environments
       **/.venv
 
-      # Logs and databases
+      # logs and databases
       *.log
       *.sql
       *.sqlite
 
-      # OS generated files
+      # os generated files
       .DS_Store
       .DS_Store?
       ._.DS_Store
@@ -52,7 +52,6 @@ in {
       userEmail = myvars.useremail;
       # userEmail = "74165167+thuvasooriya@users.noreply.github.com";
       aliases = {
-        # Basic commands
         a = "add";
         aa = "add --all";
         d = "diff";
@@ -62,26 +61,26 @@ in {
         puf = "push --force";
         s = "status";
 
-        # Checkout commands
+        # checkout commands
         co = "checkout";
         cob = "checkout -b";
         com = "checkout master";
 
-        # Commit commands
+        # commit commands
         amend = "commit --amend --no-edit";
         c = "commit";
         ca = "commit -a";
         cam = "commit -a -m";
         cm = "commit -m";
 
-        # Rebase commands
+        # rebase commands
         rb = "rebase";
         rba = "rebase --abort";
         rbc = "rebase --continue";
         rbi = "rebase --interactive";
         rbs = "rebase --skip";
 
-        # Reset commands
+        # reset commands
         r = "reset HEAD";
         r1 = "reset HEAD^";
         r2 = "reset HEAD^^";
@@ -89,13 +88,13 @@ in {
         rhard1 = "reset HEAD^ --hard";
         rhard2 = "reset HEAD^^ --hard";
 
-        # Stash commands
+        # stash commands
         sd = "stash drop";
         spo = "stash pop";
         spu = "stash push";
         spua = "stash push --all";
 
-        # Other commands
+        # other commands
         lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
         rs = "restore --staged";
         pushf = "push --force-with-lease"; # only force pushes if no new commits have pushed after the last pull
@@ -110,11 +109,6 @@ in {
           line-numbers = true;
           syntax-theme = "Dracula";
         };
-      };
-      difftastic = {
-        #enable = true;
-        background = "dark";
-        #display = "side-by-side"; # "side-by-side", "side-by-side-show-both", "inline"
       };
       extraConfig = {
         init.defaultBranch = "main";
@@ -136,9 +130,6 @@ in {
         gpg.format = "ssh";
         user.signingkey = "~/.ssh/id_ed25519.pub";
       };
-      # signing = {
-      # key = "4AB1353033774DA3";
-      # };
       lfs = {
         enable = true;
         skipSmudge = true;
