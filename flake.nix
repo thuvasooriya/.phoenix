@@ -29,17 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixos-generators = {
-    #   url = "github:nix-community/nixos-generators";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # nix-gaming.url = "github:fufexan/nix-gaming";
-    # pre-commit-hooks = {
-    #   url = "github:cachix/pre-commit-hooks.nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     # nuenv.url = "github:DeterminateSystems/nuenv";
-
     haumea = {
       url = "github:nix-community/haumea/v0.2.2";
       inputs.nixpkgs.follows = "nixpkgs";
