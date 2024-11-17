@@ -18,10 +18,7 @@ directory strcture and helper functions are copied from ryan4yin's config
 
 > [!NOTE]
 >
-> You'll see a lot of weird blank configurations like `font-family =`. This
-> is a valid syntax to specify the default behavior (no value). The
-> `+show-config` outputs it so its clear that key is defaulting and also
-> to have something to attach the doc comment to.
+> `sudo -i nix-env --uninstall nix` to uinstall deterministic-installer installed nix
 
 > [!WARNING]
 >
@@ -85,4 +82,6 @@ just ma debug
 
 ### sacrifices
 
-whole damn days and a whole fucking load of sanity
+- [ ] my sanity
+- [ ] willingness to install software in any other way
+- [ ] love for other package managers

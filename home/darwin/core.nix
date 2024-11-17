@@ -7,8 +7,9 @@
 
       scrcpy
 
-      colima
-      xquartz
+      # colima
+      # xquartz
+      tigervnc
 
       # gcc
       ### hdl ###
@@ -23,7 +24,7 @@
       # maven
 
       # sioyek
-      neovide
+      # neovide
       # libiconv
     ];
   };

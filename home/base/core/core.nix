@@ -5,28 +5,21 @@
   ...
 }: {
   programs = {
-    htop = {
+    btop = {
       enable = true;
+      settings = {
+        color_theme = "catppuccin_mocha";
+        vim_keys = true;
+      };
     };
     jq = {
       enable = true;
     };
     bat = {
       enable = true;
-      # config = {
-      #   theme = "Catppuccin Mocha";
-      # };
-      # themes = {
-      #   dracula = {
-      #     src = pkgs.fetchFromGitHub {
-      #       owner = "catppuccin";
-      #       repo = "bat"; # Bat uses sublime syntax for its themes
-      #       rev = "d3feec47b16a8e99eabb34cdfbaa115541d374fc";
-      #       sha256 = "s0CHTihXlBMCKmbBBb8dUhfgOOQu9PBCQ+uviy7o47w=";
-      #     };
-      #     file = "themes/Catppuccin Mocha.tmTheme";
-      #   };
-      # };
+      config = {
+        theme = "catppuccin_mocha";
+      };
     };
     zellij = {
       enable = true;
@@ -59,8 +52,6 @@
       rclone
       rsync
       gawk
-      ouch
-      miller
       autoconf
       hyperfine
       ffmpeg
@@ -86,7 +77,7 @@
       cmatrix
 
       ### system defaults ###
-      nodejs_22
+      nodejs_23
       python312
     ];
   };

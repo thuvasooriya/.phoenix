@@ -33,7 +33,7 @@
   };
 
   homebrew = {
-    enable = true;
+    enable = false;
     # brewPrefix = "/opt/homebrew/bin";
     onActivation = {
       autoUpdate = true;
@@ -70,7 +70,6 @@
       "orbstack"
       "visual-studio-code"
       "zed"
-      # "xquartz"
       # "utm"
       "android-platform-tools"
 

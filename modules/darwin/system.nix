@@ -5,6 +5,7 @@
       # so we do not need to logout and login again to make the changes take effect.
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
+    stateVersion = 5;
 
     defaults = {
       # menuExtraClock.Show24Hour = true;  # show 24 hour clock
@@ -84,7 +85,482 @@
         };
         "com.apple.symbolichotkeys" = {
           AppleSymbolicHotKeys = {
-            "70".enabled = false;
+            "118" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  18
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "119" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  19
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "120" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  20
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "121" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  21
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "122" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  23
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "175" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "184" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  53
+                  23
+                  1179648
+                ];
+                type = "standard";
+              };
+            };
+            "21" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  56
+                  28
+                  1835008
+                ];
+                type = "standard";
+              };
+            };
+            "215" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "216" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "217" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "218" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "219" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "222" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "223" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "224" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "225" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "226" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "227" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "228" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "229" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "230" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "231" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "232" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  65535
+                  0
+                ];
+                type = "standard";
+              };
+            };
+            "25" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  46
+                  47
+                  1835008
+                ];
+                type = "standard";
+              };
+            };
+            "26" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  44
+                  43
+                  1835008
+                ];
+                type = "standard";
+              };
+            };
+            "28" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  51
+                  20
+                  1179648
+                ];
+                type = "standard";
+              };
+            };
+            "29" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  51
+                  20
+                  1441792
+                ];
+                type = "standard";
+              };
+            };
+            "30" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  52
+                  21
+                  1179648
+                ];
+                type = "standard";
+              };
+            };
+            "31" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  52
+                  21
+                  1441792
+                ];
+                type = "standard";
+              };
+            };
+            "52" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  100
+                  2
+                  1572864
+                ];
+                type = "standard";
+              };
+            };
+            "53" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  107
+                  8388608
+                ];
+                type = "standard";
+              };
+            };
+            "54" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  65535
+                  113
+                  8388608
+                ];
+                type = "standard";
+              };
+            };
+            "60" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "61" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  786432
+                ];
+                type = "standard";
+              };
+            };
+            "64" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  1048576
+                ];
+                type = "standard";
+              };
+            };
+            "65" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  1572864
+                ];
+                type = "standard";
+              };
+            };
+            "7" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  120
+                  8650752
+                ];
+                type = "standard";
+              };
+            };
+            "70" = {
+              enabled = 0;
+            };
+            "79" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  123
+                  8650752
+                ];
+                type = "standard";
+              };
+            };
+            "8" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  99
+                  8650752
+                ];
+                type = "standard";
+              };
+            };
+            "80" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  123
+                  8781824
+                ];
+                type = "standard";
+              };
+            };
+            "81" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  124
+                  8650752
+                ];
+                type = "standard";
+              };
+            };
+            "82" = {
+              enabled = 1;
+              value = {
+                parameters = [
+                  65535
+                  124
+                  8781824
+                ];
+                type = "standard";
+              };
+            };
           };
         };
         "com.apple.finder" = {
@@ -121,6 +597,18 @@
         "com.apple.AdLib" = {
           allowApplePersonalizedAdvertising = false;
         };
+        "org.nixos.xquartz.X11" = {
+          # fix xquartz redering issue on mac
+          enable_render_extension = 1;
+          no_auth = 0;
+          nolisten_tcp = 0;
+        };
+        # "org.xquartz.X11" = {
+        #   # fix xquartz redering issue on mac
+        #   # enable_render_extension = 0;
+        #   no_auth = 0;
+        #   nolisten_tcp = 0;
+        # };
         # prevent photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
         "pl.maketheweb.cleanshotx" = {
@@ -184,7 +672,7 @@
     keyboard = {
       enableKeyMapping = true; # enable key mapping so that we can use `option` as `control`
 
-      # NOTE: do NOT support remap capslock to both control and escape at the same time
+      # NOTE: do not support remap capslock to both control and escape at the same time
       remapCapsLockToControl = true; # remap caps lock to control, useful for emac users
       remapCapsLockToEscape = false; # remap caps lock to escape, useful for vim users
       # system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -201,14 +689,10 @@
 
   # create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
-  environment.shells = [
-    pkgs.zsh
-  ];
-
-  programs.zsh = {
-    enable = true;
-    enableSyntaxHighlighting = true;
-  };
+  # environment.shells = [
+  #   pkgs.zsh
+  # ];
+  #
 
   fonts = {
     packages = with pkgs; [
@@ -221,14 +705,3 @@
     ];
   };
 }
-### following function can be used to call fish conditionally in zsh by including it in the loginShellInit
-### but I personally don't like it :)
-# if [[ $(${pkgs.procps}/bin/ps -o comm= -p $PPID) != "fish" && $SHLVL -eq 1 ]]; then
-#     if [[ -o login ]]; then
-#         LOGIN_OPTION='--login'
-#     else
-#         LOGIN_OPTION=""
-#     fi
-#     exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-# fi
-

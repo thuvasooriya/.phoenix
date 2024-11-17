@@ -25,8 +25,12 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/aria2";
       recursive = true;
     };
-    "yazi" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/yazi";
+    "btop/themes" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/btop/themes";
+      recursive = true;
+    };
+    "bat/themes" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.phoenix/config/bat/themes";
       recursive = true;
     };
     "neovide" = {
