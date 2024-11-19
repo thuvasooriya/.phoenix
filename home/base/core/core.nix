@@ -24,6 +24,23 @@
     zellij = {
       enable = true;
     };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
+    keychain = {
+      enable = true;
+      # enableFishIntegration = true;
+      keys = ["id_ed25519"];
+    };
+    ripgrep = {
+      enable = true;
+    };
   };
   home = {
     activation = {
@@ -77,7 +94,7 @@
       cmatrix
 
       ### system defaults ###
-      nodejs_23
+      nodejs
       python312
     ];
   };

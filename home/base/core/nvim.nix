@@ -32,6 +32,7 @@
 
       # zls managed by zvm
       clang-tools
+      rust-analyzer
 
       nil
       alejandra

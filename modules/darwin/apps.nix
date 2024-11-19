@@ -3,7 +3,6 @@
   lib,
   ...
 }: {
-  # todo: write a script to check whether homebrew is installed and install it
   environment.systemPackages = with pkgs; [
     m-cli
   ];
@@ -13,24 +12,25 @@
     enableCompletion = false;
   };
 
-  environment = {
-    systemPath = [
-      "$HOME/.local/bin"
-      "$HOME/.zvm/bin"
-      "$HOME/.zvm/self"
-      "$GHOSTTY_BIN_DIR"
-      "$HOME/.bun/bin"
-      "$HOME/.cargo/bin"
-      "$HOME/.luarocks/bin"
-      "$HOME/.pixi/bin"
-    ];
-    # shells = [
-    #   pkgs.zsh
-    # ];
-    # shellInit = ''
-    #   eval "$(/opt/homebrew/bin/brew shellenv)"
-    # '';
-  };
+  # environment = {
+  #   systemPath = [
+  #     "$HOME/.local/bin"
+  #     "$HOME/.zvm/bin"
+  #     "$HOME/.zvm/self"
+  #     "$GHOSTTY_BIN_DIR"
+  #     "$HOME/.bun/bin"
+  #     "$HOME/.cargo/bin"
+  #     "$HOME/.luarocks/bin"
+  #     "$HOME/.pixi/bin"
+  #   ];
+  #   # shells = [
+  #   #   pkgs.zsh
+  #   # ];
+  #   # shellInit = ''
+  #   #   eval "$(/opt/homebrew/bin/brew shellenv)"
+  #   # '';
+  # };
+  # TODO: homebrew management script for initial installation
 
   homebrew = {
     enable = false;

@@ -23,23 +23,6 @@
       enableZshIntegration = true;
       enableNushellIntegration = true;
     };
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-    fzf = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-    };
-    keychain = {
-      enable = true;
-      # enableFishIntegration = true;
-      keys = ["id_ed25519"];
-    };
-    ripgrep = {
-      enable = true;
-    };
   };
   home.shellAliases = {
     urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
@@ -49,11 +32,21 @@
     cat = "bat";
     edsshgen = "ssh-keygen -t ed25519";
     ze = "zellij";
-    v = "nvim";
-    vi = "nvim";
-    vim = "nvim";
+    # v = "nvim";
+    # vi = "nvim";
+    # vim = "nvim";
     spotx = "bash -c 'bash <(curl -sSL https://spotx-official.github.io/run.sh) -B -dh --installmac'";
     j = "just";
     f = "find -type f -name";
   };
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/.zvm/bin"
+    "$HOME/.zvm/self"
+    "$GHOSTTY_BIN_DIR"
+    "$HOME/.bun/bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.luarocks/bin"
+    "$HOME/.pixi/bin"
+  ];
 }

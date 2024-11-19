@@ -8,6 +8,7 @@
       scrcpy
 
       # colima
+
       # xquartz
       tigervnc
 
