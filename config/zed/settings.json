@@ -90,17 +90,13 @@
     "default_height": 160,
     "option_as_meta": true,
     "button": false,
-    // "shell": {},
+    "shell": {
+      "program": "nu"
+    },
     "toolbar": {
       "title": false
     },
-    "working_directory": "current_project_directory",
-    "detect_venv": {
-      "on": {
-        // "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "fish"
-      }
-    }
+    "working_directory": "current_project_directory"
   },
   "git": {
     "inline_blame": {
@@ -121,5 +117,15 @@
         }
       }
     }
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "catppuccin": true,
+    "svelte": true,
+    "make": true,
+    "toml": true,
+    "verilog": true,
+    "ruff": true,
+    "dockerfile": true
   }
 }
