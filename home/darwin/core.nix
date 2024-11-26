@@ -17,6 +17,9 @@
       iverilog
       logisim-evolution
       platformio-core
+      qemu
+      digital
+      ripes
 
       ### network ###
       # wireshark
