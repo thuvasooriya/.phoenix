@@ -1,7 +1,9 @@
 **/.DS_Store
 # zed config tmp files
-**/.tmp**
-**/zed/**/**.mdb
+**/zed/**
+!**/zed/tasks.json
+!**/zed/settings.json
+!**/zed/keymap.json
 **/aria2.session
 testin/
 result
