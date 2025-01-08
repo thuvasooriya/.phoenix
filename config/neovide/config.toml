@@ -1,8 +1,6 @@
-
-# frame = "transparent"
 frame = "buttonless"
-# frame = "none"
+title-hidden = true
+
 [font]
 normal = ["JetBrainsMono Nerd Font"]
-size = 12
-
+size = 13

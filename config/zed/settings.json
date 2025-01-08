@@ -13,7 +13,7 @@
   //   "enable_preview_from_file_finder": true,
   //   "enable_preview_from_code_navigation": true
   // },
-
+  "show_user_picture": false,
   "tab_bar": {
     "show": false
   },
@@ -66,9 +66,13 @@
     "disabled_globs": [".env"]
   },
   "assistant": {
+    // "default_model": {
+    //   "provider": "zed.dev",
+    //   "model": "claude-3-5-sonnet-20240620"
+    // },
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
     },
     "version": "2",
     "button": false
@@ -90,9 +94,9 @@
     "default_height": 160,
     "option_as_meta": true,
     "button": false,
-    "shell": {
-      "program": "nu"
-    },
+    // "shell": {
+    //   // "program": "nu"
+    // },
     "toolbar": {
       "title": false
     },
@@ -102,20 +106,6 @@
     "inline_blame": {
       "enabled": false,
       "delay_ms": 500
-    }
-  },
-  "languages": {
-    "Python": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "bash",
-          "arguments": [
-            "-c",
-            "ruff check --select=I --fix --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}"
-          ]
-        }
-      }
     }
   },
   "auto_install_extensions": {
