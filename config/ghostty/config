@@ -1,38 +1,39 @@
 theme = catppuccin-mocha
+# custom-shader = ./mnoise.glsl
+# custom-shader-animation = always
+macos-titlebar-style = hidden
+confirm-close-surface = false
+quick-terminal-animation-duration = 0
 
-window-padding-balance = true
-window-padding-x = 0
-window-padding-y = 0
-# window-padding-x = 12
-# window-padding-y = 10
+# window-padding-balance = true
+# window-padding-x = 1
+# window-padding-y = 1
 # window-step-resize = true
-window-height=18
-window-width=72
+# window-height=18
+# window-width=72
 # unfocused-split-opacity = 0.95
-
 # background-blur-radius=10
 # background-opacity=0.97
-
-font-thicken = true
+# font-thicken = true
 # font-size = 12
+# macos-titlebar-style = transparent
+# macos-non-native-fullscreen = true
+# macos-option-as-alt = true
+# clipboard-read = "allow"
+# copy-on-select = clipboard
+# clipboard-paste-protection = true
+# clipboard-trim-trailing-spaces = true
 
-clipboard-read = "allow"
-copy-on-select = clipboard
-clipboard-paste-protection = true
-clipboard-trim-trailing-spaces = true
-
-cursor-style-blink = false
-cursor-style = block
+# cursor-style-blink = false
+# cursor-style = block
 # mouse-hide-while-typing = true
-cursor-click-to-move = true
-mouse-shift-capture = true
-shell-integration = detect
-shell-integration-features = cursor, sudo, title
-confirm-close-surface = false
-# quit-after-last-window-closed = true
+# cursor-click-to-move = true
+# mouse-shift-capture = true
+# shell-integration = detect
+# working-directory = home
 
-macos-option-as-alt = true
-macos-titlebar-style = transparent
+# quick-terminal-screen = mouse
+
 
 keybind = super+k=scroll_page_up
 keybind = super+page_up=unbind
@@ -60,7 +61,7 @@ keybind = alt+shift+equal=equalize_splits
 keybind = ctrl+super+l=goto_split:right
 keybind = super+ctrl+right=resize_split:right,10
 keybind = super+n=new_window
-keybind = super+enter=toggle_fullscreen
+keybind = global:alt+enter=toggle_quick_terminal
 keybind = super+alt+i=inspector:toggle
 keybind = super+ctrl+f=toggle_fullscreen
 keybind = ctrl+super+h=goto_split:left
