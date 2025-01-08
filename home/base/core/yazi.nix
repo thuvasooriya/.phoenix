@@ -30,12 +30,12 @@ in {
         rev = "HEAD";
         sha256 = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
       };
-      rich-preview = pkgs.fetchFromGitHub {
-        owner = "AnirudhG07";
-        repo = "rich-preview.yazi";
-        rev = "HEAD";
-        sha256 = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
-      };
+      # rich-preview = pkgs.fetchFromGitHub {
+      #   owner = "AnirudhG07";
+      #   repo = "rich-preview.yazi";
+      #   rev = "HEAD";
+      #   sha256 = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
+      # };
       ouch = pkgs.fetchFromGitHub {
         owner = "ndtoan96";
         repo = "ouch.yazi";
@@ -49,7 +49,7 @@ in {
     packages = with pkgs; [
       ouch
       miller
-      rich-cli
+      # rich-cli
     ];
   };
 

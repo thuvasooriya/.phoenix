@@ -34,21 +34,10 @@
       environmentVariables = {
         # EDITOR = "nvim";
       };
-
-      shellAliases = {
-        urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-        urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-        nv = "nvim";
-        vi = "nvim";
-        vim = "nvim";
-        # constar = "$EDITOR $HOME/.phoenix/config/starship.toml";
-        cat = "bat";
-        edsshgen = "ssh-keygen -t ed25519";
-        ze = "zellij";
-        spotx = "bash -c 'bash <(curl -sSL https://spotx-official.github.io/run.sh) -B -dh --installmac'";
-        j = "just";
-        # f = "find -type f -name";
-      };
+      shellAliases =
+        config.home.shellAliases
+        // {
+        };
     };
   };
 }

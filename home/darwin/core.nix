@@ -4,22 +4,21 @@
     };
     packages = with pkgs; [
       flyctl
-
       scrcpy
-
-      # colima
-
-      # xquartz
       tigervnc
 
-      # gcc
+      ### move to project specific flakes
       ### hdl ###
       iverilog
+      yosys
+      netlistsvg
+      # yosys-synlig
+      # verilator
       logisim-evolution
       platformio-core
       qemu
       digital
-      ripes
+      haskellPackages.sv2v
 
       ### network ###
       # wireshark
@@ -27,9 +26,12 @@
       ### java ###
       # maven
 
+      ### broken ###
       # sioyek
-      # neovide
-      # libiconv
+      # ghostty
+      # ripes
+      # xquartz
+      neovide
     ];
   };
 }

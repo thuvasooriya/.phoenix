@@ -26,6 +26,14 @@
     };
     direnv = {
       enable = true;
+      config = {
+        whitelist = {
+          prefix = [
+            "$HOME/dev"
+          ];
+          exact = ["$HOME/.envrc"];
+        };
+      };
       nix-direnv.enable = true;
     };
     fzf = {
@@ -75,6 +83,8 @@
       copier
       pre-commit
       exiftool
+      caligula
+      jujutsu
 
       ### network ###
       # socat # replacement of openbsd-netcat
@@ -88,7 +98,9 @@
       docker
       cachix
 
+      # clang
       ccache
+      # cmake
 
       ### fun ###
       cmatrix

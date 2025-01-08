@@ -7,36 +7,23 @@
     m-cli
   ];
 
+  # nix-homebrew = {
+  #   enable = true;
+  #   enableRosetta = true;
+  #   user = "tony";
+  #   autoMigrate = true;
+  # };
+
   programs.zsh = {
     enable = true;
     enableCompletion = false;
   };
 
-  # environment = {
-  #   systemPath = [
-  #     "$HOME/.local/bin"
-  #     "$HOME/.zvm/bin"
-  #     "$HOME/.zvm/self"
-  #     "$GHOSTTY_BIN_DIR"
-  #     "$HOME/.bun/bin"
-  #     "$HOME/.cargo/bin"
-  #     "$HOME/.luarocks/bin"
-  #     "$HOME/.pixi/bin"
-  #   ];
-  #   # shells = [
-  #   #   pkgs.zsh
-  #   # ];
-  #   # shellInit = ''
-  #   #   eval "$(/opt/homebrew/bin/brew shellenv)"
-  #   # '';
-  # };
-  # TODO: homebrew management script for initial installation
-
   homebrew = {
-    enable = false;
+    enable = true;
     # brewPrefix = "/opt/homebrew/bin";
     onActivation = {
-      autoUpdate = true;
+      # autoUpdate = true;
       upgrade = true;
       cleanup = "zap";
     };
@@ -52,16 +39,11 @@
 
     taps = [
       # "mongodb/brew"
-      # "osrf/simulation"
     ];
 
     # `brew install`
     brews = [
-      # "latexindent"
-      # "octave"
       "curl"
-      # "gazebo11"
-      # "gz-harmonic"
     ];
 
     # `brew install --cask`
@@ -70,6 +52,8 @@
       "orbstack"
       "visual-studio-code"
       "zed"
+      "lunar"
+      "xquartz"
       # "utm"
       "android-platform-tools"
 
@@ -80,6 +64,7 @@
 
       ### social ###
       "whatsapp"
+      "discord"
 
       ### utils ###
       # "keyclu"
@@ -87,7 +72,6 @@
       "keka"
       # "raycast"
       # "loungy"
-      # "notion-calendar"
       # "orion"
       # "spotube"
       # "arc"

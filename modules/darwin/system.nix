@@ -66,6 +66,8 @@
         NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default
         NSNavPanelExpandedStateForSaveMode2 = true;
         NSDocumentSaveNewDocumentsToCloud = false; # save new documents to disk by default
+        NSWindowShouldDragOnGesture = true;
+        NSAutomaticWindowAnimationsEnabled = false;
       };
 
       # customize settings that not supported by nix-darwin directly
@@ -603,12 +605,12 @@
           no_auth = 0;
           nolisten_tcp = 0;
         };
-        # "org.xquartz.X11" = {
-        #   # fix xquartz redering issue on mac
-        #   # enable_render_extension = 0;
-        #   no_auth = 0;
-        #   nolisten_tcp = 0;
-        # };
+        "org.xquartz.X11" = {
+          # fix xquartz redering issue on mac
+          enable_render_extension = 1;
+          no_auth = 0;
+          nolisten_tcp = 0;
+        };
         # prevent photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
         "pl.maketheweb.cleanshotx" = {
@@ -696,12 +698,8 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-          "JetBrainsMono"
-        ];
-      })
+      nerd-fonts.jetbrains-mono
+      # nerd-fonts.NerdFontsSymbolsOnly
     ];
   };
 }

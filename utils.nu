@@ -34,6 +34,8 @@ export def darwin-build [
     let target = $".#darwinConfigurations.($name).system"
     if "debug" == $mode {
         nix build $target --extra-experimental-features "nix-command flakes"  --show-trace --verbose
+    } else if "offline" == $mode {
+        nix build $target --extra-experimental-features "nix-command flakes" --option build-use-substitutes false
     } else {
         nix build $target --extra-experimental-features "nix-command flakes"
     }
@@ -71,4 +73,3 @@ export def darwin-rollback [] {
 #     let remote = $"root@rakushun:/var/lib/caddy/fileserver/vms/kubevirt-($name).qcow2"
 #     rsync -avz --progress --copy-links result $remote
 # }
-

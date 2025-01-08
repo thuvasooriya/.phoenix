@@ -25,19 +25,19 @@
         rm -rf ${config.xdg.stateHome}/nvim
         rm -rf ${config.xdg.cacheHome}/nvim
       '')
-
       unzip
       fd
       tree-sitter
 
       # zls managed by zvm
       clang-tools
-      rust-analyzer
+      # rust-analyzer
 
       nil
       alejandra
 
       shfmt
+      asmfmt
 
       lua
       lua-language-server
@@ -51,6 +51,7 @@
       typst
       glow # markdown previewer in terminal
       hugo
+      vale
 
       ruff
     ]
