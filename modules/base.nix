@@ -19,6 +19,9 @@
   environment = {
     variables.EDITOR = "nvim";
     shells = [pkgs.zsh pkgs.fish pkgs.nushell];
+    shellAliases = {
+      nx = "nix develop -c $SHELL";
+    };
     pathsToLink = [];
     systemPath = [
     ];

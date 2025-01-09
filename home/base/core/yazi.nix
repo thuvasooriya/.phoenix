@@ -15,6 +15,7 @@ in {
     enableZshIntegration = true;
     enableBashIntegration = true;
     enableNushellIntegration = true;
+    enableFishIntegration = true;
     shellWrapperName = "y";
     plugins = {
       chmod = "${yazi-plugins}/chmod.yazi";
@@ -24,12 +25,12 @@ in {
       # mactag = "${yazi-plugins}/mactag.yazi";
       jump-to-char = "${yazi-plugins}/jump-to-char.yazi";
       no-status = "${yazi-plugins}/no-status.yazi";
-      starship = pkgs.fetchFromGitHub {
-        owner = "Rolv-Apneseth";
-        repo = "starship.yazi";
-        rev = "HEAD";
-        sha256 = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
-      };
+      # starship = pkgs.fetchFromGitHub {
+      #   owner = "Rolv-Apneseth";
+      #   repo = "starship.yazi";
+      #   rev = "HEAD";
+      #   sha256 = "sha256-sAB0958lLNqqwkpucRsUqLHFV/PJYoJL2lHFtfHDZF8=";
+      # };
       # rich-preview = pkgs.fetchFromGitHub {
       #   owner = "AnirudhG07";
       #   repo = "rich-preview.yazi";
